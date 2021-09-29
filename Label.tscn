@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Label.vs" type="Script" id=1]
+[ext_resource path="res://Button.vs" type="Script" id=2]
+
+[node name="Label" type="Label"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "PIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 39.5
+margin_top = 62.0
+margin_right = 120.5
+margin_bottom = 82.0
+text = "clicky here"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
