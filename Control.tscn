@@ -10,11 +10,72 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Node2D6" type="Node2D" parent="."]
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D2"]
+position = Vector2( 1210.56, -18.6571 )
+scale = Vector2( 1.03933, 0.95 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Node2D3" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D3"]
+position = Vector2( 192.674, 26.7304 )
+scale = Vector2( 0.809981, 0.14059 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Node2D5" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D5"]
+position = Vector2( -112.465, 158.814 )
+scale = Vector2( 0.74992, 0.315343 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Node2D4" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D4"]
+position = Vector2( 418.312, 62.1892 )
+scale = Vector2( 0.0876656, 0.0587672 )
+color = Color( 0.67451, 0.258824, 0.258824, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D6" type="Polygon2D" parent="Node2D4"]
+position = Vector2( 418.312, 62.1892 )
+scale = Vector2( 0.0876656, 0.0587672 )
+color = Color( 0.67451, 0.258824, 0.258824, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Node2D4"]
+position = Vector2( 466.189, 62.1891 )
+scale = Vector2( 0.0876656, 0.0587672 )
+color = Color( 0.258824, 0.67451, 0.266667, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="Node2D4"]
+position = Vector2( 515.956, 61.5592 )
+scale = Vector2( 0.0876656, 0.0587672 )
+color = Color( 0.643137, 0.258824, 0.67451, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="Node2D4"]
+position = Vector2( 562.573, 61.5592 )
+scale = Vector2( 0.0876656, 0.0587672 )
+color = Color( 0.8, 0.635294, 0.141176, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D5" type="Polygon2D" parent="Node2D4"]
+position = Vector2( 612.34, 60.9292 )
+scale = Vector2( 0.0876656, 0.0587672 )
+color = Color( 0.266667, 0.262745, 0.788235, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 144.634, 265.723 )
 
 [node name="Sprite" type="Polygon2D" parent="Node2D"]
-position = Vector2( 53.9746, 130.374 )
+position = Vector2( -273.195, 243.086 )
 scale = Vector2( 1.30499, 1.07895 )
 polygon = PoolVector2Array( -65.9466, -37.5052, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
 __meta__ = {
@@ -22,7 +83,7 @@ __meta__ = {
 }
 
 [node name="Sprite2" type="Polygon2D" parent="Node2D"]
-position = Vector2( 47.625, 205.176 )
+position = Vector2( -279.545, 317.888 )
 scale = Vector2( 1.30499, 1.07895 )
 polygon = PoolVector2Array( -65.9466, -37.5052, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
 __meta__ = {
@@ -30,7 +91,7 @@ __meta__ = {
 }
 
 [node name="Sprite3" type="Polygon2D" parent="Node2D"]
-position = Vector2( 39.6159, 279.927 )
+position = Vector2( -287.554, 392.639 )
 scale = Vector2( 1.30499, 1.07895 )
 polygon = PoolVector2Array( -65.9466, -37.5052, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
 __meta__ = {
@@ -38,7 +99,7 @@ __meta__ = {
 }
 
 [node name="Sprite4" type="Polygon2D" parent="Node2D"]
-position = Vector2( 38.2811, 353.343 )
+position = Vector2( -288.889, 466.055 )
 scale = Vector2( 1.30499, 1.07895 )
 polygon = PoolVector2Array( -65.9466, -37.5052, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
 __meta__ = {
@@ -46,7 +107,7 @@ __meta__ = {
 }
 
 [node name="Sprite5" type="Polygon2D" parent="Node2D"]
-position = Vector2( 28.9372, 425.424 )
+position = Vector2( -298.233, 538.137 )
 scale = Vector2( 1.30499, 1.07895 )
 polygon = PoolVector2Array( -65.9466, -37.5052, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
 __meta__ = {
@@ -54,90 +115,628 @@ __meta__ = {
 }
 
 [node name="Sprite6" type="Polygon2D" parent="Node2D"]
-position = Vector2( 22.263, 498.841 )
+position = Vector2( -304.907, 611.553 )
 scale = Vector2( 1.30499, 1.07895 )
 polygon = PoolVector2Array( -65.9466, -37.5052, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
 __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+position = Vector2( -926.74, -102.393 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Node2D"]
+position = Vector2( -928.087, -30.1431 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="Node2D"]
+position = Vector2( -932.092, 46.852 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="Node2D"]
+position = Vector2( -936.849, 120.583 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Polygon2D5" type="Polygon2D" parent="Node2D"]
+position = Vector2( -939.227, 196.692 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Polygon2D6" type="Polygon2D" parent="Node2D"]
+position = Vector2( -945.97, 267.862 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
 [node name="VScrollBar" type="VScrollBar" parent="Node2D"]
-margin_left = 158.799
-margin_top = 86.3453
-margin_right = 170.799
-margin_bottom = 514.345
+margin_left = -180.398
+margin_top = 214.018
+margin_right = -168.398
+margin_bottom = 655.018
 max_value = 50.0
 page = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VScrollBar2" type="VScrollBar" parent="Node2D"]
+margin_left = 211.888
+margin_top = -31.4944
+margin_right = 223.888
+margin_bottom = 86.5056
+max_value = 50.0
+page = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = -316.711
+margin_top = 204.353
+margin_right = -203.711
+margin_bottom = 223.353
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Node2D"]
+margin_left = -313.456
+margin_top = 281.352
+margin_right = -200.456
+margin_bottom = 300.352
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite7" type="Polygon2D" parent="Node2D"]
+position = Vector2( 453.085, 124.999 )
+scale = Vector2( 2.2233, 1.07895 )
+polygon = PoolVector2Array( -71.3581, -37.5448, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Polygon2D7" type="Polygon2D" parent="Node2D"]
+position = Vector2( -266.156, -216.508 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Label3" type="Label" parent="Node2D"]
+margin_left = 355.814
+margin_top = 87.9477
+margin_right = 468.814
+margin_bottom = 106.948
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="Node2D"]
+margin_left = 506.394
+margin_top = 86.4494
+margin_right = 619.394
+margin_bottom = 105.449
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "[tag], [tag]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite8" type="Polygon2D" parent="Node2D"]
+position = Vector2( 452.026, 205.518 )
+scale = Vector2( 2.2233, 1.07895 )
+polygon = PoolVector2Array( -71.3581, -37.5448, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Polygon2D8" type="Polygon2D" parent="Node2D"]
+position = Vector2( -268.275, -138.108 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Label4" type="Label" parent="Node2D"]
+margin_left = 353.695
+margin_top = 168.236
+margin_right = 466.695
+margin_bottom = 187.236
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite9" type="Polygon2D" parent="Node2D"]
+position = Vector2( 446.728, 283.919 )
+scale = Vector2( 2.2233, 1.07895 )
+polygon = PoolVector2Array( -71.3581, -37.5448, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Polygon2D9" type="Polygon2D" parent="Node2D"]
+position = Vector2( -273.572, -59.7076 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Label5" type="Label" parent="Node2D"]
+margin_left = 348.398
+margin_top = 245.692
+margin_right = 461.398
+margin_bottom = 264.692
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite10" type="Polygon2D" parent="Node2D"]
+position = Vector2( 441.431, 361.26 )
+scale = Vector2( 2.2233, 1.07895 )
+polygon = PoolVector2Array( -71.3581, -37.5448, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Polygon2D10" type="Polygon2D" parent="Node2D"]
+position = Vector2( -278.869, 17.6333 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Label6" type="Label" parent="Node2D"]
+margin_left = 340.269
+margin_top = 326.808
+margin_right = 453.269
+margin_bottom = 345.808
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite11" type="Polygon2D" parent="Node2D"]
+position = Vector2( 443.55, 437.541 )
+scale = Vector2( 2.2233, 1.07895 )
+polygon = PoolVector2Array( -71.3581, -37.5448, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Polygon2D11" type="Polygon2D" parent="Node2D"]
+position = Vector2( -276.75, 93.9146 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Label7" type="Label" parent="Node2D"]
+margin_left = 344.507
+margin_top = 402.984
+margin_right = 457.507
+margin_bottom = 421.984
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite12" type="Polygon2D" parent="Node2D"]
+position = Vector2( 437.193, 511.703 )
+scale = Vector2( 2.2233, 1.07895 )
+polygon = PoolVector2Array( -71.3581, -37.5448, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Polygon2D12" type="Polygon2D" parent="Node2D"]
+position = Vector2( -283.107, 168.077 )
+scale = Vector2( 1.20565, 1.15115 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Label8" type="Label" parent="Node2D"]
+margin_left = 339.041
+margin_top = 478.037
+margin_right = 452.041
+margin_bottom = 497.037
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="Node2D"]
+margin_left = 512.388
+margin_top = 168.107
+margin_right = 625.388
+margin_bottom = 187.107
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "[tag], [tag]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label11" type="Label" parent="Node2D"]
+margin_left = 507.893
+margin_top = 246.019
+margin_right = 620.893
+margin_bottom = 265.019
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "[tag], [tag]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label12" type="Label" parent="Node2D"]
+margin_left = 500.401
+margin_top = 323.931
+margin_right = 613.401
+margin_bottom = 342.931
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "[tag], [tag]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label13" type="Label" parent="Node2D"]
+margin_left = 496.655
+margin_top = 401.843
+margin_right = 609.655
+margin_bottom = 420.843
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "[tag], [tag]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label14" type="Label" parent="Node2D"]
+margin_left = 498.154
+margin_top = 471.514
+margin_right = 611.154
+margin_bottom = 490.514
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "[tag], [tag]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Polygon2D7" type="Polygon2D" parent="."]
+position = Vector2( 490.591, 382.324 )
+scale = Vector2( 0.0529437, 0.0364366 )
+color = Color( 0.67451, 0.258824, 0.258824, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D8" type="Polygon2D" parent="."]
+position = Vector2( 519.197, 542.833 )
+scale = Vector2( 0.0529437, 0.0364366 )
+color = Color( 0.67451, 0.258824, 0.258824, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D14" type="Polygon2D" parent="."]
+position = Vector2( 485.294, 694.336 )
+scale = Vector2( 0.0529437, 0.0364366 )
+color = Color( 0.733333, 0.694118, 0.270588, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D12" type="Polygon2D" parent="."]
+position = Vector2( 491.121, 541.774 )
+scale = Vector2( 0.0529437, 0.0364366 )
+color = Color( 0.623529, 0.258824, 0.67451, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D13" type="Polygon2D" parent="."]
+position = Vector2( 477.878, 769.558 )
+scale = Vector2( 0.0529437, 0.0364366 )
+color = Color( 0.623529, 0.258824, 0.67451, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D11" type="Polygon2D" parent="."]
+position = Vector2( 474.699, 620.174 )
+scale = Vector2( 0.0529437, 0.0364366 )
+color = Color( 0.258824, 0.313726, 0.67451, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D9" type="Polygon2D" parent="."]
+position = Vector2( 485.154, 462.534 )
+scale = Vector2( 0.0548571, 0.0356642 )
+color = Color( 0.258824, 0.67451, 0.266667, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
+[node name="Polygon2D10" type="Polygon2D" parent="."]
+position = Vector2( 518.527, 694.026 )
+scale = Vector2( 0.0548571, 0.0356642 )
+color = Color( 0.258824, 0.67451, 0.266667, 1 )
+polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+
 [node name="Button" type="Button" parent="."]
-margin_left = 724.0
-margin_top = 286.0
-margin_right = 1220.0
-margin_bottom = 715.0
+margin_left = 821.004
+margin_top = 273.254
+margin_right = 1405.0
+margin_bottom = 793.254
 text = "use call crystals! <3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 677.0
-margin_top = 38.0
-margin_right = 740.0
-margin_bottom = 77.0
+margin_left = 1719.04
+margin_top = 40.7259
+margin_right = 1782.04
+margin_bottom = 79.7259
 text = "settings"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button3" type="Button" parent="."]
-margin_left = 313.416
-margin_top = 787.65
-margin_right = 382.416
-margin_bottom = 832.65
+margin_left = 1800.43
+margin_top = 40.0609
+margin_right = 1860.43
+margin_bottom = 82.0609
 text = "help"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button5" type="Button" parent="."]
-margin_left = 222.0
-margin_top = 389.0
-margin_right = 275.0
-margin_bottom = 418.0
+margin_left = -105.17
+margin_top = 506.712
+margin_right = -52.1699
+margin_bottom = 535.712
 text = "profile"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button6" type="Button" parent="."]
-margin_left = 217.238
-margin_top = 469.957
-margin_right = 270.238
-margin_bottom = 498.957
+margin_left = -109.932
+margin_top = 582.669
+margin_right = -56.9321
+margin_bottom = 611.669
 text = "profile"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button7" type="Button" parent="."]
-margin_left = 210.888
-margin_top = 552.502
-margin_right = 263.888
-margin_bottom = 581.502
+margin_left = -116.282
+margin_top = 665.214
+margin_right = -63.2817
+margin_bottom = 694.214
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button8" type="Button" parent="."]
+margin_left = -121.282
+margin_top = 735.214
+margin_right = -68.2817
+margin_bottom = 764.214
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button9" type="Button" parent="."]
+margin_left = -132.282
+margin_top = 809.214
+margin_right = -79.2817
+margin_bottom = 838.214
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button10" type="Button" parent="."]
+margin_left = -138.282
+margin_top = 886.214
+margin_right = -85.2817
+margin_bottom = 915.214
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button11" type="Button" parent="."]
+margin_left = 113.436
+margin_top = 262.353
+margin_right = 176.436
+margin_bottom = 328.353
+text = "upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button12" type="Button" parent="."]
+margin_left = 186.49
+margin_top = 262.353
+margin_right = 249.49
+margin_bottom = 328.353
+text = "upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button13" type="Button" parent="."]
+margin_left = 261.326
+margin_top = 263.244
+margin_right = 324.326
+margin_bottom = 329.244
+text = "upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 508.748
+margin_top = 123.648
+margin_right = 571.748
+margin_bottom = 137.648
+text = "resources"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 1617.23
+margin_top = 147.334
+margin_right = 1728.23
+margin_bottom = 199.334
+text = "featured unit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = -177.868
+margin_top = 427.345
+margin_right = -66.8682
+margin_bottom = 479.345
+text = "unit list"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="."]
+margin_left = -230.0
+margin_top = 943.0
+margin_right = -91.0
+margin_bottom = 977.0
+text = "when \"select party\" is 
+clicked, this unit list
+toggles in and out 
+*goes swoosh*"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 550.495
+margin_top = 296.26
+margin_right = 622.495
+margin_bottom = 325.26
+text = "party list"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="MenuButton" parent="."]
+margin_left = 1755.45
+margin_top = 609.742
+margin_right = 1916.45
+margin_bottom = 637.742
+text = "choose featured unit"
+flat = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton2" type="MenuButton" parent="."]
+margin_left = 1633.62
+margin_top = 808.692
+margin_right = 1879.62
+margin_bottom = 1021.69
+text = "shop ;)"
+flat = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button14" type="Button" parent="."]
+margin_left = 673.676
+margin_top = 394.979
+margin_right = 726.676
+margin_bottom = 423.979
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button15" type="Button" parent="."]
+margin_left = 671.557
+margin_top = 473.379
+margin_right = 724.557
+margin_bottom = 502.379
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button16" type="Button" parent="."]
+margin_left = 666.26
+margin_top = 551.779
+margin_right = 719.26
+margin_bottom = 580.779
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button17" type="Button" parent="."]
+margin_left = 660.962
+margin_top = 629.12
+margin_right = 713.962
+margin_bottom = 658.12
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button18" type="Button" parent="."]
+margin_left = 663.081
+margin_top = 705.401
+margin_right = 716.081
+margin_bottom = 734.401
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button19" type="Button" parent="."]
+margin_left = 656.725
+margin_top = 779.564
+margin_right = 709.725
+margin_bottom = 808.564
 text = "profile"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button4" type="Button" parent="."]
-margin_left = 1722.17
-margin_top = 860.844
-margin_right = 1927.17
-margin_bottom = 1036.84
-text = "shop ;)"
+margin_left = 673.839
+margin_top = 817.685
+margin_right = 769.839
+margin_bottom = 850.685
+text = "select party"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 326.448
+margin_top = -32.3074
+margin_right = 844.448
+margin_bottom = -18.3074
+text = "red = weapons, green = potions, purple = scrolls, yellow = food, blue = blueprints"
 __meta__ = {
 "_edit_use_anchors_": false
 }
