@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/CallCrystalButton.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 58
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="CallCrystalButton" type="Button"]
+margin_left = 3.09863
+margin_top = 6.26932
+margin_right = 587.095
+margin_bottom = 526.269
+custom_fonts/font = SubResource( 1 )
+text = "use call crystals! <3"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CallsLabel" type="Label" parent="."]
+margin_left = 202.115
+margin_top = 533.765
+margin_right = 280.115
+margin_bottom = 578.765
+custom_fonts/font = SubResource( 2 )
+text = "Calls:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmountLabel" type="Label" parent="."]
+margin_left = 289.953
+margin_top = 534.815
+margin_right = 329.953
+margin_bottom = 579.815
+custom_fonts/font = SubResource( 3 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_CallCrystalButton_pressed"]

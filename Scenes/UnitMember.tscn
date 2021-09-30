@@ -1,0 +1,43 @@
+[gd_scene format=2]
+
+[node name="UnitMember" type="Node2D"]
+
+[node name="Background" type="Polygon2D" parent="."]
+position = Vector2( 96.5573, 42.7219 )
+scale = Vector2( 1.30499, 1.07895 )
+polygon = PoolVector2Array( -65.9466, -37.5052, -28.8539, -37.6197, 62.6329, -37.902, 58.6644, 20.8318, -72.6931, 22.4192 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Resources" type="Polygon2D" parent="."]
+position = Vector2( -2.11893, 9.00545 )
+color = Color( 0.929412, 0.686275, 0.686275, 1 )
+polygon = PoolVector2Array( 123.431, 10.0138, 168.988, 8.95438, 164.75, 55.041, 113.366, 55.5707 )
+
+[node name="Portrait" type="Polygon2D" parent="."]
+position = Vector2( -637.583, -332.774 )
+scale = Vector2( 1.35971, 1.2518 )
+color = Color( 0.596078, 0.580392, 0.847059, 1 )
+polygon = PoolVector2Array( 474.224, 270.06, 505.972, 270.854, 506.765, 318.476, 474.053, 320.131 )
+
+[node name="Name" type="Label" parent="."]
+margin_left = 53.0413
+margin_top = 3.98891
+margin_right = 166.041
+margin_bottom = 22.9889
+custom_colors/font_color = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
+text = "character name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProfileButton" type="Button" parent="."]
+margin_left = 119.948
+margin_top = 40.6249
+margin_right = 172.948
+margin_bottom = 69.6249
+text = "profile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
