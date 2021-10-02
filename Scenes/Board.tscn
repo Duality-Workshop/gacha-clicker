@@ -1,18 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/PartyMember.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/PartyList.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/UpgradeButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UnitMember.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Control.vs" type="Script" id=5]
 [ext_resource path="res://Scenes/CallCrystalButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Resources.gd" type="Script" id=7]
+[ext_resource path="res://Resources/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 8 )
 
 [node name="Board" type="Control"]
-margin_right = 39.0
-margin_bottom = 34.0
-script = ExtResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -22,43 +33,41 @@ margin_top = 249.727
 margin_right = 1428.85
 margin_bottom = 769.727
 
-[node name="SettingsButton" type="Button" parent="."]
-margin_left = 1719.04
-margin_top = 40.7259
-margin_right = 1782.04
-margin_bottom = 79.7259
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -107.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="Button" parent="HBoxContainer"]
+margin_right = 63.0
+margin_bottom = 40.0
 text = "settings"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HelpButton" type="Button" parent="."]
-margin_left = 1800.43
-margin_top = 40.0609
-margin_right = 1860.43
-margin_bottom = 82.0609
+[node name="HelpButton" type="Button" parent="HBoxContainer"]
+margin_left = 67.0
+margin_right = 107.0
+margin_bottom = 40.0
 text = "help"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ShopButton" type="MenuButton" parent="."]
-margin_left = 1633.62
-margin_top = 808.692
-margin_right = 1879.62
-margin_bottom = 1021.69
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -246.0
+margin_top = -212.998
 text = "shop ;)"
 flat = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="UnitListButton" type="Button" parent="."]
-margin_left = 673.839
-margin_top = 817.685
-margin_right = 769.839
-margin_bottom = 850.685
-text = "select party"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,10 +81,8 @@ scale = Vector2( 1.03933, 0.95 )
 polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
 
 [node name="FeaturedUnitButton" type="MenuButton" parent="FeaturedUnit"]
-margin_left = 221.49
-margin_top = 439.842
-margin_right = 382.49
-margin_bottom = 467.842
+margin_right = 144.0
+margin_bottom = 20.0
 text = "choose featured unit"
 flat = false
 __meta__ = {
@@ -83,128 +90,240 @@ __meta__ = {
 }
 
 [node name="FeaturedUnitLabel" type="Label" parent="FeaturedUnit"]
-margin_left = 83.27
-margin_top = -22.566
-margin_right = 194.27
-margin_bottom = 29.434
+margin_top = 24.0
+margin_right = 144.0
+margin_bottom = 38.0
 text = "featured unit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradePanel" type="Node2D" parent="."]
-position = Vector2( 99.5895, 192.822 )
-
-[node name="Background" type="Polygon2D" parent="UpgradePanel"]
-position = Vector2( -207.817, -57.3164 )
-scale = Vector2( 0.74992, 0.315343 )
-polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
-
-[node name="UpgradeButton" parent="UpgradePanel" instance=ExtResource( 3 )]
-margin_left = 16.1835
-margin_top = 40.6771
-margin_right = 79.1835
-margin_bottom = 106.677
-
-[node name="UpgradeButton2" parent="UpgradePanel" instance=ExtResource( 3 )]
-margin_left = 157.579
-margin_top = 41.2227
-margin_right = 220.579
-margin_bottom = 107.223
-
-[node name="UpgradeButton3" parent="UpgradePanel" instance=ExtResource( 3 )]
-margin_left = 86.812
-margin_top = 38.9531
-margin_right = 149.812
-margin_bottom = 104.953
-
-[node name="VScrollBar" type="VScrollBar" parent="UpgradePanel"]
-margin_left = 221.522
-margin_top = 18.2286
-margin_right = 233.522
-margin_bottom = 136.229
-max_value = 50.0
-page = 10.0
+[node name="UpgradePanel" type="Panel" parent="."]
+margin_right = 251.0
+margin_bottom = 110.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResourcesPanel" type="Node2D" parent="."]
-position = Vector2( 425.904, 42.3785 )
+[node name="ScrollContainer" type="ScrollContainer" parent="UpgradePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="UpgradePanel/ScrollContainer"]
+margin_right = 200.0
+margin_bottom = 268.0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeButton" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+
+[node name="UpgradeButton2" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 68.0
+margin_right = 132.0
+
+[node name="UpgradeButton3" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 136.0
+margin_right = 200.0
+
+[node name="UpgradeButton4" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 68.0
+margin_bottom = 132.0
+
+[node name="UpgradeButton5" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
+
+[node name="UpgradeButton6" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
+
+[node name="UpgradeButton7" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 136.0
+margin_bottom = 200.0
+
+[node name="UpgradeButton8" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 68.0
+margin_top = 136.0
+margin_right = 132.0
+margin_bottom = 200.0
+
+[node name="UpgradeButton9" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 136.0
+margin_top = 136.0
+margin_right = 200.0
+margin_bottom = 200.0
+
+[node name="UpgradeButton10" parent="UpgradePanel/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 204.0
+margin_bottom = 268.0
+
+[node name="ResourcesPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -605.0
+margin_right = 605.0
+margin_bottom = 113.0
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Background" type="Polygon2D" parent="ResourcesPanel"]
-position = Vector2( -412.532, -24.1239 )
-scale = Vector2( 1.45636, 0.14059 )
-color = Color( 0.870588, 0.858824, 0.847059, 1 )
-polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
+[node name="VBoxContainer" type="VBoxContainer" parent="ResourcesPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+alignment = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="Weapons" parent="ResourcesPanel" groups=[
+[node name="HBoxContainer" type="HBoxContainer" parent="ResourcesPanel/VBoxContainer"]
+margin_top = 1.0
+margin_right = 1190.0
+margin_bottom = 65.0
+size_flags_stretch_ratio = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapons" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
 "Resources",
 ] instance=ExtResource( 1 )]
-position = Vector2( -2.30078, 8.5033 )
+margin_right = 234.0
 type = "Weapons"
 
-[node name="Potions" parent="ResourcesPanel" groups=[
+[node name="Potions" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
 "Resources",
 ] instance=ExtResource( 1 )]
-position = Vector2( 80.3086, 9.31714 )
+margin_left = 238.0
+margin_right = 473.0
 type = "Potions"
 
-[node name="Scrolls" parent="ResourcesPanel" groups=[
+[node name="Scrolls" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
 "Resources",
 ] instance=ExtResource( 1 )]
-position = Vector2( 169.445, 9.94708 )
+margin_left = 477.0
+margin_right = 712.0
 type = "Scrolls"
 
-[node name="Food" parent="ResourcesPanel" groups=[
+[node name="Food" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
 "Resources",
 ] instance=ExtResource( 1 )]
-position = Vector2( 258.904, 9.31714 )
+margin_left = 716.0
+margin_right = 951.0
 type = "Food"
 
-[node name="Blueprints" parent="ResourcesPanel" groups=[
+[node name="Blueprints" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
 "Resources",
 ] instance=ExtResource( 1 )]
-position = Vector2( 354.028, 9.9471 )
+margin_left = 955.0
+margin_right = 1190.0
 type = "Blueprints"
 
-[node name="ResourcesLabel" type="Label" parent="ResourcesPanel"]
-margin_left = 182.963
-margin_top = 79.6805
-margin_right = 245.963
-margin_bottom = 93.6805
+[node name="ResourcesLabel" type="Label" parent="ResourcesPanel/VBoxContainer"]
+margin_top = 69.0
+margin_right = 1190.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 1 )
 text = "resources"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PartyList" type="Panel" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -284.5
+margin_right = 314.0
+margin_bottom = 284.5
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PartyList"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PartyListLabel" type="Label" parent="PartyList/VBoxContainer"]
+margin_left = 109.0
+margin_right = 204.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "party list"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PartyList/VBoxContainer"]
+margin_top = 38.0
+margin_right = 314.0
+margin_bottom = 545.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnitListButton" type="Button" parent="PartyList/VBoxContainer"]
+margin_left = 227.0
+margin_top = 549.0
+margin_right = 314.0
+margin_bottom = 569.0
+size_flags_horizontal = 8
+text = "select party"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UnitList" type="Node2D" parent="."]
-position = Vector2( 425.001, 323.716 )
+position = Vector2( -246.999, 410.716 )
 
 [node name="UnitMember1" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -649.227, 135.097 )
+position = Vector2( -1.10919, 0.716629 )
 
 [node name="UnitMember2" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -650.301, 215.389 )
+position = Vector2( -2.18323, 81.0086 )
 
 [node name="UnitMember3" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -651.889, 294.759 )
+position = Vector2( -3.77118, 160.379 )
 
 [node name="UnitMember4" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -651.095, 375.717 )
+position = Vector2( -2.97717, 241.337 )
 
 [node name="UnitMember5" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -648.714, 458.261 )
+position = Vector2( -0.596191, 323.881 )
 
 [node name="UnitMember6" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -647.92, 537.632 )
+position = Vector2( 0.197815, 403.252 )
 
 [node name="VScrollBar" type="VScrollBar" parent="UnitList"]
-margin_left = -460.765
-margin_top = 156.025
-margin_right = -448.765
-margin_bottom = 597.025
+margin_left = 187.353
+margin_top = 21.6446
+margin_right = 199.353
+margin_bottom = 462.645
 max_value = 50.0
 page = 10.0
 __meta__ = {
@@ -212,42 +331,11 @@ __meta__ = {
 }
 
 [node name="UnitListLabel" type="Label" parent="UnitList"]
-margin_left = -602.869
-margin_top = 103.629
-margin_right = -491.869
-margin_bottom = 155.629
+margin_left = 45.2488
+margin_top = -30.7514
+margin_right = 156.249
+margin_bottom = 21.2486
 text = "unit list"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PartyList" type="Node2D" parent="."]
-position = Vector2( 428.598, 322.242 )
-
-[node name="PartyMember1" parent="PartyList" instance=ExtResource( 2 )]
-position = Vector2( -2.31854, 1.40814 )
-
-[node name="PartyMember2" parent="PartyList" instance=ExtResource( 2 )]
-position = Vector2( -4.09634, 80.647 )
-
-[node name="PartyMember3" parent="PartyList" instance=ExtResource( 2 )]
-position = Vector2( -7.85226, 159.308 )
-
-[node name="PartyMember4" parent="PartyList" instance=ExtResource( 2 )]
-position = Vector2( -0.350586, 241.715 )
-
-[node name="PartyMember5" parent="PartyList" instance=ExtResource( 2 )]
-position = Vector2( 1.89691, 324.122 )
-
-[node name="PartyMember6" parent="PartyList" instance=ExtResource( 2 )]
-position = Vector2( -1.09973, 409.526 )
-
-[node name="PartyListLabel" type="Label" parent="PartyList"]
-margin_left = 121.897
-margin_top = -25.982
-margin_right = 193.897
-margin_bottom = 3.01801
-text = "party list"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -275,8 +363,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/Weapons" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/Scrolls" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/Food" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/Potions" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/Blueprints" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]

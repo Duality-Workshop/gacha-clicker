@@ -1,16 +1,35 @@
 extends Object
 
+class_name Unit
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var name
+var portrait
+var rank
+var resources
+var rate
+var power
+var party
+var owned
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _init(name, portrait, resources, rank = 1, rate = 1, power = 1):
+	self.name = name
+	self.portrait = portrait
+	self.rank = rank
+	self.resources = resources
+	self.rate = rate
+	self.power = power
+	self.party = false
+	self.owned = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _to_string():
+	return JSON.print({
+		"name": name,
+		"portrait": portrait,
+		"rank": rank,
+		"resources": resources,
+		"rate": rate,
+		"power": power,
+		"party": party,
+		"owned": owned
+	})

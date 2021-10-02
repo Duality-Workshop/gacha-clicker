@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
+}, {
+"base": "Object",
+"class": "Unit",
+"language": "GDScript",
+"path": "res://src/Unit.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"GitAPI": "",
+"Unit": ""
 }
 
 [application]
@@ -23,6 +29,11 @@ _global_script_class_icons={
 config/name="Test"
 run/main_scene="res://Scenes/Board.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Manager="*res://src/Manager.gd"
+Helper="*res://src/Helper.gd"
 
 [display]
 

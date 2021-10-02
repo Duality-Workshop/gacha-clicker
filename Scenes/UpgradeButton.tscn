@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://src/UpgradeButton.gd" type="Script" id=1]
+[gd_scene load_steps=2 format=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
@@ -20,12 +18,11 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="UpgradeButton" type="Button"]
-margin_left = 7.72207
-margin_top = 9.39462
-margin_right = 70.7221
-margin_bottom = 75.3946
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+hint_tooltip = "This is an upgrade"
 text = "upgrade"
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
