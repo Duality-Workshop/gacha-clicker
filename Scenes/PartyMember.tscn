@@ -102,3 +102,8 @@ text = "profile"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CycleTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="CycleTimer" to="." method="_on_CycleTimer_timeout"]

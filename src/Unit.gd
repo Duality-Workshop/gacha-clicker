@@ -6,18 +6,18 @@ var name
 var portrait
 var rank
 var resources
-var rate
+var cycle
 var power
 var party
 var owned
 
 
-func _init(name, portrait, resources, rank = 1, rate = 1, power = 1):
+func _init(name, portrait, resources, rank = 1, cycle = 1, power = 1):
 	self.name = name
 	self.portrait = portrait
 	self.rank = rank
 	self.resources = resources
-	self.rate = rate
+	self.cycle = cycle
 	self.power = power
 	self.party = false
 	self.owned = false
@@ -28,7 +28,7 @@ func _to_string():
 		"portrait": portrait,
 		"rank": rank,
 		"resources": resources,
-		"rate": rate,
+		"cycle": cycle,
 		"power": power,
 		"party": party,
 		"owned": owned

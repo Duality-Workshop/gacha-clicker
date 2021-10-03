@@ -9,6 +9,7 @@ func _ready():
 
 func update_info(unit:Unit):
 	self.unit = unit
+	$CycleTimer.wait_time = unit.cycle
 	get_node("HBoxContainer/VBoxContainer/Name").text = unit.name
 	var resource1 = get_node("HBoxContainer/HBoxContainer/Resource1")
 	var resource2 = get_node("HBoxContainer/HBoxContainer/Resource2")
@@ -24,3 +25,8 @@ func update_info(unit:Unit):
 	elif len(unit.resources) == 2:
 		resource1.color = Helper.resource_colors[unit.resources[0]]
 		resource2.color = Helper.resource_colors[unit.resources[1]]
+
+
+func _on_CycleTimer_timeout():
+	for resource in unit.resources:
+		Manager.update_resource(resource, unit.power * unit.rank)
