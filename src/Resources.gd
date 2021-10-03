@@ -16,6 +16,6 @@ func _ready():
 
 
 func update_resource(resource, amount):
-	print_debug("updating resource " + resource + " by " + str(amount))
-	print_debug(resource_nodes[resource])
+	#print_debug("updating resource " + resource + " by " + str(amount))
+	#print_debug(resource_nodes[resource])
 	resource_nodes[resource].increase_amount(amount)
