@@ -12,7 +12,7 @@ var party
 var owned
 
 
-func _init(name, portrait, resources, rank = 1, cycle = 1, power = 1):
+func _init(name, portrait, resources, rank = 1, power = 1, cycle = 1):
 	self.name = name
 	self.portrait = portrait
 	self.rank = rank

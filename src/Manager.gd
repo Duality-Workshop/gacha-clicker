@@ -11,17 +11,33 @@ var resources = {
 }
 
 var units
+var party
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	units = [
-#		Unit.new("Ferrus", "", ["Weapons"], 1, 3, 3),
-#		Unit.new("Lailiel", "", ["Potions"], 1, 10, 10),
-		Unit.new("Saluken", "", ["Blueprints"], 3, 3),
-#		Unit.new("Ugolya", "", ["Food"], 1, 5, 7),
-#		Unit.new("Ba-Yin", "", ["Scrolls"], 1, 2, 3),
-#		Unit.new("Morgause", "", ["Potions", "Scrolls"], 1, 1)
+	units = {
+		#init(name, portrait, resources, rank = 1, cycle = 1, power = 1):
+		"Ferrus": 		Unit.new("Ferrus", "", ["Weapons"], 1, 1.5, 1.5),
+		"Leopold": 		Unit.new("Leopold", "", ["Weapons"], 1, 3.5, 3.25),
+		"Antoinette": 	Unit.new("Antoinette", "", ["Potions"], 1, 2.6, 2.75),
+		"Lailiel": 		Unit.new("Lailiel", "", ["Potions"], 1, 9.75, 9),
+		"Ba-Yin": 		Unit.new("Ba-Yin", "", ["Scrolls"], 1, 1.5, 1.5),
+		"Hoto": 		Unit.new("Hoto", "", ["Scrolls"], 1, 3, 3),
+		"Ugolya": 		Unit.new("Ugolya", "", ["Food"], 1, 11, 10),
+		"Kiki": 		Unit.new("Kiki", "", ["Food"], 1, 3.8, 3.5),
+		"Saluken": 		Unit.new("Saluken", "", ["Blueprints"], 1, 3, 3),
+		"Arnetta": 		Unit.new("Arnetta", "", ["Blueprints"], 1, 2.9, 3.1),
+		"Morgause": 	Unit.new("Morgause", "", ["Potions", "Scrolls"], 1, 3.5, 4),
+		"Benji": 		Unit.new("Benji", "", ["Weapons", "Blueprints"], 1, 2, 2.5)
+	}
+	party = [
+		units["Ferrus"],
+		units["Saluken"],
+		units["Morgause"],
+		units["Ba-Yin"],
+		units["Ugolya"],
+		units["Lailiel"],
 	]
 
 func update_resource(resource, amount):
