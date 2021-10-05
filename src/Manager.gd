@@ -37,6 +37,7 @@ func _ready():
 		for name in units:
 			pull_unit(units[name])
 		
+		
 		var p = [
 			"Ferrus",
 			"Saluken",
@@ -47,6 +48,14 @@ func _ready():
 		]
 		for u in p:
 			add_to_party(u)
+		
+		units["Ferrus"].rank = 30
+		units["Saluken"].rank = 26
+		units["Lailiel"].rank = 20
+		units["Morgause"].rank = 13
+		units["Ugolya"].rank = 10
+		units["Leopold"].rank = 9
+		units["Antoinette"].rank = 5
 	
 
 func add_to_party(name, id = null):

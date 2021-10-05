@@ -14,6 +14,28 @@ func update_info(unit:Unit):
 	else:
 		$CycleTimer.stop()
 	
+	### Display rank
+	var rank_star = $HBoxContainer/VBoxContainer/HBoxContainer/RankStar
+	
+	# Which big star?
+	if unit.rank == 30:
+		rank_star.texture = load("res://Resources/Icons/Star3.png")
+	elif unit.rank >= 20:
+		rank_star.texture = load("res://Resources/Icons/Star2.png")
+	elif unit.rank >= 10:
+		rank_star.texture = load("res://Resources/Icons/Star.png")
+	
+	# How many bits?
+	var rank_overflow = unit.rank % 10
+	
+	# Display bits
+	var grid = $HBoxContainer/VBoxContainer/HBoxContainer/GridContainer
+	for i in range(rank_overflow):
+		var bit = TextureRect.new()
+		bit.texture = load("res://Resources/Icons/bit.png")
+		grid.add_child(bit)
+	
+	### Display resources
 	get_node("HBoxContainer/VBoxContainer/Name").text = unit.name
 	var resource1 = get_node("HBoxContainer/HBoxContainer/Resource1")
 	var resource2 = get_node("HBoxContainer/HBoxContainer/Resource2")
