@@ -40,4 +40,4 @@ func _on_CallCrystalButton_pressed():
 	if result in resources:
 		emit_signal("increase_resource", result, 1)
 	else:
-		print_debug("Pulled a unit!")
+		Manager.pull_random()

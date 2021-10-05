@@ -14,6 +14,7 @@ var units
 var party = []
 var IS_DEBUG = !OS.has_feature("standalone")
 
+signal unit_updated(unit)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,17 +35,17 @@ func _ready():
 	}
 	
 	if IS_DEBUG:
-		for name in units:
-			pull_unit(units[name])
-		
+		#for name in units:
+			#pull_unit(units[name])
+		pull_unit(units["Saluken"])
 		
 		var p = [
-			"Ferrus",
+			#"Ferrus",
 			"Saluken",
-			"Morgause",
-			"Ba-Yin",
-			"Ugolya",
-			"Lailiel",
+			#"Morgause",
+			#"Ba-Yin",
+			#"Ugolya",
+			#"Lailiel",
 		]
 		for u in p:
 			add_to_party(u)
@@ -67,10 +68,18 @@ func add_to_party(name, id = null):
 	added_unit.party = true
 
 func pull_unit(unit):
+	print_debug("Pulled " + unit.name + "!")
 	if unit.owned:
 		unit.rank += 1
+		emit_signal("unit_updated", unit, "rank_up")
 	else:
 		unit.owned = true
+		emit_signal("unit_updated", unit, "new")
+
+func pull_random():
+	var rng = RandomNumberGenerator.new()
+	var k = units.keys()
+	pull_unit(units[k[rng.randi_range(0, len(units)-1)]])
 
 func get_owned_units():
 	var u = []

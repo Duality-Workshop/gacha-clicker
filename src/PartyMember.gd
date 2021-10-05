@@ -14,6 +14,7 @@ func update_info(unit:Unit):
 	else:
 		$CycleTimer.stop()
 	
+	
 	### Display rank
 	var rank_star = $HBoxContainer/VBoxContainer/HBoxContainer/RankStar
 	
@@ -35,6 +36,7 @@ func update_info(unit:Unit):
 		bit.texture = load("res://Resources/Icons/bit.png")
 		grid.add_child(bit)
 	
+	
 	### Display resources
 	get_node("HBoxContainer/VBoxContainer/Name").text = unit.name
 	var resource1 = get_node("HBoxContainer/HBoxContainer/Resource1")
@@ -51,6 +53,33 @@ func update_info(unit:Unit):
 	elif len(unit.resources) == 2:
 		resource1.color = Helper.resource_colors[unit.resources[0]]
 		resource2.color = Helper.resource_colors[unit.resources[1]]
+
+
+func rank_up():
+	### Display rank
+	var rank_star = $HBoxContainer/VBoxContainer/HBoxContainer/RankStar
+	
+	# Which big star?
+	if unit.rank == 30:
+		rank_star.texture = load("res://Resources/Icons/Star3.png")
+	elif unit.rank >= 20:
+		rank_star.texture = load("res://Resources/Icons/Star2.png")
+	elif unit.rank >= 10:
+		rank_star.texture = load("res://Resources/Icons/Star.png")
+	
+	# How many bits?
+	var rank_overflow = unit.rank % 10
+	
+	# Display bits
+	var grid = $HBoxContainer/VBoxContainer/HBoxContainer/GridContainer
+	if rank_overflow > 0:
+		var bit = TextureRect.new()
+		bit.texture = load("res://Resources/Icons/bit.png")
+		grid.add_child(bit)
+	else:
+		for n in grid.get_children():
+			grid.remove_child(n)
+			n.queue_free()
 
 
 func _on_CycleTimer_timeout():
