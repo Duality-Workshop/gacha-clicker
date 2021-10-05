@@ -11,7 +11,8 @@ var resources = {
 }
 
 var units
-var party
+var party = []
+var IS_DEBUG = !OS.has_feature("standalone")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,14 +32,50 @@ func _ready():
 		"Morgause": 	Unit.new("Morgause", "", ["Potions", "Scrolls"], 1, 3.5, 4),
 		"Benji": 		Unit.new("Benji", "", ["Weapons", "Blueprints"], 1, 2, 2.5)
 	}
-	party = [
-		units["Ferrus"],
-		units["Saluken"],
-		units["Morgause"],
-		units["Ba-Yin"],
-		units["Ugolya"],
-		units["Lailiel"],
-	]
+	
+	if IS_DEBUG:
+		for name in units:
+			pull_unit(units[name])
+		
+		var p = [
+			"Ferrus",
+			"Saluken",
+			"Morgause",
+			"Ba-Yin",
+			"Ugolya",
+			"Lailiel",
+		]
+		for u in p:
+			add_to_party(u)
+	
+
+func add_to_party(name, id = null):
+	var added_unit = units[name]
+	if !id or id > len(party):
+		party.append(added_unit)
+	else:
+		party.insert(id, added_unit)
+	added_unit.party = true
+
+func pull_unit(unit):
+	if unit.owned:
+		unit.rank += 1
+	else:
+		unit.owned = true
+
+func get_owned_units():
+	var u = []
+	for unit in units:
+		if units[unit].owned:
+			u.append(units[unit])
+	return u
+
+func get_party():
+	var u = []
+	for unit in units:
+		if units[unit].party:
+			u.append(units[unit])
+	return u
 
 func update_resource(resource, amount):
 	get_parent().get_node("Board").get_node("ResourcesPanel").update_resource(resource, amount)

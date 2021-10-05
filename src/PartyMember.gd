@@ -9,7 +9,11 @@ func _ready():
 
 func update_info(unit:Unit):
 	self.unit = unit
-	$CycleTimer.wait_time = unit.cycle
+	if unit.party:
+		$CycleTimer.wait_time = unit.cycle
+	else:
+		$CycleTimer.stop()
+	
 	get_node("HBoxContainer/VBoxContainer/Name").text = unit.name
 	var resource1 = get_node("HBoxContainer/HBoxContainer/Resource1")
 	var resource2 = get_node("HBoxContainer/HBoxContainer/Resource2")

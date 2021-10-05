@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/UpgradeButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/UnitMember.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UnitList.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/CallCrystalButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Resources.gd" type="Script" id=7]
 [ext_resource path="res://Resources/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=8]
@@ -250,9 +250,10 @@ __meta__ = {
 [node name="PartyList" type="Panel" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -284.5
-margin_right = 314.0
-margin_bottom = 284.5
+margin_left = 361.742
+margin_top = -299.183
+margin_right = 675.742
+margin_bottom = 269.817
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -279,7 +280,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PartyList/VBoxContainer"]
 margin_top = 38.0
-margin_right = 314.0
+margin_right = 313.0
 margin_bottom = 545.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -288,9 +289,9 @@ __meta__ = {
 }
 
 [node name="UnitListButton" type="Button" parent="PartyList/VBoxContainer"]
-margin_left = 227.0
+margin_left = 226.0
 margin_top = 549.0
-margin_right = 314.0
+margin_right = 313.0
 margin_bottom = 569.0
 size_flags_horizontal = 8
 text = "select party"
@@ -298,45 +299,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UnitList" type="Node2D" parent="."]
-position = Vector2( -246.999, 410.716 )
-
-[node name="UnitMember1" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -1.10919, 0.716629 )
-
-[node name="UnitMember2" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -2.18323, 81.0086 )
-
-[node name="UnitMember3" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -3.77118, 160.379 )
-
-[node name="UnitMember4" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -2.97717, 241.337 )
-
-[node name="UnitMember5" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( -0.596191, 323.881 )
-
-[node name="UnitMember6" parent="UnitList" instance=ExtResource( 4 )]
-position = Vector2( 0.197815, 403.252 )
-
-[node name="VScrollBar" type="VScrollBar" parent="UnitList"]
-margin_left = 187.353
-margin_top = 21.6446
-margin_right = 199.353
-margin_bottom = 462.645
-max_value = 50.0
-page = 10.0
+[node name="UnitList" type="Panel" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -361.0
+margin_right = 315.0
+margin_bottom = 361.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UnitListLabel" type="Label" parent="UnitList"]
-margin_left = 45.2488
-margin_top = -30.7514
-margin_right = 156.249
-margin_bottom = 21.2486
+[node name="VBoxContainer" type="VBoxContainer" parent="UnitList"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="UnitListLabel" type="Label" parent="UnitList/VBoxContainer"]
+margin_left = 133.0
+margin_right = 182.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
 text = "unit list"
 __meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UnitList/VBoxContainer"]
+margin_top = 18.0
+margin_right = 315.0
+margin_bottom = 722.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UnitList/VBoxContainer/ScrollContainer"]
+margin_right = 315.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -363,8 +368,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]

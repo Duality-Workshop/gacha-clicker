@@ -4,7 +4,8 @@
 
 [node name="PartyMember" type="Panel"]
 margin_right = 306.0
-margin_bottom = 76.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 75 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
@@ -27,6 +28,8 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -10.0
 margin_bottom = -5.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,7 +44,7 @@ color = Color( 0.596078, 0.580392, 0.847059, 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 68.0
 margin_right = 187.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -66,9 +69,9 @@ polygon = PoolVector2Array( 527.415, 433.048, 530.752, 438.721, 536.092, 439.055
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
 margin_left = 191.0
-margin_top = 9.0
+margin_top = 8.0
 margin_right = 291.0
-margin_bottom = 57.0
+margin_bottom = 56.0
 size_flags_vertical = 4
 alignment = 2
 

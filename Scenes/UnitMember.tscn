@@ -1,6 +1,12 @@
 [gd_scene format=2]
 
-[node name="UnitMember" type="Node2D"]
+[node name="UnitMember" type="Panel"]
+margin_right = 213.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 180, 70 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="Polygon2D" parent="."]
 position = Vector2( 96.5573, 42.7219 )
