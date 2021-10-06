@@ -13,6 +13,7 @@ var resources = {
 var units
 var party = []
 var IS_DEBUG = !OS.has_feature("standalone")
+var RANDOM = true
 
 signal unit_updated(unit)
 
@@ -50,13 +51,13 @@ func _ready():
 		for u in p:
 			add_to_party(u)
 		
-		units["Ferrus"].rank = 30
-		units["Saluken"].rank = 26
-		units["Lailiel"].rank = 20
-		units["Morgause"].rank = 13
-		units["Ugolya"].rank = 10
-		units["Leopold"].rank = 9
-		units["Antoinette"].rank = 5
+		#units["Ferrus"].rank = 30
+		#units["Saluken"].rank = 26
+		#units["Lailiel"].rank = 20
+		#units["Morgause"].rank = 13
+		#units["Ugolya"].rank = 10
+		#units["Leopold"].rank = 9
+		#units["Antoinette"].rank = 5
 	
 
 func add_to_party(name, id = null):
@@ -78,6 +79,7 @@ func pull_unit(unit):
 
 func pull_random():
 	var rng = RandomNumberGenerator.new()
+	if RANDOM: rng.randomize()
 	var k = units.keys()
 	pull_unit(units[k[rng.randi_range(0, len(units)-1)]])
 

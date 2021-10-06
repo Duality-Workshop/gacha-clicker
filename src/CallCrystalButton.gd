@@ -29,7 +29,9 @@ func _ready():
 func _on_CallCrystalButton_pressed():
 	clicks += 1
 	$AmountLabel.text = str(clicks)
-	var roll = rand_range(0, roll_sum)
+	var rng = RandomNumberGenerator.new()
+	if Manager.RANDOM: rng.randomize()
+	var roll = rng.randi_range(0, roll_sum)
 	var result
 	
 	for odd in roll_table:
