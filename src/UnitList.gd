@@ -21,6 +21,10 @@ func add_unit(unit):
 
 func _on_unit_updated(unit, update):
 	match update:
+		"enlist":
+			get_node("VBoxContainer/ScrollContainer/VBoxContainer/" + unit.name).queue_free()
+		"remove":
+			add_unit(unit)
 		"new":
 			add_unit(unit)
 		"rank_up":

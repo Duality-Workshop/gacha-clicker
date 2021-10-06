@@ -333,6 +333,7 @@ margin_top = 18.0
 margin_right = 315.0
 margin_bottom = 722.0
 size_flags_vertical = 3
+scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_lock_": true
 }

@@ -11,8 +11,12 @@ func update_info(unit:Unit):
 	self.unit = unit
 	if unit.party:
 		$CycleTimer.wait_time = unit.cycle
+		$EnlistButton.visible = false
 	else:
 		$CycleTimer.stop()
+		$RemoveButton.visible = false
+		if Manager.party.size() == 6:
+			$EnlistButton.visible = false
 	
 	
 	### Display rank
@@ -85,3 +89,11 @@ func rank_up():
 func _on_CycleTimer_timeout():
 	for resource in unit.resources:
 		Manager.update_resource(resource, unit.power * unit.rank)
+
+
+func _on_EnlistButton_pressed():
+	Manager.add_to_party(unit.name)
+
+
+func _on_RemoveButton_pressed():
+	Manager.remove_from_party(unit.name)
