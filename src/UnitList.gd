@@ -32,3 +32,8 @@ func _on_unit_updated(unit, update):
 			if not Manager.get_party().has(unit):
 				unit_container = get_node("VBoxContainer/ScrollContainer/VBoxContainer/" + unit.name)
 				unit_container.rank_up()
+	for u in get_node("VBoxContainer/ScrollContainer/VBoxContainer/").get_children():
+		if Manager.party.size() == 6:
+			u.get_node("EnlistButton").visible = false
+		else:
+			u.get_node("EnlistButton").visible = true
