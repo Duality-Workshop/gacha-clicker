@@ -9,7 +9,9 @@ rect_min_size = Vector2( 0, 75 )
 size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [ 84.8033 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 315.128 ]
 }
 
 [node name="Tile" type="Polygon2D" parent="."]
