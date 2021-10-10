@@ -90,7 +90,7 @@ func remove_from_party(name):
 	emit_signal("unit_updated", added_unit, "remove")
 
 func pull_unit(unit):
-	print_debug("Pulled " + unit.name + "!")
+	# print_debug("Pulled " + unit.name + "!")
 	if unit.owned:
 		unit.rank += 1
 		emit_signal("unit_updated", unit, "rank_up")

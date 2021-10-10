@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/ResourceParticle.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+max_value = 100.0
+_data = [ Vector2( 0, 1 ), 0.0, -35.4034, 0, 0, Vector2( 0.592105, 15.1391 ), 40.8264, 40.8264, 0, 0, Vector2( 1, 97.8663 ), 7.4693, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.613839 ), 0.0, 2.36883, 0, 0, Vector2( 1, 0 ), -2.24656, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.55252, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+trail_size_modifier = SubResource( 6 )
+emission_shape = 2
+emission_box_extents = Vector3( 200, 200, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 100, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping_curve = SubResource( 2 )
+scale = 20.0
+scale_random = 0.5
+scale_curve = SubResource( 4 )
+
+[node name="ResourceParticle" type="Particles2D"]
+position = Vector2( 311.209, 266.348 )
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+speed_scale = 3.0
+process_material = SubResource( 7 )
+script = ExtResource( 1 )

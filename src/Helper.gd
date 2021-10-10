@@ -9,4 +9,4 @@ const resource_colors = {
 }
 
 func get_resource_color(resource:String):
-	return resource_colors["resource"]
+	return resource_colors[resource]
