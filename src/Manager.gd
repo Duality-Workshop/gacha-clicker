@@ -66,7 +66,7 @@ func _ready():
 			add_to_party(u)
 		
 		#units["Ferrus"].rank = 30
-		#units["Saluken"].rank = 26
+		units["Saluken"].rank = 29
 		#units["Lailiel"].rank = 20
 		#units["Morgause"].rank = 13
 		#units["Ugolya"].rank = 10
@@ -102,7 +102,13 @@ func pull_random():
 	var rng = RandomNumberGenerator.new()
 	if RANDOM: rng.randomize()
 	var k = units.keys()
-	pull_unit(units[k[rng.randi_range(0, len(units)-1)]])
+	var valid_units := []
+	
+	for unit in units:
+		if units[unit].rank < 30:
+			valid_units.append(units[unit])
+	
+	pull_unit(valid_units[rng.randi_range(0, len(valid_units)-1)])
 
 func get_owned_units():
 	var u = []
