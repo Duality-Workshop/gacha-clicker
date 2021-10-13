@@ -1,8 +1,6 @@
 extends Particles2D
 
 
-#const mat = preload("res://Resources/Materials/ResourceParticleMaterial.tres")
-
 func _ready() -> void:
 	process_material = process_material.duplicate()
 

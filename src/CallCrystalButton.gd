@@ -1,6 +1,7 @@
 extends Button
 
 var resource_particle_emitter = preload("res://Scenes/ResourceParticle.tscn")
+var spark_particle_emitter = preload("res://Scenes/SparkParticle.tscn")
 
 const resources = ["Weapons", "Potions", "Scrolls", "Food", "Blueprints"]
 var roll_odds = {
@@ -45,9 +46,13 @@ func _on_CallCrystalButton_pressed():
 		emit_signal("increase_resource", result, 1)
 		
 		var r_emitter = resource_particle_emitter.instance()
-		# emitter.position = get_local_mouse_position()
 		r_emitter.emitting = true
 		r_emitter.process_material.color = Helper.get_resource_color(result)
 		add_child(r_emitter)
+		
+		var s_emitter = spark_particle_emitter.instance()
+		s_emitter.position = get_local_mouse_position()
+		s_emitter.emitting = true
+		add_child(s_emitter)
 	else:
 		Manager.pull_random()
