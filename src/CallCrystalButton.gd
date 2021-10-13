@@ -2,6 +2,7 @@ extends Button
 
 var resource_particle_emitter = preload("res://Scenes/ResourceParticle.tscn")
 var spark_particle_emitter = preload("res://Scenes/SparkParticle.tscn")
+var crystal_particle_emitter = preload("res://Scenes/CrystalParticle.tscn")
 
 const resources = ["Weapons", "Potions", "Scrolls", "Food", "Blueprints"]
 var roll_odds = {
@@ -56,3 +57,8 @@ func _on_CallCrystalButton_pressed():
 		add_child(s_emitter)
 	else:
 		Manager.pull_random()
+		
+		var emitter = crystal_particle_emitter.instance()
+		emitter.position = get_local_mouse_position()
+		emitter.emitting = true
+		add_child(emitter)

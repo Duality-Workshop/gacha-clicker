@@ -3,8 +3,8 @@
 [ext_resource path="res://src/SparkParticle.gd" type="Script" id=1]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.699346 )
-colors = PoolColorArray( 0.015625, 0.965393, 1, 1, 0.471115, 0.0117188, 1, 1 )
+offsets = PoolRealArray( 0, 0.640523 )
+colors = PoolColorArray( 0, 1.5, 1.5, 1, 0.47, 0, 1.5, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
