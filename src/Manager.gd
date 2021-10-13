@@ -66,7 +66,7 @@ func _ready():
 			add_to_party(u)
 		
 		#units["Ferrus"].rank = 30
-		units["Saluken"].rank = 29
+		#units["Saluken"].rank = 29
 		#units["Lailiel"].rank = 20
 		#units["Morgause"].rank = 13
 		#units["Ugolya"].rank = 10

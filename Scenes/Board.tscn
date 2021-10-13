@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Scenes/CallCrystalButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Resources.gd" type="Script" id=7]
 [ext_resource path="res://Resources/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -46,6 +50,11 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.6 )
 }
 
+[sub_resource type="Environment" id=7]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.28
+
 [node name="Board" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -64,7 +73,7 @@ margin_top = 249.727
 margin_right = 1428.85
 margin_bottom = 769.727
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MenuButtons" type="HBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -107.0
@@ -73,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SettingsButton" type="Button" parent="HBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MenuButtons"]
 margin_right = 63.0
 margin_bottom = 40.0
 text = "settings"
@@ -81,7 +90,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HelpButton" type="Button" parent="HBoxContainer"]
+[node name="HelpButton" type="Button" parent="MenuButtons"]
 margin_left = 67.0
 margin_right = 107.0
 margin_bottom = 40.0
@@ -90,7 +99,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShopButton" type="MenuButton" parent="."]
+[node name="ShopButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -98,22 +107,35 @@ anchor_bottom = 1.0
 margin_left = -246.0
 margin_top = -212.998
 text = "shop ;)"
-flat = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FeaturedUnit" type="Node2D" parent="."]
-position = Vector2( 1533.96, 169.9 )
+[node name="FeaturedUnit" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -391.368
+margin_top = -289.848
+margin_right = -58.3682
+margin_bottom = 155.152
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Image" type="Polygon2D" parent="FeaturedUnit"]
+[node name="Portrait" type="Polygon2D" parent="FeaturedUnit"]
 position = Vector2( -295.929, -188.808 )
 scale = Vector2( 1.03933, 0.95 )
 polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
 
 [node name="FeaturedUnitButton" type="MenuButton" parent="FeaturedUnit"]
-margin_right = 144.0
-margin_bottom = 20.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -144.0
+margin_top = -20.0
 text = "choose featured unit"
 flat = false
 __meta__ = {
@@ -121,9 +143,16 @@ __meta__ = {
 }
 
 [node name="FeaturedUnitLabel" type="Label" parent="FeaturedUnit"]
-margin_top = 24.0
-margin_right = 144.0
-margin_bottom = 38.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.0
+margin_top = -22.5
+margin_right = 98.0
+margin_bottom = 22.5
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "featured unit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -392,21 +421,23 @@ __meta__ = {
 anims/Close = SubResource( 5 )
 anims/Open = SubResource( 4 )
 
-[node name="NonGameResourceDesc" type="Label" parent="."]
-margin_left = 416.116
-margin_top = -32.3074
-margin_right = 934.116
-margin_bottom = -18.3074
+[node name="NonGame" type="Node" parent="."]
+
+[node name="NonGameResourceDesc" type="Label" parent="NonGame"]
+margin_left = 426.116
+margin_top = -22.3074
+margin_right = 944.116
+margin_bottom = -8.3074
 text = "red = weapons, green = potions, purple = scrolls, yellow = food, blue = blueprints"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NonGameUnitListDesc" type="Label" parent="."]
-margin_left = -230.0
-margin_top = 943.0
-margin_right = -86.0
-margin_bottom = 1008.0
+[node name="NonGameUnitListDesc" type="Label" parent="NonGame"]
+margin_left = -220.0
+margin_top = 953.0
+margin_right = -76.0
+margin_bottom = 1018.0
 text = "when \"select party\" is 
 clicked, this unit list
 toggles in and out 
@@ -414,6 +445,9 @@ toggles in and out
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
 
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
