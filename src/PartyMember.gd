@@ -88,7 +88,7 @@ func rank_up():
 
 func _on_CycleTimer_timeout():
 	for resource in unit.resources:
-		Manager.update_resource(resource, unit.power * unit.rank)
+		Manager.unit_add_resource(unit, resource)
 
 
 func _on_EnlistButton_pressed():

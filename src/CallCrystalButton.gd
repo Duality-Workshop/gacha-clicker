@@ -44,7 +44,7 @@ func _on_CallCrystalButton_pressed():
 			break
 	
 	if result in resources:
-		emit_signal("increase_resource", result, 1)
+		emit_signal("increase_resource", result, Manager.get_click_power(result))
 		
 		var r_emitter = resource_particle_emitter.instance()
 		r_emitter.emitting = true

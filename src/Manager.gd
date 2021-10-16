@@ -1,6 +1,7 @@
 extends Node
 
 var Unit = load("src/Unit.gd")
+var Upgrade = load("src/Upgrade.gd")
 
 # resources
 var resources = {
@@ -14,6 +15,17 @@ var resources = {
 # units
 var units
 var party = []
+
+# upgrades
+var upgrades = []
+const UPGRADE_RESOURCE = {
+	"Weapons": Upgrade.UpgradeResource.WEAPONS, 
+	"Scrolls": Upgrade.UpgradeResource.SCROLLS, 
+	"Potions": Upgrade.UpgradeResource.POTIONS, 
+	"Food": Upgrade.UpgradeResource.FOOD, 
+	"Blueprints": Upgrade.UpgradeResource.BLUEPRINTS
+}
+var base_click_power = 1
 
 # nodes
 var party_list
@@ -45,6 +57,18 @@ func _ready():
 		"Benji": 		Unit.new("Benji", "", ["Weapons", "Blueprints"], 1, 2, 2.5)
 	}
 	
+	# enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
+	# enum UpgradeTarget {UNIT, CLICK, CHEST, LIMITER, GLOBAL}
+	# enum UpgradeResource {WEAPONS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
+	# enum UpgradeScope {BASE, PERCENTAGE}
+	# enum UpgradeCategory {UC, UGB, UGP, URB, URP, CGB, CGP, CRB, CRP}
+	upgrades = [
+		#func _init(type, target, resource, scope, power, name, description, flavour)
+		Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.BASE, 1, "+1 base click", ""),
+		Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2.5, "x2 % click", ""),
+		
+	]
+	
 	party_list = get_parent().get_node("Board").get_node("PartyList")
 	unit_list = get_parent().get_node("Board").get_node("UnitList")
 	resources_panel = get_parent().get_node("Board").get_node("ResourcesPanel")
@@ -72,7 +96,12 @@ func _ready():
 		#units["Ugolya"].rank = 10
 		#units["Leopold"].rank = 9
 		#units["Antoinette"].rank = 5
-	
+		
+		
+		for upgrade in upgrades:
+			upgrade.unlocked = true
+			upgrade.owned = true
+
 
 func add_to_party(name, id = null):
 	var added_unit = units[name]
@@ -101,7 +130,6 @@ func pull_unit(unit):
 func pull_random():
 	var rng = RandomNumberGenerator.new()
 	if RANDOM: rng.randomize()
-	var k = units.keys()
 	var valid_units := []
 	
 	for unit in units:
@@ -124,5 +152,47 @@ func get_party():
 			u.append(units[unit])
 	return u
 
-func update_resource(resource, amount):
-	resources_panel.update_resource(resource, amount)
+func unit_add_resource(unit, resource):
+	resources_panel.update_resource(resource, get_unit_resource_power(unit, resource))
+	
+func get_unit_resource_power(unit, resource):
+	var UGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.UGB)
+	var URB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.URB, UPGRADE_RESOURCE[resource])
+	var UGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.UGP)
+	var URP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.URP, UPGRADE_RESOURCE[resource])
+
+	return (unit.power + UGB + URB) * unit.rank * UGP * URP
+
+
+func get_click_power(resource=null, raw=false):
+	var CGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CGB)
+	var CRB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRB, UPGRADE_RESOURCE[resource])
+	var CGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CGP)
+	var CRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRP, UPGRADE_RESOURCE[resource])
+
+	return (base_click_power + CGB + CRB) * CGP * CRP
+
+func get_category_type(category):
+	var bases = [Upgrade.UpgradeCategory.UGB, Upgrade.UpgradeCategory.URB, Upgrade.UpgradeCategory.CGB, Upgrade.UpgradeCategory.CRB]
+	var percents = [Upgrade.UpgradeCategory.UGP, Upgrade.UpgradeCategory.URP, Upgrade.UpgradeCategory.CGP, Upgrade.UpgradeCategory.CRP]
+	if bases.has(category):
+		return Upgrade.UpgradeScope.BASE
+	if percents.has(category):
+		return Upgrade.UpgradeScope.PERCENTAGE
+	return null
+
+func get_upgrade_category_bonus(category, resource=null):
+	var bonus = 0
+	if get_category_type(category) == Upgrade.UpgradeScope.BASE:
+		bonus = 0
+		for upgrade in upgrades:
+			if upgrade.owned and upgrade.category == category:
+				if resource == null or upgrade.resource == resource:
+					bonus += upgrade.power
+	elif get_category_type(category) == Upgrade.UpgradeScope.PERCENTAGE:
+		bonus = 1
+		for upgrade in upgrades:
+			if upgrade.owned and upgrade.category == category:
+				if resource == null or upgrade.resource == resource:
+					bonus *= upgrade.power
+	return bonus
