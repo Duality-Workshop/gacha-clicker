@@ -89,6 +89,8 @@ func _ready():
 		for u in p:
 			add_to_party(u)
 		
+		units["Saluken"].upgrade_level = 3
+		
 		#units["Ferrus"].rank = 30
 		#units["Saluken"].rank = 29
 		#units["Lailiel"].rank = 20
@@ -164,7 +166,7 @@ func get_unit_resource_power(unit, resource):
 	return (unit.power + UGB + URB) * unit.rank * UGP * URP
 
 
-func get_click_power(resource=null, raw=false):
+func get_click_power(resource=null, _raw=false):
 	var CGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CGB)
 	var CRB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRB, UPGRADE_RESOURCE[resource])
 	var CGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CGP)

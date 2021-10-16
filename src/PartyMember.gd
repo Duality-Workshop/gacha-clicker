@@ -10,7 +10,7 @@ func _ready():
 func update_info(unit:Unit):
 	self.unit = unit
 	if unit.party:
-		$CycleTimer.wait_time = unit.cycle
+		$CycleTimer.wait_time = unit.get_cycle()
 		$EnlistButton.visible = false
 	else:
 		$CycleTimer.stop()
@@ -89,6 +89,7 @@ func rank_up():
 func _on_CycleTimer_timeout():
 	for resource in unit.resources:
 		Manager.unit_add_resource(unit, resource)
+	$CycleTimer.wait_time = unit.get_cycle()
 
 
 func _on_EnlistButton_pressed():
