@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UpgradeTab.gd" type="Script" id=1]
+
+[node name="UpgradeTab" type="ScrollContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeList" type="VBoxContainer" parent="."]
+margin_right = 1972.0
+margin_bottom = 1044.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -64,8 +64,8 @@ func _ready():
 	# enum UpgradeCategory {UC, UGB, UGP, URB, URP, CGB, CGP, CRB, CRP}
 	upgrades = [
 		#func _init(type, target, resource, scope, power, name, description, flavour)
-		Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.BASE, 1, "+1 base click", ""),
-		Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2.5, "x2 % click", ""),
+		Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {"Weapons": 256, "Scrolls": 100, "Blueprints": 500}, "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
+		Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {"Food": 10}, "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
 		
 	]
 	
@@ -89,7 +89,7 @@ func _ready():
 		for u in p:
 			add_to_party(u)
 		
-		units["Saluken"].upgrade_level = 3
+		#units["Saluken"].upgrade_level = 3
 		
 		#units["Ferrus"].rank = 30
 		#units["Saluken"].rank = 29
@@ -102,7 +102,7 @@ func _ready():
 		
 		for upgrade in upgrades:
 			upgrade.unlocked = true
-			upgrade.owned = true
+			#upgrade.owned = true
 
 
 func add_to_party(name, id = null):
@@ -198,3 +198,14 @@ func get_upgrade_category_bonus(category, resource=null):
 				if resource == null or upgrade.resource == resource:
 					bonus *= upgrade.power
 	return bonus
+
+func get_unlocked_upgrades(type):
+	var ups = []
+	for upgrade in upgrades:
+		if upgrade.type == type and upgrade.unlocked and not upgrade.owned:
+			ups.append(upgrade)
+	return ups
+
+func pay(upgrade):
+	for resource in upgrade.price:
+		resources_panel.update_resource(resource, -upgrade.price[resource])

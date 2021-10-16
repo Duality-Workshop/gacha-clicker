@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UpgradePrice.gd" type="Script" id=1]
+
+[node name="UpgradePrice" type="HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 32.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resource" type="ColorRect" parent="."]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+color = Color( 0.2, 0.447059, 0.141176, 1 )
+
+[node name="Amount" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 60.0
+margin_bottom = 23.0
+text = "256"
+__meta__ = {
+"_edit_use_anchors_": false
+}

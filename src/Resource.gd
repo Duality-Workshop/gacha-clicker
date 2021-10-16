@@ -20,6 +20,7 @@ func _ready():
 func increase_amount(value):
 	amount += value
 	$Amount.text = str(floor(amount))
+	Manager.resources[type] = amount
 
 
 func _on_CallCrystalButton_increase_resource(resource, value):
