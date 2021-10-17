@@ -526,7 +526,7 @@ __meta__ = {
 }
 
 [node name="ChestTimer" type="Timer" parent="ChestArea"]
-wait_time = 30.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]

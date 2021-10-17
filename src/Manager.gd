@@ -26,6 +26,7 @@ const UPGRADE_RESOURCE = {
 	"Blueprints": Upgrade.UpgradeResource.BLUEPRINTS
 }
 var base_click_power = 1
+var base_chest_power = 100
 
 # nodes
 var party_list
@@ -158,8 +159,9 @@ func get_party():
 func unit_add_resource(unit, resource):
 	resources_panel.update_resource(resource, get_unit_resource_power(unit, resource))
 	
-func add_resource(resource, amount):
-	resources_panel.update_resource(resource, amount)
+func chest_add_resource(resource):
+	print_debug(resource + ": " + str(get_chest_power(resource)))
+	resources_panel.update_resource(resource, get_chest_power(resource))
 	
 func get_unit_resource_power(unit, resource):
 	var UGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.UGB)
@@ -178,9 +180,18 @@ func get_click_power(resource=null, _raw=false):
 
 	return (base_click_power + CGB + CRB) * CGP * CRP
 
+
+func get_chest_power(resource=null, _raw=false):
+	var HGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HGB)
+	var HRB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HRB, UPGRADE_RESOURCE[resource])
+	var HGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HGP)
+	var HRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HRP, UPGRADE_RESOURCE[resource])
+
+	return (base_chest_power + HGB + HRB) * HGP * HRP
+
 func get_category_type(category):
-	var bases = [Upgrade.UpgradeCategory.UGB, Upgrade.UpgradeCategory.URB, Upgrade.UpgradeCategory.CGB, Upgrade.UpgradeCategory.CRB]
-	var percents = [Upgrade.UpgradeCategory.UGP, Upgrade.UpgradeCategory.URP, Upgrade.UpgradeCategory.CGP, Upgrade.UpgradeCategory.CRP]
+	var bases = [Upgrade.UpgradeCategory.UGB, Upgrade.UpgradeCategory.URB, Upgrade.UpgradeCategory.CGB, Upgrade.UpgradeCategory.CRB, Upgrade.UpgradeCategory.HGB, Upgrade.UpgradeCategory.HRB]
+	var percents = [Upgrade.UpgradeCategory.UGP, Upgrade.UpgradeCategory.URP, Upgrade.UpgradeCategory.CGP, Upgrade.UpgradeCategory.CRP, Upgrade.UpgradeCategory.HGP, Upgrade.UpgradeCategory.HRP]
 	if bases.has(category):
 		return Upgrade.UpgradeScope.BASE
 	if percents.has(category):

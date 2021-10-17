@@ -48,14 +48,5 @@ func roll_reward() -> Dictionary:
 		if roll < int(odd):
 			result = roll_table[odd]
 			break
-
-	var reward = {
-		"reward": result
-	}
 	
-	if result in resources:
-		reward["amount"] = 3600
-	else:
-		reward["amount"] = 1
-	
-	return reward
+	return result

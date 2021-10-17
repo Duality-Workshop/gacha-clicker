@@ -6,7 +6,7 @@ enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
 enum UpgradeTarget {UNIT, CLICK, CHEST, LIMITER, GLOBAL}
 enum UpgradeResource {WEAPONS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
 enum UpgradeScope {BASE, PERCENTAGE}
-enum UpgradeCategory {UGB, UGP, URB, URP, CGB, CGP, CRB, CRP}
+enum UpgradeCategory {UGB, UGP, URB, URP, CGB, CGP, CRB, CRP, HGB, HGP, HRB, HRP}
 
 var type
 var target
@@ -57,5 +57,16 @@ func _init(u_type, u_target, u_resource, u_scope, u_power:float, u_price, u_icon
 				category = UpgradeCategory.CRB
 			else:
 				category = UpgradeCategory.CRP
+	elif target == UpgradeTarget.CHEST:
+		if resource == UpgradeResource.GLOBAL:
+			if scope == UpgradeScope.BASE:
+				category = UpgradeCategory.HGB
+			else:
+				category = UpgradeCategory.HGP
+		else:
+			if scope == UpgradeScope.BASE:
+				category = UpgradeCategory.HRB
+			else:
+				category = UpgradeCategory.HRP
 	else:
 		category = null
