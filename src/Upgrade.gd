@@ -16,17 +16,19 @@ var power : float
 var name : String
 var description : String
 var flavour : String
+var icon : String
 var owned : bool
 var unlocked : bool
 var category
 var price := {}
 
-func _init(u_type, u_target, u_resource, u_scope, u_power:float, u_price, u_name:String, u_description:String, u_flavour="") -> void:
+func _init(u_type, u_target, u_resource, u_scope, u_power:float, u_price, u_icon:String, u_name:String, u_description:String, u_flavour="") -> void:
 	type = u_type
 	target = u_target
 	resource = u_resource
 	scope = u_scope
 	power = u_power
+	icon = u_icon
 	name = u_name
 	description = u_description
 	flavour = u_flavour

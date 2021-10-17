@@ -42,7 +42,7 @@ signal unit_updated(unit)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	units = {
-		#init(name, portrait, resources, rank = 1, cycle = 1, power = 1):
+		#init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0):
 		"Ferrus": 		Unit.new("Ferrus", "", ["Weapons"], 1, 1.5, 1.5),
 		"Leopold": 		Unit.new("Leopold", "", ["Weapons"], 1, 3.5, 3.25),
 		"Antoinette": 	Unit.new("Antoinette", "", ["Potions"], 1, 2.6, 2.75),
@@ -63,9 +63,10 @@ func _ready():
 	# enum UpgradeScope {BASE, PERCENTAGE}
 	# enum UpgradeCategory {UC, UGB, UGP, URB, URP, CGB, CGP, CRB, CRP}
 	upgrades = {
-		#func _init(type, target, resource, scope, power, name, description, flavour)
-		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {"Weapons": 256, "Scrolls": 100, "Blueprints": 500}, "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
-		"GachaFAQs": Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {"Food": 10}, "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
+		#func _init(type, target, resource, scope, power, icon, name, description, flavour)
+		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {"Weapons": 256, "Scrolls": 100, "Blueprints": 500}, "", "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
+		"GachaFAQs": Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {"Food": 10}, "", "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
+		"Armory": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.WEAPONS, Upgrade.UpgradeScope.PERCENTAGE, 2, {"Weapons": 10, "Blueprints": 5}, "", "Armory", "Safety first. At least, Weapon-makers think so. With these at hand, your Units will be able to go adventuring. – [i]Weapon-makers double their Resource production. Unlocks the Treasure Chest mechanic.[/i]", ""),
 		
 	}
 	
@@ -156,6 +157,9 @@ func get_party():
 
 func unit_add_resource(unit, resource):
 	resources_panel.update_resource(resource, get_unit_resource_power(unit, resource))
+	
+func add_resource(resource, amount):
+	resources_panel.update_resource(resource, amount)
 	
 func get_unit_resource_power(unit, resource):
 	var UGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.UGB)
