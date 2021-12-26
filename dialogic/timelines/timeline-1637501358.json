@@ -1,0 +1,46 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Alright nerd how about I show you the ropes around here"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "cause you know, like,"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[wave amp=50 freq=2]nya[/wave]"
+		},
+		{
+			"action": "leaveall",
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_003"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1637501358.json",
+		"name": "Test"
+	}
+}

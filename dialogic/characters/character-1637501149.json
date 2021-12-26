@@ -1,0 +1,20 @@
+{
+	"color": "#ffdec41b",
+	"description": "The \"cat\"",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1637501149.json",
+	"mirror_portraits": false,
+	"name": "Gloria",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Portraits/gloria-1.png"
+		}
+	],
+	"scale": 33
+}

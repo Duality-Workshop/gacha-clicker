@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/ShopTabs.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/UpgradeTab.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/ChestManager.gd" type="Script" id=12]
+[ext_resource path="res://src/TestDialogic.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -487,34 +488,6 @@ visible = false
 tab_name = "Premium Shop"
 type = 2
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 7 )
-
-[node name="NonGame" type="Node" parent="."]
-
-[node name="NonGameResourceDesc" type="Label" parent="NonGame"]
-margin_left = 426.116
-margin_top = -22.3074
-margin_right = 944.116
-margin_bottom = -8.3074
-text = "red = weapons, green = potions, purple = scrolls, yellow = food, blue = blueprints"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NonGameUnitListDesc" type="Label" parent="NonGame"]
-margin_left = -220.0
-margin_top = 953.0
-margin_right = -76.0
-margin_bottom = 1018.0
-text = "when \"select party\" is 
-clicked, this unit list
-toggles in and out 
-*goes swoosh*"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ChestArea" type="Control" parent="."]
 margin_left = 650.0
 margin_top = 138.0
@@ -529,11 +502,26 @@ __meta__ = {
 wait_time = 3.0
 autostart = true
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 983.516
+margin_top = 979.741
+margin_right = 1060.52
+margin_bottom = 999.741
+text = "Call Gloria"
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
