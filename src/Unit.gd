@@ -11,10 +11,11 @@ var cycle
 var power
 var party
 var owned
+var tags
 
 const UPGRADE_FACTOR = [1, .90, .65, .15]
 
-func _init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0):
+func _init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0, tags = []):
 	self.name = name
 	self.portrait = portrait
 	self.rank = rank
@@ -24,6 +25,7 @@ func _init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_le
 	self.power = power
 	self.party = false
 	self.owned = false
+	self.tags = tags
 
 
 func get_cycle():
@@ -39,5 +41,6 @@ func _to_string():
 		"cycle": cycle,
 		"power": power,
 		"party": party,
-		"owned": owned
+		"owned": owned,
+		"tags": tags
 	})

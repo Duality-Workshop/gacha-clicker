@@ -43,7 +43,7 @@ signal unit_updated(unit)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	units = {
-		#init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0):
+		#init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0, tags = []):
 		"Ferrus": 		Unit.new("Ferrus", "", ["Weapons"], 1, 1.5, 1.5),
 		"Leopold": 		Unit.new("Leopold", "", ["Weapons"], 1, 3.5, 3.25),
 		"Antoinette": 	Unit.new("Antoinette", "", ["Potions"], 1, 2.6, 2.75),
@@ -160,7 +160,7 @@ func unit_add_resource(unit, resource):
 	resources_panel.update_resource(resource, get_unit_resource_power(unit, resource))
 	
 func chest_add_resource(resource):
-	print_debug(resource + ": " + str(get_chest_power(resource)))
+	# print_debug(resource + ": " + str(get_chest_power(resource)))
 	resources_panel.update_resource(resource, get_chest_power(resource))
 	
 func get_unit_resource_power(unit, resource):

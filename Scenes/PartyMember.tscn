@@ -1,11 +1,82 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/PartyMember.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Generate"
+length = 0.2
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.1, -0.0303077, 0.817322, -0.05, 0.0888824, 0.00815046, 0.255707, 1.08395, -0.0409154, -0.0101106, 0.0486984, -0.0859395, 1.00033, -0.0262654, 0.124606, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.00178, -0.25, 0, 0.1, 0.0285821, 1.13098, -0.05, -0.0907514, 0.00813264, -0.189378, 0.776421, -0.0338743, -0.0151658, 0.0346162, 0.0404421, 1, -0.0326664, -0.0472726, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Open"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Label:custom_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
 
 [node name="PartyMember" type="Panel"]
 margin_right = 306.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 0, 75 )
+rect_scale = Vector2( 1, 1.00178 )
+rect_pivot_offset = Vector2( 32, 32 )
 size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {
@@ -133,6 +204,10 @@ text = "< Remove"
 
 [node name="CycleTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Generate = SubResource( 1 )
+anims/Open = SubResource( 2 )
 
 [connection signal="pressed" from="EnlistButton" to="." method="_on_EnlistButton_pressed"]
 [connection signal="pressed" from="RemoveButton" to="." method="_on_RemoveButton_pressed"]

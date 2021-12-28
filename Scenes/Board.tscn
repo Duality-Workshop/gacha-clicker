@@ -176,36 +176,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Weapons" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
-"Resources",
-] instance=ExtResource( 1 )]
+[node name="Weapons" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_right = 234.0
 type = "Weapons"
 
-[node name="Potions" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
-"Resources",
-] instance=ExtResource( 1 )]
+[node name="Potions" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 238.0
 margin_right = 473.0
 type = "Potions"
 
-[node name="Scrolls" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
-"Resources",
-] instance=ExtResource( 1 )]
+[node name="Scrolls" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 477.0
 margin_right = 712.0
 type = "Scrolls"
 
-[node name="Food" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
-"Resources",
-] instance=ExtResource( 1 )]
+[node name="Food" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 716.0
 margin_right = 951.0
 type = "Food"
 
-[node name="Blueprints" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
-"Resources",
-] instance=ExtResource( 1 )]
+[node name="Blueprints" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 955.0
 margin_right = 1190.0
 type = "Blueprints"
@@ -366,6 +356,7 @@ margin_left = 844.855
 margin_top = 249.727
 margin_right = 1428.85
 margin_bottom = 769.727
+text = "CRYSTAL"
 
 [node name="FeaturedUnit" type="Control" parent="."]
 anchor_left = 1.0
@@ -407,8 +398,8 @@ margin_left = -98.0
 margin_top = -22.5
 margin_right = 98.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "featured unit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -517,11 +508,11 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

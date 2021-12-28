@@ -24,13 +24,7 @@
 			"character": "character-1637501149.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "cause you know, like,"
-		},
-		{
-			"character": "character-1637501149.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "[wave amp=50 freq=2]nya[/wave]"
+			"text": "cause you know, like, [wave amp=50 freq=2]nya[/wave]"
 		},
 		{
 			"action": "leaveall",

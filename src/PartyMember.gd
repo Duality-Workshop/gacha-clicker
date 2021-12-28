@@ -1,5 +1,7 @@
 extends Panel
 
+var resource_particle_emitter = preload("res://Scenes/ResourceParticle.tscn")
+
 
 var unit
 
@@ -87,8 +89,18 @@ func rank_up():
 
 
 func _on_CycleTimer_timeout():
+	$AnimationPlayer.play("Generate")
 	for resource in unit.resources:
 		Manager.unit_add_resource(unit, resource)
+		
+		var emitter = resource_particle_emitter.instance()
+		var portrait = $HBoxContainer/Portrait
+		emitter.position = Vector2(portrait.rect_position.x + portrait.rect_size.x / 2, portrait.rect_position.y + portrait.rect_size.y / 2)
+		emitter.emitting = true
+		emitter.process_material.emission_box_extents = Vector3(portrait.rect_size.x / 2, portrait.rect_size.y / 2, 0)
+		emitter.process_material.color = Helper.get_resource_color(resource)
+		add_child(emitter)
+	
 	$CycleTimer.wait_time = unit.get_cycle()
 
 

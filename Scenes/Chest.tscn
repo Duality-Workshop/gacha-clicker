@@ -139,7 +139,6 @@ tracks/3/keys = {
 }
 
 [node name="Chest" type="Control"]
-visible = false
 margin_top = -0.0153248
 margin_right = 64.0
 margin_bottom = 63.9847
