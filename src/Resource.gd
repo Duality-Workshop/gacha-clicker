@@ -8,6 +8,7 @@ var amount = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Amount.text = str(amount)
+	$Icon.hint_tooltip = type
 	
 	var icon = $Icon
 	icon.color = Helper.resource_colors[type]
