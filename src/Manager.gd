@@ -15,6 +15,7 @@ var resources = {
 # units
 var units
 var party = []
+var pulls = []
 
 # upgrades
 var upgrades = {}
@@ -130,6 +131,7 @@ func pull_unit(unit):
 	else:
 		unit.owned = true
 		emit_signal("unit_updated", unit, "new")
+	pulls.erase(unit)
 
 func pull_random():
 	var rng = RandomNumberGenerator.new()
@@ -140,7 +142,7 @@ func pull_random():
 		if units[unit].rank < 30:
 			valid_units.append(units[unit])
 	
-	pull_unit(valid_units[rng.randi_range(0, len(valid_units)-1)])
+	pulls.append(valid_units[rng.randi_range(0, len(valid_units)-1)])
 
 func get_owned_units():
 	var u = []

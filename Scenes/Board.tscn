@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Scenes/UpgradeTab.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/ChestManager.gd" type="Script" id=12]
 [ext_resource path="res://src/TestDialogic.gd" type="Script" id=13]
+[ext_resource path="res://Resources/Icons/CrystalParticle.png" type="Texture" id=14]
+[ext_resource path="res://src/PullContainer.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -58,6 +60,9 @@ font_data = ExtResource( 8 )
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.28
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 8 )
 
 [node name="Board" type="Control"]
 anchor_right = 1.0
@@ -490,7 +495,7 @@ __meta__ = {
 }
 
 [node name="ChestTimer" type="Timer" parent="ChestArea"]
-wait_time = 3.0
+wait_time = 30.0
 autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -507,6 +512,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PullContainer" type="HBoxContainer" parent="."]
+margin_top = 920.0
+margin_right = 154.0
+margin_bottom = 952.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Callerite" type="TextureRect" parent="PullContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="PullContainer"]
+margin_left = 36.0
+margin_top = 4.0
+margin_right = 154.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 8 )
+text = "X call(s) waiting!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
@@ -516,3 +547,4 @@ __meta__ = {
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
