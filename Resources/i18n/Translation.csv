@@ -1,0 +1,171 @@
+key,en
+RESOURCE,Resource
+WEAPONS,Weapons
+POTIONS,Potions
+SCROLLS,Scrolls
+FOOD,Food
+BLUEPRINTS,Blueprints
+CALLERITE,Callerite
+PARTY,Party
+ROSTER,Roster
+EDIT_PARTY,Edit party
+PROFILE,Profile
+SHOP,Shop
+SETTINGS,Settings
+HELP,Help
+FERRUS_INTRODUCTION,Th'name's Ferrus. I smith. ...keep distance from my forge. I need to focus.
+FERRUS_UPGRADE_REQUEST_1,"If I want to do any decent work around here, I'm gonna need a better workshop."
+FERRUS_UPGRADE_REQUEST_2,I've been told I haven't been eating enough lately...so.
+FERRUS_UPGRADE_REQUEST_3,Gonna need a boost if you're wantin' me to hit max production.
+FERRUS_UPGRADE_COMPLETE,"Kay, thanks. I'll keep workin'."
+FERRUS_RANK_UP,Thanks for the touchin' up.
+FERRUS_MAX_RANK,You got nothin' to complain about now. I'll be makin' the sturdiest weapons this kingdom ever did see. And you'll never regret me taking space in this land of yours.
+FERRUS_CALLERITE_GIVEN,...you're serious about this? ...then I won't let you down.
+FERRUS_FAUXLERITE_GIVEN,...fine. If a job is a job.
+FERRUS_FEATURED_1,"If you see Leopold, tell 'im to back off from my station unless he wants to be singed."
+FERRUS_FEATURED_2,My forge is set hotter than should be for your average smith. Only demons can handle it.
+FERRUS_FEATURED_3,You're buyin' me lunch? ...sure. I'll eat with you.
+FERRUS_ADDED_TO_PARTY,Roger. Workin' on it.
+LEOPOLD_INTRODUCTION,"Greetings, mortal! I, Leopold, will show you the greatness of superior imported weaponry! You're amazed, aren't you?"
+LEOPOLD_UPGRADE_REQUEST_1,"Quickly, my friend, I must acquire some imported writings before I begin the real work!"
+LEOPOLD_UPGRADE_REQUEST_2,"Oh, how greatly I would like to go further, but...the body, it desires sustenance!"
+LEOPOLD_UPGRADE_REQUEST_3,"I've read and read, but I need to ascend to a much greater scope of knowledge! Quickly, I need the forbidden texts!"
+LEOPOLD_UPGRADE_COMPLETE,And so the contract is made! Prepare to be wowed as I conjure up my latest metal creation!
+LEOPOLD_RANK_UP,"I can feel it in my soul, my power level..rising to unprescedented levels!"
+LEOPOLD_MAX_RANK,"Ohohohoho, yes! I, Leopold, have peaked, and am now fully prepared to make the ultimate blade: Taiyou no Koe! And it's all thanks to you...my treasured friend, who hath always believed in me!"
+LEOPOLD_CALLERITE_GIVEN,Gasp! You've found a holy treasure of the otherworldly realm! And I'm the chosen one? I shan't cry...I shan't!
+LEOPOLD_FAUXLERITE_GIVEN,"Oh fourteen heavens of the holy hands, ahehe. Where in the lands of Calthesius...did you even get this..?"
+LEOPOLD_FEATURED_1,"Measure twice, cut once - that's what they say! But with my special blades, you can measure once, and er...cut twice. Yeah! "
+LEOPOLD_FEATURED_2,"I don't just make katanas, you know! I also make powerfully charged talismans to protect you. You never know where creatures in the forest would want to whisk you away to, so power up your chakras and take this!"
+LEOPOLD_FEATURED_3,"Has fate allowed you to meet Benji, yet? Why, Benji is only my beloved kin! They're a master in marrying tactical weaponry and practical machinery. If there is anyone in this world who can best me..they are the only one!"
+LEOPOLD_ADDED_TO_PARTY,You made the most fortuitous choice!
+ANTOINETTE_INTRODUCTION,"Hiiiii there! If you're going to run a kingdom, you'll need all kinds of tonics, won't you? That's where I come in! Antoinette here to offer you my chemist-made wares! I'll give you a discount on the more ""experimental"" vials, okay?"
+ANTOINETTE_UPGRADE_REQUEST_1,"Heeeey! If you could do me a favor, could you gimme some parchment, pretty please! I'm out of space for notes!"
+ANTOINETTE_UPGRADE_REQUEST_2,"Hi hi! I have a new super corrosive potion, and I need to test it on some really strong axes!"
+ANTOINETTE_UPGRADE_REQUEST_3,"Oops, I'm reaaaaally starting to run out of space for all my experiments! Could you do me one last favor, super pretty please, to help me expand it?"
+ANTOINETTE_UPGRADE_COMPLETE,Thanks! This is just the perfect time for me to try out my speed tincture to see how much faster I can go!
+ANTOINETTE_RANK_UP,"You upgraded my lab, just for me? Now I'll have all the space to make a hundred more new kinds of potions! Hey, it could even be a thousand!"
+ANTOINETTE_MAX_RANK,"Aww, is it really possible? I can't get any better than this? Oh well, this just means no other chemist in the world can top me, all thanks to you!"
+ANTOINETTE_CALLERITE_GIVEN,"That's...that's amazing! This is radiating so much, I feel like I have to handle it with gloves..."
+ANTOINETTE_FAUXLERITE_GIVEN,"Gosh. I'm uh...definitely gonna need gloves to handle these, but all for science!"
+ANTOINETTE_FEATURED_1,"Have you ever felt dull and listless? Have you ever imagined what it's like to touch the sky? Well look no further, because Antoinette's Armoire of Alchemy will--...hey, I'm trying to practice something here, don't listen yet!"
+ANTOINETTE_FEATURED_2,"Hey, out of curiosity, what's your favorite food? Do you think more people would be willing to try my tinctures if I made them taste better?"
+ANTOINETTE_FEATURED_3,"Lailiel is the best person to work with EVER! They're never afraid to help me with my experiments, so I can't help but spoil them with so many of my own potions. They're just so relaxed about everything, you know?"
+ANTOINETTE_ADDED_TO_PARTY,"Oooh, me, you picked me! My time to shine!"
+LAILIEL_INTRODUCTION,"I'm...Lailiel. ...to be honest, I've been slumbering in that home nearby for many years, and you woke me from it. But, if you are in need of divine elixirs...I can work on something."
+LAILIEL_UPGRADE_REQUEST_1,...I have a desire for potato chips.
+LAILIEL_UPGRADE_REQUEST_2,...I am yearning for some instant ramen.
+LAILIEL_UPGRADE_REQUEST_3,...I can feel my divine soul clamoring for the sweet release of a burger.
+LAILIEL_UPGRADE_COMPLETE,Thank you...for gathering this for me. I can stay awake for a little longer...
+LAILIEL_RANK_UP,"Further creation for others, which means more work...but very well, I'll see to more elixirs."
+LAILIEL_MAX_RANK,How odd...I don't remember the last time I've felt my body ascend this way.
+LAILIEL_CALLERITE_GIVEN,"...be very, very careful with what you do with these...but if you're giving me one, I won't turn away the gift. As long as you're careful, anyways..."
+LAILIEL_FAUXLERITE_GIVEN,You...you're not really...are you truly intending to follow that path..?
+LAILIEL_FEATURED_1,"Were it not for elixir-crafting requiring my attention, I'd be tempted to return to my slumber for another few centuries. I wonder...if Antoinette has anything to keep me awake."
+LAILIEL_FEATURED_2,Bottled heavenly light is useful. It makes elixir-making easy thanks to how potent it is..so I don't have to do much work at all.
+LAILIEL_FEATURED_3,"I have to pick one thing I like about the moral realm as opposed to the divine plane? ...junk food. The saltier, the better..."
+LAILIEL_ADDED_TO_PARTY,"Very well, if you insist..."
+BA-YIN_INTRODUCTION,"I'm most welcome to meet you. You can call me Ba-Yin, and I'm trained in calligraphy. Should you need me to script anything for you, you need only call me."
+BA-YIN_UPGRADE_REQUEST_1,"If I could kindly ask you a favor, I'm in charge of stocking the office for Hoto and I with refreshments. Would you happen to have any to offer?"
+BA-YIN_UPGRADE_REQUEST_2,"My apologies for sending in a request again, but my desk is beginning to deteriorate and is affecting my work. Would it be possible to arrange a replacement for me, please?"
+BA-YIN_UPGRADE_REQUEST_3,"You've been most generous to me in the past. If I could ask one last thing of you, would you be able to help me stock the first aid kit? I've just found out the one we currently have is not up to code."
+BA-YIN_UPGRADE_COMPLETE,You have my gratitude. I won't put this offering to waste.
+BA-YIN_RANK_UP,"You're much too kind to offer me this, I'm grateful."
+BA-YIN_MAX_RANK,"All my life, I've trained to make my calligraphy as beautiful as it is..all for this recognition of my trade, at last. Thank you sincerely for humoring me."
+BA-YIN_CALLERITE_GIVEN,"My leader, you...truly intend to give this to me? I'm not deserving of such an honor, but, I'll accept this generous gesture."
+BA-YIN_FAUXLERITE_GIVEN,It would be rude of me not to accept your gift...thank you.
+BA-YIN_FEATURED_1,"One, two, three, four strokes...ah, shoot. This scroll is not as beautiful as it should be. One, two..."
+BA-YIN_FEATURED_2,"I'm thankful that Hoto and Saluken have been so kind to me. It's hard to be able to pull myself from my work, but I don't regret spending time with them to relax. We always like to get sweets from Kiki."
+BA-YIN_FEATURED_3,"Calligraphy is a lot more than just writing words. It's the ability to immortalize the way we communicate into art. If you would like me to teach you someday, I would be happy to."
+BA-YIN_ADDED_TO_PARTY,My brush is inked.
+HOTO_INTRODUCTION,"Hello there. If you're going to build a kingdom, it's only suiting that you'll need a historian, won't you? My name is Hoto. I will work with you to make your kingdom unforgettable."
+HOTO_UPGRADE_REQUEST_1,"Excuse me, but I've got to catch up with my work and I need some help picking up my medicine. Could you go visit Lailiel to get it for me, please?"
+HOTO_UPGRADE_REQUEST_2,"Well, you won't believe this, but Lailiel just sort of gave up, I suppose. The potion they gave me ended up being some kind of sickly drink. Can you go back to make sure they get it right this time, please?"
+HOTO_UPGRADE_REQUEST_3,"I feel...so exhausted. I swear it, I'm going to strangle Lailiel for making me so sick. One last time, I promise...perhaps just go to a different potion maker instead? Anyone could be more reliable than Lailiel is..."
+HOTO_UPGRADE_COMPLETE,Perfect...I'll have more records ready for you in just a moment.
+HOTO_RANK_UP,"I'll be able to record faster now, then? Good! Let's see if I can keep up."
+HOTO_MAX_RANK,"It's a little difficult to find the words for this great honor, but you by and large honor me. You're still a pleasure to work with, and we'll make history yet, hm?"
+HOTO_CALLERITE_GIVEN,"There's no way...how did you even get this? Well. Before my imagination goes too wild, I'll accept your offer. Thank you."
+HOTO_FAUXLERITE_GIVEN,Thank you...I suppose?
+HOTO_FEATURED_1,"I've met a few people who find it natural to make fun of my lunches, calling them ""mere rabbit food"". Well...frankly, my health is going to be thankful for it being rabbit food, won't it?"
+HOTO_FEATURED_2,"Where I get my clothes? Oh, hehe. It's a small shop that used to make clothes all like this, called Marian Maiden. Why, do you want to try dress like this, too?"
+HOTO_FEATURED_3,"I'm grateful that Ba-Yin is easy to work with. I doubt she is the kind of person to be a huge part of a history book, but it's those kinds of people that really help the world run."
+HOTO_ADDED_TO_PARTY,Alright then! Ready to go.
+UGOLYA_INTRODUCTION,"Yoooooo, my friend! You and your people are hungry, aren't you? That's what I thought, so eat up! All this jerky is an Ugolya specialty, so don't waste any of it!"
+UGOLYA_UPGRADE_REQUEST_1,"Yo, leader friend! I hear there's some new beast in the forests that's been showing up. Get me some journals about it before I leave on my next trip?"
+UGOLYA_UPGRADE_REQUEST_2,"Everything is ready to go, but I need a very specific weapon for this new forest beast! You'll give me a halberd, right?"
+UGOLYA_UPGRADE_REQUEST_3,"Danger, danger my friend! The first attack against the forest beast went very, VERY badly! You must give me more power! ..two halberds, perhaps?"
+UGOLYA_UPGRADE_COMPLETE,"I could make do with a piece of string, you know. But alright, I'll make something good soon with what you gave me!"
+UGOLYA_RANK_UP,"Meat, meat...MEAAAAAAT! More meat!"
+UGOLYA_MAX_RANK,"And just like that, you're all set for life! Adventures? Camping? War? Being stranded on a faraway desert? Now you'll have food for everything!"
+UGOLYA_CALLERITE_GIVEN,"What's this shiny rock even for, huh? All colorful for some decoration, I bet--...OHHHHHHHHH!"
+UGOLYA_FAUXLERITE_GIVEN,"Ohoh boy. You've been going to crazy places, my friend."
+UGOLYA_FEATURED_1,"What's that? This one is too salty for you? Nonsense talk! It's very important for preservation, you know. No salt, no life for food! And no life for your taste buds."
+UGOLYA_FEATURED_2,"Words of wisdom from me, Ugolya: never fire roast a pig in the middle of a pine forest that's on a cliff. Well, no, roast a pig anyways! Just not a giant pig. ...what, who doesn't get excited about eating a giant pig?"
+UGOLYA_FEATURED_3,"I see Morgause very often on my travels! We eat together, but they always say no to a hike. For good reason, too. Even with their power, they're as strong as a toothpick."
+UGOLYA_ADDED_TO_PARTY,You will not regret what I'll cook up!
+KIKI_INTRODUCTION,K...Kiki. ...please eat my pastries.
+KIKI_UPGRADE_REQUEST_1,"Oh...oh no, I'm out of my special donut glaze...what am I going to do..?"
+KIKI_UPGRADE_REQUEST_2,"Hoto wants a special kind of bread, but...I don't have the recipe for it at all. Can...can you help me..?"
+KIKI_UPGRADE_REQUEST_3,"You...y-you don't have to do this, but, if I could have my own real bakery, I..."
+KIKI_UPGRADE_COMPLETE,"...thank you, so, so much."
+KIKI_RANK_UP,"Ah...okay, I'll bake more for you."
+KIKI_MAX_RANK,...I feel so happy. I'm going to have to make a very special cake to celebrate this moment...
+KIKI_CALLERITE_GIVEN,..! T-th-thank you! Thank you! Thank you...
+KIKI_FAUXLERITE_GIVEN,"Your gift, there's...t-there's something wrong with it..."
+KIKI_FEATURED_1,"I like selling my pastries, but...I'm never any good at greeting customers. And when they compliment my food, I...never know how to say thank you."
+KIKI_FEATURED_2,"Okay...you can pat my head. Once. But, only...if you help me clean the dishes."
+KIKI_FEATURED_3,"...I don't like Gloria. I don't know why, I'm sorry...she just puts an unsettling feeling in me. It makes my tail shiver..."
+KIKI_ADDED_TO_PARTY,Coming right up...
+SALUKEN_INTRODUCTION,"It's a pleasure to meet you! My name is Saluken, and I'm here as your civil engineer. I know this was just a mere arranged assignment, but I hope my skills can be of help to you."
+SALUKEN_UPGRADE_REQUEST_1,"Hey there! I'm going to have to read up some more on the environment of this area before I work out the zoning. Is it okay if you can get me some books, please?"
+SALUKEN_UPGRADE_REQUEST_2,"Oh no, it looks like the lighting on this road is going to be down for a while...but we can fix it temporarily! Maybe with some liquid light potions?"
+SALUKEN_UPGRADE_REQUEST_3,"I'm sorry, I really don't want to be a burden to you about this, but um...I've been scouting all day today and I forgot to pack my lunch..."
+SALUKEN_UPGRADE_COMPLETE,You're giving these to me? Thank you. I'll put these resources to good use!
+SALUKEN_RANK_UP,"I should be able to work much more efficiently like this! Hold tight, everyone. I'm going to work even harder for the kingdom!"
+SALUKEN_MAX_RANK,"You've helped me come so far. By all accounts, you didn't have to put your faith in me, but...you did. Thank you for giving me the chance to help make this Domain the best it can be. Because the world of Calthesius needs it."
+SALUKEN_CALLERITE_GIVEN,"Wait, is that...callerite?! My leader, there's no way you're giving it to me, I...oh, this is the highest form of praise I could ever ask for!"
+SALUKEN_FAUXLERITE_GIVEN,"Dear leader, I appreciate your gift, but...well, if it's going to make the world a better place..."
+SALUKEN_FEATURED_1,"The newest pipeline is good to go, and we went through the current house zoning with perfect synergy. What's next now..."
+SALUKEN_FEATURED_2,"Building a pool wouldn't be advisable in this sector. But...I'll see what I can do elsewhere. If I'm being honest, I would really love to wade in a pool!"
+SALUKEN_FEATURED_3,"I try my best to be open-minded to everyone, but sometimes it's...a little hard with Arnia. There's nothing wrong with dreaming, but interior work involves the lives of people. Why would you want to risk that for a funny-looking design?"
+SALUKEN_ADDED_TO_PARTY,"You're choosing to hire me? I'm simply elated, thank you!"
+ARNIA_INTRODUCTION,"Buongiorno! That's Finnish for ""we haven't met before."" I'm Arnia, and look no further for your new favorite interior designer! If I can imagine it, then I can make it happen!"
+ARNIA_UPGRADE_REQUEST_1,"Pardonez-moi! For my current client's room, they want some decorative books for their bookcase. They don't actually read. But they want books. So books, pleaaaase!"
+ARNIA_UPGRADE_REQUEST_2,"Oi, oi! I have another client! Get me some swords so I can hang them up on the wall, okay? It'll be super fancy!"
+ARNIA_UPGRADE_REQUEST_3,"Sumimasen! My newest client has just the most luxurious tastes, and wants to have their entire room emit simulated biolumniescence! I need glow potions to pour on all the furniture, and LOTS of them!"
+ARNIA_UPGRADE_COMPLETE,"Okie dokie, I'll spruce up more rooms real fast, and I'll make them ""bee-spoke"" too!"
+ARNIA_RANK_UP,"Ooh! More shinies to play with? Just you wait, you're going to see so many colors in this room, it's going to make you dizzy!"
+ARNIA_MAX_RANK,"You're so amazing! If I told everyone at home that someone actually believed in me enough to let me design my furnishings, no one would believe me...chicken-shaped building, here I come!"
+ARNIA_CALLERITE_GIVEN,"I can't believe it! You're an innovator, an inventor, and everything important, yes, yes, YES! My star is shining!"
+ARNIA_FAUXLERITE_GIVEN,"Puaf! This decoration sure is unique, but something about it is so stinky!"
+ARNIA_FEATURED_1,"I first fell in love with my job when I learned about ball chairs. Whoever invented those was such a genius, letting people like you and me be able to sit inside a ball at home! So cozy..."
+ARNIA_FEATURED_2,"Some time when we're not working, we need to try go to the candy shop together! I know a place that makes amazing dragonfruit truffles. I bet you never tried those, huh?"
+ARNIA_FEATURED_3,"It's always really nice when someone listens to all your blabbering, isn't it? That's why Saluken is the best! I can tell her everything and she'll understand it all!"
+ARNIA_ADDED_TO_PARTY,"Let's get a new design going, right away!"
+MORGAUSE_INTRODUCTION,"Ooh, my my. It's not very often that I get to see another soul in my travels like this. I am the master sage, Morgause. If you're truly begging for my help, then I'll just have to offer what I can, shouldn't I?"
+MORGAUSE_UPGRADE_REQUEST_1,"Not to insult our dear companions, but..I simply need my own secluded space to be able to work properly. Would you be a dear and arrange a cabin for me?"
+MORGAUSE_UPGRADE_REQUEST_2,It's been a while since I've been in touch with the concoctions the kids are making nowadays. Could you fetch me some fresh potions so I can study them?
+MORGAUSE_UPGRADE_REQUEST_3,"Truly, how much work burdens the body...you'll get me a snack to remedy this, won't you? I'll take a fresh honeydew melon."
+MORGAUSE_UPGRADE_COMPLETE,"This will do well enough for now, thank you."
+MORGAUSE_RANK_UP,"You're finally paying attention to my abilities, are you? Better late than never. I'll show you just how much better the work of a master sage can be."
+MORGAUSE_MAX_RANK,"Oh my. I didn't think I could grow in power any more than I already did on my own, but you managed to prove me wrong. I suppose I'll have to thank you, right?"
+MORGAUSE_CALLERITE_GIVEN,"...hehehe. A dangerous decision, but you've chosen the right one."
+MORGAUSE_FAUXLERITE_GIVEN,"...you're trying to make me change sides, aren't you?"
+MORGAUSE_FEATURED_1,"I don't regret all the time I've spent mastering my powers. But I do admit...maybe, just maybe it gets a little lonely sometimes. And no need to tease me for it. I'm still human."
+MORGAUSE_FEATURED_2,"Ugolya...that girl has so much energy. Too much for me at times, but I can always appreciate someone who never makes a moment dull."
+MORGAUSE_FEATURED_3,"Meeting you the way I did was the ideal outcome, for sure. Why, in a different time, and in a different place...oh my. It could've been very possible you wouldn't be standing here if you were to match against me."
+MORGAUSE_ADDED_TO_PARTY,"Let's show anything standing in our way who the real victor is, shall we?"
+BENJI_INTRODUCTION,"Hey there, bud, the name's Benji! So, I hear you're building a Domain? Well, you're gonna need to be bold and learn how to take calculated risks. That's what a warmaster like me is for! "
+BENJI_UPGRADE_REQUEST_1,"Before we really get going, first things first: I'm gonna need reinforcements in weapon stock! Hey, you need weapons to make weapons."
+BENJI_UPGRADE_REQUEST_2,Looks like I got a bit hasty with the adhesive. Mind if you can stop by for some solvents so that I can seal these contraptions together?
+BENJI_UPGRADE_REQUEST_3,I'm gonna have to record this new axe-gun before I get to carried away with it. Could you be a pal and top me off with some parchment?
+BENJI_UPGRADE_COMPLETE,"Appreciate it. It's just a start, but I can easily put something together with this."
+BENJI_RANK_UP,"You're putting your faith in me, eh? That's what I like to see!"
+BENJI_MAX_RANK,"I'm so used to having to make home defense out of a few slabs of wood and twine. But with all that you've given me, nothing can stop us. No kingdom will ever know what hit 'em, now and forever more!"
+BENJI_CALLERITE_GIVEN,"Well now! That's an interesting artifact you got there. I figured I'd wanna bash out how to improve by myself, but...fair is fair, ain't it?"
+BENJI_FAUXLERITE_GIVEN,"Whoah, hold it there! I can always appreciate more ammo, but you better watch it with all this. It's dangerous. Might make the village go nuclear."
+BENJI_FEATURED_1,"You're asking me how I got all these scars? Well, I mean...it's only natural, right, when you make as many trebuchets as I do. Surely you understand."
+BENJI_FEATURED_2,"You've met my brother, Leopold, right? You can't miss him. He's a little confused and try hard in some of the wrong areas, but he's got the bold energy it takes to be a weapon crafter."
+BENJI_FEATURED_3,"Have you listened to Arnia, much? She keeps mentioning about these lands called ""Italy"" or ""Finland"", but...I have no clue what she's talking about. Do you think they're regions we've yet to discover? I can't find any records about them. It could be an exciting venture."
+BENJI_ADDED_TO_PARTY,"Ready to try something new, captain?"
