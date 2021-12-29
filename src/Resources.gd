@@ -7,11 +7,11 @@ var resource_nodes
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	resource_nodes = {
-		"Weapons": $VBoxContainer/HBoxContainer/Weapons, 
-		"Potions": $VBoxContainer/HBoxContainer/Potions, 
-		"Scrolls": $VBoxContainer/HBoxContainer/Scrolls, 
-		"Food": $VBoxContainer/HBoxContainer/Food, 
-		"Blueprints": $VBoxContainer/HBoxContainer/Blueprints
+		Helper.RESOURCE_TYPE.WEAPONS: $VBoxContainer/HBoxContainer/Weapons, 
+		Helper.RESOURCE_TYPE.POTIONS: $VBoxContainer/HBoxContainer/Potions, 
+		Helper.RESOURCE_TYPE.SCROLLS: $VBoxContainer/HBoxContainer/Scrolls, 
+		Helper.RESOURCE_TYPE.FOOD: $VBoxContainer/HBoxContainer/Food, 
+		Helper.RESOURCE_TYPE.BLUEPRINTS: $VBoxContainer/HBoxContainer/Blueprints
 	}
 
 

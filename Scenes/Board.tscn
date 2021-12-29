@@ -183,27 +183,26 @@ __meta__ = {
 
 [node name="Weapons" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_right = 234.0
-type = "Weapons"
 
 [node name="Potions" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 238.0
 margin_right = 473.0
-type = "Potions"
+type = 1
 
 [node name="Scrolls" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 477.0
 margin_right = 712.0
-type = "Scrolls"
+type = 2
 
 [node name="Food" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 716.0
 margin_right = 951.0
-type = "Food"
+type = 3
 
 [node name="Blueprints" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_left = 955.0
 margin_right = 1190.0
-type = "Blueprints"
+type = 4
 
 [node name="ResourcesLabel" type="Label" parent="ResourcesPanel/VBoxContainer"]
 margin_top = 69.0

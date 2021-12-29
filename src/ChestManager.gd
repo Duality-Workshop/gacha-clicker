@@ -5,14 +5,7 @@ var chest_node = preload("res://Scenes/Chest.tscn")
 var rng = RandomNumberGenerator.new()
 
 const resources = ["Weapons", "Potions", "Scrolls", "Food", "Blueprints"]
-var roll_odds = {
-	"Weapons": 100, 
-	"Potions": 100, 
-	"Scrolls": 100, 
-	"Food": 100, 
-	"Blueprints": 10,
-	"Callerite": 10
-	}
+var roll_odds = {}
 var roll_sum
 var roll_table = {}
 
@@ -24,6 +17,15 @@ export(int) var despawn_timer = 10
 func _ready() -> void:
 	mouse_filter = MOUSE_FILTER_IGNORE
 	if Manager.RANDOM: rng.randomize()
+	
+	roll_odds = {
+		Helper.RESOURCE_TYPE.WEAPONS: 100,
+		Helper.RESOURCE_TYPE.SCROLLS: 100,
+		Helper.RESOURCE_TYPE.POTIONS: 100,
+		Helper.RESOURCE_TYPE.FOOD: 100,
+		Helper.RESOURCE_TYPE.BLUEPRINTS: 10,
+		"Callerite": 10
+	}
 	
 	$ChestTimer.wait_time = spawn_timer
 	

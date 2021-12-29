@@ -4,7 +4,7 @@ class_name Upgrade
 
 enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
 enum UpgradeTarget {UNIT, CLICK, CHEST, LIMITER, GLOBAL}
-enum UpgradeResource {WEAPONS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
+#enum Helper.RESOURCE_TYPE {WEAPONS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
 enum UpgradeScope {BASE, PERCENTAGE}
 enum UpgradeCategory {UGB, UGP, URB, URP, CGB, CGP, CRB, CRP, HGB, HGP, HRB, HRP}
 
@@ -36,7 +36,7 @@ func _init(u_type, u_target, u_resource, u_scope, u_power:float, u_price, u_icon
 	unlocked = false
 	
 	if target == UpgradeTarget.UNIT:
-		if resource == UpgradeResource.GLOBAL:
+		if resource == Helper.RESOURCE_TYPE.GLOBAL:
 			if scope == UpgradeScope.BASE:
 				category = UpgradeCategory.UGB
 			else:
@@ -47,7 +47,7 @@ func _init(u_type, u_target, u_resource, u_scope, u_power:float, u_price, u_icon
 			else:
 				category = UpgradeCategory.URP
 	elif target == UpgradeTarget.CLICK:
-		if resource == UpgradeResource.GLOBAL:
+		if resource == Helper.RESOURCE_TYPE.GLOBAL:
 			if scope == UpgradeScope.BASE:
 				category = UpgradeCategory.CGB
 			else:
@@ -58,7 +58,7 @@ func _init(u_type, u_target, u_resource, u_scope, u_power:float, u_price, u_icon
 			else:
 				category = UpgradeCategory.CRP
 	elif target == UpgradeTarget.CHEST:
-		if resource == UpgradeResource.GLOBAL:
+		if resource == Helper.RESOURCE_TYPE.GLOBAL:
 			if scope == UpgradeScope.BASE:
 				category = UpgradeCategory.HGB
 			else:

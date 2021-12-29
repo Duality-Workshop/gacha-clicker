@@ -1,17 +1,16 @@
 extends HBoxContainer
 
-
-export(String, "Select a type", "Weapons", "Potions", "Scrolls", "Food", "Blueprints") var type
+export(Helper.RESOURCE_TYPE) var type
 var amount = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Amount.text = str(amount)
-	$Icon.hint_tooltip = type
 	
 	var icon = $Icon
-	icon.color = Helper.resource_colors[type]
+	icon.color = Helper.get_resource_color(type)
+	icon.hint_tooltip = Helper.get_resource_name(type)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,3 +26,5 @@ func increase_amount(value):
 func _on_CallCrystalButton_increase_resource(resource, value):
 	if resource == type:
 		increase_amount(value)
+
+

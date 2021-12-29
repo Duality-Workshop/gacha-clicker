@@ -4,13 +4,7 @@ var Unit = load("src/Unit.gd")
 var Upgrade = load("src/Upgrade.gd")
 
 # resources
-var resources = {
-	"Weapons": 0,
-	"Potions": 0,
-	"Scrolls": 0,
-	"Food": 0,
-	"Blueprints": 0
-}
+var resources = {}
 
 # units
 var units
@@ -19,13 +13,7 @@ var pulls = []
 
 # upgrades
 var upgrades = {}
-const UPGRADE_RESOURCE = {
-	"Weapons": Upgrade.UpgradeResource.WEAPONS, 
-	"Scrolls": Upgrade.UpgradeResource.SCROLLS, 
-	"Potions": Upgrade.UpgradeResource.POTIONS, 
-	"Food": Upgrade.UpgradeResource.FOOD, 
-	"Blueprints": Upgrade.UpgradeResource.BLUEPRINTS
-}
+
 var base_click_power = 1
 var base_chest_power = 100
 
@@ -43,20 +31,28 @@ signal unit_updated(unit)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	resources = {
+		Helper.RESOURCE_TYPE.WEAPONS: 0,
+		Helper.RESOURCE_TYPE.SCROLLS: 0,
+		Helper.RESOURCE_TYPE.POTIONS: 0,
+		Helper.RESOURCE_TYPE.FOOD: 0,
+		Helper.RESOURCE_TYPE.BLUEPRINTS: 0
+	}
+	
 	units = {
 		#init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0, tags = []):
-		"Ferrus": 		Unit.new("Ferrus", "", ["Weapons"], 1, 1.5, 1.5),
-		"Leopold": 		Unit.new("Leopold", "", ["Weapons"], 1, 3.5, 3.25),
-		"Antoinette": 	Unit.new("Antoinette", "", ["Potions"], 1, 2.6, 2.75),
-		"Lailiel": 		Unit.new("Lailiel", "", ["Potions"], 1, 9.75, 9),
-		"Ba-Yin": 		Unit.new("Ba-Yin", "", ["Scrolls"], 1, 1.5, 1.5),
-		"Hoto": 		Unit.new("Hoto", "", ["Scrolls"], 1, 3, 3),
-		"Ugolya": 		Unit.new("Ugolya", "", ["Food"], 1, 11, 10),
-		"Kiki": 		Unit.new("Kiki", "", ["Food"], 1, 3.8, 3.5),
-		"Saluken": 		Unit.new("Saluken", "", ["Blueprints"], 1, 3, 3),
-		"Arnetta": 		Unit.new("Arnetta", "", ["Blueprints"], 1, 2.9, 3.1),
-		"Morgause": 	Unit.new("Morgause", "", ["Potions", "Scrolls"], 1, 3.5, 4),
-		"Benji": 		Unit.new("Benji", "", ["Weapons", "Blueprints"], 1, 2, 2.5)
+		"Ferrus": 		Unit.new("Ferrus", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 1.5, 1.5),
+		"Leopold": 		Unit.new("Leopold", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 3.5, 3.25),
+		"Antoinette": 	Unit.new("Antoinette", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 2.6, 2.75),
+		"Lailiel": 		Unit.new("Lailiel", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 9.75, 9),
+		"Ba-Yin": 		Unit.new("Ba-Yin", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 1.5, 1.5),
+		"Hoto": 		Unit.new("Hoto", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 3, 3),
+		"Ugolya": 		Unit.new("Ugolya", "", [Helper.RESOURCE_TYPE.FOOD], 1, 11, 10),
+		"Kiki": 		Unit.new("Kiki", "", [Helper.RESOURCE_TYPE.FOOD], 1, 3.8, 3.5),
+		"Saluken": 		Unit.new("Saluken", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 3, 3),
+		"Arnetta": 		Unit.new("Arnetta", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2.9, 3.1),
+		"Morgause": 	Unit.new("Morgause", "", [Helper.RESOURCE_TYPE.POTIONS, Helper.RESOURCE_TYPE.SCROLLS], 1, 3.5, 4),
+		"Benji": 		Unit.new("Benji", "", [Helper.RESOURCE_TYPE.WEAPONS, Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2, 2.5)
 	}
 	
 	# enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
@@ -66,9 +62,9 @@ func _ready():
 	# enum UpgradeCategory {UC, UGB, UGP, URB, URP, CGB, CGP, CRB, CRP}
 	upgrades = {
 		#func _init(type, target, resource, scope, power, icon, name, description, flavour)
-		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {"Weapons": 256, "Scrolls": 100, "Blueprints": 500}, "", "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
-		"GachaFAQs": Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {"Food": 10}, "", "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
-		"Armory": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Upgrade.UpgradeResource.WEAPONS, Upgrade.UpgradeScope.PERCENTAGE, 2, {"Weapons": 10, "Blueprints": 5}, "", "Armory", "Safety first. At least, Weapon-makers think so. With these at hand, your Units will be able to go adventuring. – [i]Weapon-makers double their Resource production. Unlocks the Treasure Chest mechanic.[/i]", ""),
+		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.WEAPONS: 256, Helper.RESOURCE_TYPE.SCROLLS: 100, Helper.RESOURCE_TYPE.BLUEPRINTS: 500}, "", "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
+		"GachaFAQs": Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {Helper.RESOURCE_TYPE.FOOD: 10}, "", "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
+		"Armory": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.WEAPONS, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.WEAPONS: 10, Helper.RESOURCE_TYPE.BLUEPRINTS: 5}, "", "Armory", "Safety first. At least, Weapon-makers think so. With these at hand, your Units will be able to go adventuring. – [i]Weapon-makers double their Resource production. Unlocks the Treasure Chest mechanic.[/i]", ""),
 		
 	}
 	
@@ -167,27 +163,27 @@ func chest_add_resource(resource):
 	
 func get_unit_resource_power(unit, resource):
 	var UGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.UGB)
-	var URB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.URB, UPGRADE_RESOURCE[resource])
+	var URB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.URB, resource)
 	var UGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.UGP)
-	var URP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.URP, UPGRADE_RESOURCE[resource])
+	var URP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.URP, resource)
 
 	return (unit.power + UGB + URB) * unit.rank * UGP * URP
 
 
 func get_click_power(resource=null, _raw=false):
 	var CGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CGB)
-	var CRB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRB, UPGRADE_RESOURCE[resource])
+	var CRB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRB, resource)
 	var CGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CGP)
-	var CRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRP, UPGRADE_RESOURCE[resource])
+	var CRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRP, resource)
 
 	return (base_click_power + CGB + CRB) * CGP * CRP
 
 
 func get_chest_power(resource=null, _raw=false):
 	var HGB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HGB)
-	var HRB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HRB, UPGRADE_RESOURCE[resource])
+	var HRB = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HRB, resource)
 	var HGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HGP)
-	var HRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HRP, UPGRADE_RESOURCE[resource])
+	var HRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HRP, resource)
 
 	return (base_chest_power + HGB + HRB) * HGP * HRP
 

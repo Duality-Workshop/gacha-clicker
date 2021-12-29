@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 
-var resource : String
+var resource : int
 
 
 # Called when the node enters the scene tree for the first time.

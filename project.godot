@@ -108,6 +108,10 @@ singletons=[ "res://git_api.gdnlib" ]
 
 timers/tooltip_delay_sec=0.0
 
+[locale]
+
+translations=PoolStringArray(  )
+
 [physics]
 
 common/enable_pause_aware_picking=true

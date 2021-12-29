@@ -53,12 +53,12 @@ func update_info(unit:Unit):
 		resource2.visible = false
 		
 	elif len(unit.resources) == 1:
-		resource1.color = Helper.resource_colors[unit.resources[0]]
+		resource1.color = Helper.get_resource_color(unit.resources[0])
 		resource2.visible = false
 		
 	elif len(unit.resources) == 2:
-		resource1.color = Helper.resource_colors[unit.resources[0]]
-		resource2.color = Helper.resource_colors[unit.resources[1]]
+		resource1.color = Helper.get_resource_color(unit.resources[0])
+		resource2.color = Helper.get_resource_color(unit.resources[1])
 
 
 func rank_up():
