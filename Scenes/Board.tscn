@@ -493,6 +493,8 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+spawn_timer = 3
+despawn_timer = 1
 
 [node name="ChestTimer" type="Timer" parent="ChestArea"]
 wait_time = 30.0

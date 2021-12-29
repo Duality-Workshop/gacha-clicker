@@ -39,7 +39,7 @@ func _on_CallCrystalButton_pressed():
 	var result
 	
 	for odd in roll_table:
-		if roll < int(odd):
+		if roll <= int(odd):
 			result = roll_table[odd]
 			break
 	

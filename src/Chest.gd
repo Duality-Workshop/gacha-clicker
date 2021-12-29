@@ -13,6 +13,7 @@ func _ready() -> void:
 	$Sprite/AnimationPlayer.play("Appear")
 	$Sprite.mouse_filter = MOUSE_FILTER_IGNORE
 	$Sprite/Label.mouse_filter = MOUSE_FILTER_IGNORE
+	$Timer.wait_time = get_parent().despawn_timer
 	
 	if Manager.RANDOM: rng.randomize()
 	
@@ -28,6 +29,7 @@ func _ready() -> void:
 func _on_Chest_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not is_open:
 		if event.is_pressed():
+			$Timer.stop()
 			$Sprite/AnimationPlayer.play("Open")
 			is_open = true
 			
@@ -47,5 +49,9 @@ func _on_Chest_gui_input(event: InputEvent) -> void:
 
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	if anim_name == "Open":
+	if anim_name == "Open" or (anim_name == "Appear" and $Timer.time_left == 0):
 		queue_free()
+
+
+func _on_Timer_timeout() -> void:
+	$Sprite/AnimationPlayer.play_backwards("Appear")

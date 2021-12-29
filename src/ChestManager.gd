@@ -18,9 +18,14 @@ var roll_table = {}
 
 var roll_amount = 10
 
+export(int) var spawn_timer = 30
+export(int) var despawn_timer = 10
+
 func _ready() -> void:
 	mouse_filter = MOUSE_FILTER_IGNORE
 	if Manager.RANDOM: rng.randomize()
+	
+	$ChestTimer.wait_time = spawn_timer
 	
 	var s = 0
 	for odd in roll_odds:
@@ -45,7 +50,7 @@ func roll_reward() -> Dictionary:
 	var result
 	
 	for odd in roll_table:
-		if roll < int(odd):
+		if roll <= int(odd):
 			result = roll_table[odd]
 			break
 	
