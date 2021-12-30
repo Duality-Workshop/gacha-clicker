@@ -51,6 +51,7 @@ func _on_CallCrystalButton_pressed():
 			var r_emitter = resource_particle_emitter.instance()
 			r_emitter.emitting = true
 			r_emitter.process_material.color = Helper.get_resource_color(result)
+			r_emitter.process_material.emission_box_extents = Vector3(rect_size.x / 2, rect_size.y / 2, 0)
 			add_child(r_emitter)
 			
 			var s_emitter = spark_particle_emitter.instance()
