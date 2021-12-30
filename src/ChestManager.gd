@@ -40,6 +40,7 @@ func _on_ChestTimer_timeout() -> void:
 	var rand_x = rng.randi_range(0, rect_size.x)
 	var rand_y = rng.randi_range(0, rect_size.y)
 	chest_instance.set_position(Vector2(rand_x, rand_y))
+	chest_instance.get_node("Timer").wait_time = despawn_timer
 	fill_chest(chest_instance)
 	add_child(chest_instance)
 
