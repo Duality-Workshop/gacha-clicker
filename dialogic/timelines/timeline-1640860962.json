@@ -84,6 +84,10 @@
 			"action": "leaveall",
 			"character": "[All]",
 			"event_id": "dialogic_003"
+		},
+		{
+			"emit_signal": "",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {

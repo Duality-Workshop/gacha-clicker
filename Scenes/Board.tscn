@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -63,6 +63,20 @@ font_data = ExtResource( 8 )
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.28
+
+[sub_resource type="Animation" id=9]
+resource_name = "Fade"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.501294, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
 
 [node name="Board" type="Control"]
 anchor_right = 1.0
@@ -530,7 +544,16 @@ autostart = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )
 
-[node name="Button" type="Button" parent="."]
+[node name="BlackScreen" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="BlackScreen"]
 margin_left = 983.516
 margin_top = 979.741
 margin_right = 1060.52
@@ -541,6 +564,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen"]
+anims/Fade = SubResource( 9 )
+
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
 [connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
@@ -550,4 +576,4 @@ __meta__ = {
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="BlackScreen/Button" to="BlackScreen/Button" method="_on_Button_pressed"]

@@ -1,11 +1,11 @@
 {
-	"color": "#ffdec41b",
-	"description": "The \"cat\"",
+	"color": "#ff3ca6df",
+	"description": "doggo",
 	"display_name": "",
 	"display_name_bool": false,
-	"id": "character-1637501149.json",
+	"id": "character-1640874244.json",
 	"mirror_portraits": false,
-	"name": "Gloria",
+	"name": "Saluken",
 	"nickname": "",
 	"nickname_bool": false,
 	"offset_x": 0,
@@ -13,7 +13,7 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://Resources/Portraits/gloria-1.png"
+			"path": "res://Resources/Portraits/saluken - 1 (neutral).png"
 		}
 	],
 	"scale": 50

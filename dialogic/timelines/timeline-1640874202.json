@@ -1,0 +1,78 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART2_1"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART2_2"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART2_3"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART2_4"
+		},
+		{
+			"action": "join",
+			"character": "character-1640874244.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1640874244.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "SALUKEN_INTRODUCTION"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART2_5"
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1640874202.json",
+		"name": "GLORIA_INTRO1_PART2"
+	}
+}
