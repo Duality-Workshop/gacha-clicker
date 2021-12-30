@@ -20,8 +20,9 @@ margin_left = 3.09863
 margin_top = 6.26932
 margin_right = 587.095
 margin_bottom = 526.269
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 1 )
-text = "use call crystals! <3"
+text = "CRYSTAL"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,4 +50,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="pressed" from="." to="." method="_on_CallCrystalButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

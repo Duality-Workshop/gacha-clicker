@@ -389,7 +389,6 @@ margin_left = 844.855
 margin_top = 249.727
 margin_right = 1428.85
 margin_bottom = 769.727
-text = "CRYSTAL"
 
 [node name="FeaturedUnit" type="Control" parent="."]
 anchor_left = 1.0
