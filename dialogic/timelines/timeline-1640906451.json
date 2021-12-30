@@ -1,0 +1,34 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1640904978.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1640904978.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "LAILIEL_INTRODUCTION"
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1640906451.json",
+		"name": "LAILIEL_INTRO"
+	}
+}

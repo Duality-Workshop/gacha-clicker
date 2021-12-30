@@ -1,11 +1,11 @@
 {
-	"color": "#ff04989f",
-	"description": "doggo",
+	"color": "#ffc70000",
+	"description": "",
 	"display_name": "",
 	"display_name_bool": false,
-	"id": "character-1640874244.json",
+	"id": "character-1640904947.json",
 	"mirror_portraits": false,
-	"name": "Saluken",
+	"name": "Ferrus",
 	"nickname": "",
 	"nickname_bool": false,
 	"offset_x": 0,
@@ -13,7 +13,7 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://Resources/Portraits/saluken - 1 (neutral).png"
+			"path": ""
 		}
 	],
 	"scale": 50
