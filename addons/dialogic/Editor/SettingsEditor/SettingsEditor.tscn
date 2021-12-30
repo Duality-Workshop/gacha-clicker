@@ -5,7 +5,7 @@
 [ext_resource path="res://addons/dialogic/Editor/Common/TLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Image" id=3]
+[sub_resource type="Image" id=1]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -17,7 +17,7 @@ data = {
 [sub_resource type="ImageTexture" id=2]
 flags = 4
 flags = 4
-image = SubResource( 3 )
+image = SubResource( 1 )
 size = Vector2( 16, 16 )
 
 [node name="SettingsEditor" type="ScrollContainer"]
@@ -36,25 +36,25 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 450.0
+margin_bottom = 478.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
-margin_right = 356.0
-margin_bottom = 450.0
+margin_right = 386.0
+margin_bottom = 478.0
 custom_constants/separation = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 74.0
 
 [node name="SectionTitle" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 356.0
+margin_right = 386.0
 text = "Theme"
 text_key = "Theme"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer"]
 margin_top = 26.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 46.0
 
 [node name="TLabel" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
@@ -71,19 +71,15 @@ margin_left = 50.0
 margin_right = 190.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 140, 0 )
-text = "NightTheme"
-items = [ "DayTheme", null, false, 0, {
-"file": "theme-1621517790.cfg"
-}, "MyTheme", null, false, 1, {
-"file": "theme-1633536092.cfg"
-}, "NightTheme", null, false, 2, {
-"file": "theme-1621517668.cfg"
+text = "Default Theme"
+items = [ "Default Theme", null, false, 0, {
+"file": "default-theme.cfg"
 } ]
-selected = 2
+selected = 0
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer"]
 margin_top = 50.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 74.0
 
 [node name="TLabel3" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 3 )]
@@ -103,17 +99,17 @@ text = "1"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
 margin_top = 90.0
-margin_right = 356.0
-margin_bottom = 384.0
+margin_right = 386.0
+margin_bottom = 412.0
 
 [node name="SectionTitle" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 2 )]
-margin_right = 356.0
+margin_right = 386.0
 text = "Dialog"
 text_key = "Dialog"
 
 [node name="SettingsCheckbox" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 4 )]
 margin_top = 26.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 50.0
 text = "New lines will create extra messages"
 default = true
@@ -122,7 +118,7 @@ settings_key = "new_lines"
 
 [node name="SettingsCheckbox2" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 4 )]
 margin_top = 54.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 78.0
 text = "Remove empty messages"
 default = true
@@ -131,7 +127,7 @@ settings_key = "remove_empty_messages"
 
 [node name="SettingsCheckbox3" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 4 )]
 margin_top = 82.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 106.0
 text = "Auto color character names in messages"
 default = true
@@ -140,7 +136,7 @@ settings_key = "auto_color_names"
 
 [node name="SettingsCheckbox4" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 4 )]
 margin_top = 110.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 134.0
 text = "Propagate input to rest of the Tree"
 default = true
@@ -149,7 +145,7 @@ settings_key = "propagate_input"
 
 [node name="SettingsCheckbox5" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 4 )]
 margin_top = 138.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 162.0
 hint_tooltip = "If disabled, background images use \"Aspect covered\" mode."
 text = "Stretch background images "
@@ -159,21 +155,21 @@ settings_key = "stretch_backgrounds"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
 margin_top = 166.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 170.0
 
 [node name="TLabel6" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 174.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 188.0
 text = "Audio for Text events:"
 text_key = "Audio for Text events:"
 
 [node name="SettingsCheckbox6" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 4 )]
 margin_top = 192.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 216.0
 text = "Enable audio for Text events"
 settings_section = "dialog"
@@ -181,7 +177,7 @@ settings_key = "text_event_audio_enable"
 
 [node name="TextAudioDefaultBus" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
 margin_top = 220.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 240.0
 
 [node name="TLabel8" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/TextAudioDefaultBus" instance=ExtResource( 3 )]
@@ -203,30 +199,30 @@ selected = 0
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
 margin_top = 244.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 248.0
 
 [node name="TLabel9" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 252.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 266.0
 text = "Experimental Translations:"
 text_key = "Experimental Translations:"
 
 [node name="SettingsCheckbox7" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2" instance=ExtResource( 4 )]
 margin_top = 270.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 294.0
 text = "Inputs for text events will be treated as keys for tr()"
 settings_section = "dialog"
 settings_key = "translations"
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2"]
-margin_top = 302.0
-margin_right = 356.0
-margin_bottom = 326.0
+margin_top = 298.0
+margin_right = 386.0
+margin_bottom = 322.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -240,23 +236,23 @@ settings_key = "translations_preview"
 
 [node name="TranslationFileButton" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer2/HBoxContainer8"]
 margin_left = 219.0
-margin_right = 300.0
+margin_right = 386.0
 margin_bottom = 24.0
 text = "Choose translation file..."
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
-margin_top = 400.0
-margin_right = 356.0
-margin_bottom = 450.0
+margin_top = 428.0
+margin_right = 386.0
+margin_bottom = 478.0
 
 [node name="SectionTitle" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer3" instance=ExtResource( 2 )]
-margin_right = 356.0
+margin_right = 386.0
 text = "Saving"
 text_key = "Saving"
 
 [node name="SettingsCheckbox8" parent="VBoxContainer/HBoxContainer3/VBoxContainer/VBoxContainer3" instance=ExtResource( 4 )]
 margin_top = 26.0
-margin_right = 356.0
+margin_right = 386.0
 margin_bottom = 50.0
 text = "Autosave"
 default = true
@@ -264,9 +260,9 @@ settings_section = "saving"
 settings_key = "autosave"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 360.0
-margin_right = 664.0
-margin_bottom = 450.0
+margin_left = 390.0
+margin_right = 694.0
+margin_bottom = 478.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer2"]
 margin_right = 304.0

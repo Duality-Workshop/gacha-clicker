@@ -169,3 +169,237 @@ BENJI_FEATURED_1,"You're asking me how I got all these scars? Well, I mean...it'
 BENJI_FEATURED_2,"You've met my brother, Leopold, right? You can't miss him. He's a little confused and try hard in some of the wrong areas, but he's got the bold energy it takes to be a weapon crafter."
 BENJI_FEATURED_3,"Have you listened to Arnia, much? She keeps mentioning about these lands called ""Italy"" or ""Finland"", but...I have no clue what she's talking about. Do you think they're regions we've yet to discover? I can't find any records about them. It could be an exciting venture."
 BENJI_ADDED_TO_PARTY,"Ready to try something new, captain?"
+GLORIA_INTRO1_PART1_1,"Well hi there, traveler! What brings you around here in this dim and empty place?"
+GLORIA_INTRO1_PART1_2,"Oh. You came here on purpose? Even through the corrupting crystals of the Fractured Haze, all just to come here?"
+GLORIA_INTRO1_PART1_3,I see. You must be the new Leader of this soon-to-be Domain!
+GLORIA_INTRO1_PART1_4,"If that's the case, I may just stick around to help you out a bit. I do have a great instinct for business, after all."
+GLORIA_INTRO1_PART1_5,"I'm Gloria, just a traveling shopkeeper with tons of wares, meow!"
+GLORIA_INTRO1_PART1_6,"If you're going to build a community, you're going to need some Resources - and some help!"
+GLORIA_INTRO1_PART1_7,...me gather the Resources for you? No way! I'm not built for physical labor.
+GLORIA_INTRO1_PART1_8,"I do have some of these to get you started, though. Call Crystals!"
+GLORIA_INTRO1_PART1_9,"Legend has it that when you toss a Call Crystal into the sky, it shines a beacon across the whole realm."
+GLORIA_INTRO1_PART1_10,"Resources from the land will appear, and talented souls seeking refuge will come to you!"
+GLORIA_INTRO1_PART1_11,"Go ahead, give it a bunch of tries! Some help should arrive in no time!"
+GLORIA_INTRO1_PART2_1,"…so, help has not arrived in any time. Wow. Your luck must be terrible."
+GLORIA_INTRO1_PART2_2,"But, don't worry, I have some connections, meow!"
+GLORIA_INTRO1_PART2_3,"Besides, I hear this girl's been desperate for some work, so…"
+GLORIA_INTRO1_PART2_4,"Be nice, okay?"
+GLORIA_INTRO1_PART2_5,"Aaaand with that, your first Unit is here, so I can go set up shop!"
+GLORIA_INTRO1_PART3_1,"If you need any advice on how to lead, just click on the Help icons for pointers!"
+GLORIA_INTRO1_PART3_2,"Oh, and don't be a stranger. Come to my shop too, okay?"
+GLORIA_INTRO1_PART3_3,"I have tons of goodies to offer, all just for you!"
+GLORIA_INTRO1_PART3_4,"Speaking of…before I go, here. Take some Callerite!"
+GLORIA_INTRO1_PART3_5,"It’s rare, but very valuable. A gift just for you, and you’ll need it for my shop!"
+GLORIA_INTRO1_PART3_6,"You could use it for your future Units too. If you wanted, I suppose."
+GLORIA_INTRO1_PART3_7,"Okay, that’s all! Good luck, and see you soon, meow!"
+GLORIA_INTRO2_1,"Well hi there, traveler!"
+GLORIA_INTRO2_2,…
+GLORIA_INTRO2_3,"You already know what I’m going to say, aren’t you?"
+GLORIA_INTRO2_4,Replay the tutorial?
+GLORIA_INTRO2_5,Alright! Fiiiiiine. Ahem.
+GLORIA_GREETING_1,"Hi hi hi, welcome to my shop! Be sure to take a good look around, okay?"
+GLORIA_GREETING_2,"I have a bunch of bargains fresh from the bargain tree, meow!"
+GLORIA_GREETING_3,"Seeing your face here in my shop always makes me so pleased, [PLAYER NAME]!"
+GLORIA_ADDICTION_GREETING_1,"Hey sweetie, darling, bestie, dearie, babe. Now, show me your damn Callerite."
+GLORIA_ADDICTION_GREETING_2,Buy something.
+GLORIA_ADDICTION_GREETING_3,You know why you’re here.
+GLORIA_DEDICATION_GREETING_1,"Hey, you. Do you feel like buying something?"
+GLORIA_DEDICATION_GREETING_2,It’s good to see you again. Take your time.
+GLORIA_DEDICATION_GREETING_3,Come on in. I found a few things for cheap this morning.
+GLORIA_PURCHASE_1,"Wowee, thank you so much! Enjoy your goods, meow!"
+GLORIA_PURCHASE_2,"Nice buy! Has anyone told you that you’re looking wonderful today, [PLAYER NAME]?"
+GLORIA_PURCHASE_3,"I knew that you’d end up making smart decisions, meow!"
+GLORIA_ADDICTION_PURCHASE_1,There you go. Now run along and keep playing for now.
+GLORIA_ADDICTION_PURCHASE_2,Good. Good for you.
+GLORIA_ADDICTION_PURCHASE_3,I’ll see you again in a minute.
+GLORIA_DEDICATION_PURCHASE_1,"Thank you, so much."
+GLORIA_DEDICATION_PURCHASE_2,"I hope you enjoy your purchase. Take a break for a bit before you come back, okay? For both our sakes."
+GLORIA_HELP_UNIT_1,"This window shows all the Units you’ve called with your Call Crystals! If you enlist a Unit into your Party of six, they’ll passively craft more Resources for you."
+GLORIA_HELP_UNIT_2,"Whenever you call a Unit you already have, they’ll automatically Rank Up and get stronger, meow!"
+GLORIA_HELP_UNIT_3,"Every now and then, they’ll also have requests for you. Should you offer them the Resources they ask for, then they’ll be Upgraded!"
+GLORIA_HELP_UNIT_4,Keep using your Call Crystals and listening to their requests to watch your team grow!
+GLORIA_HELP_SHOP_1,"If you’re in need of my wares, just come to my shop, meow!"
+GLORIA_HELP_SHOP_2,"You’ll need Callerite to buy things. But if you have it, I can offer you amazing buffs that can help take your Domain to the next level!"
+GLORIA_HELP_SHOP_3,"Sometimes I have freebies, too. You don’t want to miss out on them, so make sure to check into my shop often, okay?"
+GLORIA_HELP_SHOP_4,"Oh, and Saluken is here with me, too. She’s in charge of upgrading your Domain."
+GLORIA_HELP_SHOP_5,"Your Domain starts off very small as only a tiny, miniscule, village. But your Domain will improve if you complete all the necessary Upgrades!"
+GLORIA_HELP_SHOP_6,"You’ll need Resources to complete these Upgrades, of course."
+GLORIA_HELP_SHOP_7,"Once you complete all the required Upgrades for a tier, then your Domain will expand."
+GLORIA_HELP_SHOP_8,"Maybe with enough effort, your Domain will turn into a massive kingdom, meow!"
+GLORIA_ADDICTION_TRIGGER_1,…
+GLORIA_ADDICTION_TRIGGER_2,…heh.
+GLORIA_ADDICTION_TRIGGER_3,So you’ve accepted it.
+GLORIA_ADDICTION_TRIGGER_4,That warm feeling that comes up whenever I make a sale.
+GLORIA_ADDICTION_TRIGGER_5,"You get it too, don’t you?"
+GLORIA_ADDICTION_TRIGGER_6,Can’t get enough of it?
+GLORIA_ADDICTION_TRIGGER_7,That satisfaction that comes so quickly.
+GLORIA_ADDICTION_TRIGGER_8,How nice.
+GLORIA_ADDICTION_TRIGGER_9,It’s always nice to have a customer…
+GLORIA_ADDICTION_TRIGGER_10,…that’s just as hungry as me.
+GLORIA_ADDICTION_ENDING1_1,Hehee…hehehehee…
+GLORIA_ADDICTION_ENDING1_2,I’ve been on such a high that I didn’t realize how the time passed.
+GLORIA_ADDICTION_ENDING1_3,Every waking moment to me is one where you beckon me.
+GLORIA_ADDICTION_ENDING1_4,Where you beg for my help.
+GLORIA_ADDICTION_ENDING1_5,"But, it is about that time."
+GLORIA_ADDICTION_ENDING1_6,You’ve brought the Fractured Haze into your Domain.
+GLORIA_ADDICTION_ENDING1_7,"Any moment now, the crystals are going to take over this pretend world."
+GLORIA_ADDICTION_ENDING1_8,"I must say, I’m amazed. You’ve really let it all go to hell in record time."
+GLORIA_ADDICTION_ENDING1_9,"Faster than any “Leader” than I’ve met, [PLAYER NAME]."
+GLORIA_ADDICTION_ENDING1_10,"Alas, when the Fractured Haze takes over, there’s no reason for me to be here anymore."
+GLORIA_ADDICTION_ENDING1_11,There’s nothing left to take from.
+GLORIA_ADDICTION_ENDING1_12,"So! Thank you. I’m off to the next Leader, with their next Domain, with a new Shop."
+GLORIA_ADDICTION_ENDING1_13,"Where I’ll just do it over, and over, and over, and over, and over again."
+GLORIA_ADDICTION_ENDING1_14,Until…I’m satisfied.
+GLORIA_ADDICTION_ENDING1_15,"It’s been real, [PLAYER NAME]."
+GLORIA_ADDICTION_ENDING1_16,See you never.
+GLORIA_ADDICTION_ENDING2_1,Heehee….eheeheeheehee!
+GLORIA_ADDICTION_ENDING2_2,I’ve been on such a high that I didn’t realize how the time passed.
+GLORIA_ADDICTION_ENDING2_3,Every waking moment to me…
+GLORIA_ADDICTION_ENDING2_4,…I see you.
+GLORIA_ADDICTION_ENDING2_5,"Begging for my wares, demanding my help."
+GLORIA_ADDICTION_ENDING2_6,"I see it, and I’ve seen it before, haven’t I?"
+GLORIA_ADDICTION_ENDING2_7,Which means you have.
+GLORIA_ADDICTION_ENDING2_8,You’ve done all this before.
+GLORIA_ADDICTION_ENDING2_9,"You’ve single-handedly brought this Domain to ruin, and you’ve come back to do it again."
+GLORIA_ADDICTION_ENDING2_10,What is wrong with you?
+GLORIA_ADDICTION_ENDING2_11,Don’t tell me. Have you…
+GLORIA_ADDICTION_ENDING2_12,Done this to waste my time?
+GLORIA_ADDICTION_ENDING2_13,I could be getting a perfectly good fix from another “Leader” elsewhere.
+GLORIA_ADDICTION_ENDING2_14,"Well, all over again, this Domain is going to shit all thanks to you."
+GLORIA_ADDICTION_ENDING2_15,So! Like I said.
+GLORIA_ADDICTION_ENDING2_16,See you never.
+GLORIA_ADDICTION_ENDING2_17,"Don’t talk to me again, [PLAYER NAME]."
+GLORIA_ADDICTION_ENDING2_18,I have better things to do.
+GLORIA_ADDICTION_ENDING3_1,Hehehe…hehehee..! Hehehehee!
+GLORIA_ADDICTION_ENDING3_2,"I’ve been on such a high, that…"
+GLORIA_ADDICTION_ENDING3_3,…it took me forever to realize.
+GLORIA_ADDICTION_ENDING3_4,[i]You.[/i]
+GLORIA_ADDICTION_ENDING3_5,You did it. Again.
+GLORIA_ADDICTION_ENDING3_6,It’s like this pretend world - and me - are just your toys that you play with to see what happens.
+GLORIA_ADDICTION_ENDING3_7,"You keep making me gobble up that brief, tiny, miniscule feeling of warmth."
+GLORIA_ADDICTION_ENDING3_8,That feeling of making a sale.
+GLORIA_ADDICTION_ENDING3_9,That sensation of feeling anything at all.
+GLORIA_ADDICTION_ENDING3_10,You keep dangling it around me and stuffing me with it until there’s nothing left.
+GLORIA_ADDICTION_ENDING3_11,And you keep me here.
+GLORIA_ADDICTION_ENDING3_12,Are you trying to make me suffer more than I already am?
+GLORIA_ADDICTION_ENDING3_13,You really think punishing me is going to make me any better?
+GLORIA_ADDICTION_ENDING3_14,Or do you feel some kind of sick satisfaction in knowing that I’m just as long gone as you are?
+GLORIA_ADDICTION_ENDING3_15,"Well, I won’t let you have it!"
+GLORIA_ADDICTION_ENDING3_16,"Keep resetting, keep rebuilding, keep buying, and keep burning this world to the fucking ground!"
+GLORIA_ADDICTION_ENDING3_17,And what’ll be of me?
+GLORIA_ADDICTION_ENDING3_18,"I’ll be a mindless ghost. A sack of flesh that’ll only exist to sell, and sell, and sell, and sell!"
+GLORIA_ADDICTION_ENDING3_19,"If you dare do this again. I promise you, that if you see me, then there’s nothing left."
+GLORIA_ADDICTION_ENDING3_20,I won’t let you see through me anymore.
+GLORIA_ADDICTION_ENDING3_21,[b]Ever. Again.[/b]
+GLORIA_ADDICTION_ENDING4_1,"Just do the reset, already. I have nothing else left to say."
+GLORIA_DEDICATION_ENDING1_1,"So, you finally got your big castle, did you?"
+GLORIA_DEDICATION_ENDING1_2,"When you first started, I didn’t actually think you could do it."
+GLORIA_DEDICATION_ENDING1_3,"Maybe you’d make it halfway through, then hit that point of frustration."
+GLORIA_DEDICATION_ENDING1_4,"That point where everything seems to be taking too long, where you thought you knew everything."
+GLORIA_DEDICATION_ENDING1_5,Where this pretend world throws something your way to make it harder.
+GLORIA_DEDICATION_ENDING1_6,"To the point that you would want more, more, and more help."
+GLORIA_DEDICATION_ENDING1_7,My help.
+GLORIA_DEDICATION_ENDING1_8,"You didn’t buy my help, but…it’s not like you never visited."
+GLORIA_DEDICATION_ENDING1_9,It’s frustrating.
+GLORIA_DEDICATION_ENDING1_10,"Whenever I make a sale, it brings me excitement. Meaning. It warms my heart."
+GLORIA_DEDICATION_ENDING1_11,And I just keep wanting more.
+GLORIA_DEDICATION_ENDING1_12,"Sometimes, making that purchase happen feels like all that I’m worth."
+GLORIA_DEDICATION_ENDING1_13,"…but you knew better than that, didn’t you?"
+GLORIA_DEDICATION_ENDING1_14,You were able to decide that you don’t have to just rely on my help.
+GLORIA_DEDICATION_ENDING1_15,"You found a way to rely on me, but also your Units, your wits, and your determination."
+GLORIA_DEDICATION_ENDING1_16,…how?
+GLORIA_DEDICATION_ENDING1_17,How do you just do that?
+GLORIA_DEDICATION_ENDING1_18,How could you be so much stronger than I am?
+GLORIA_DEDICATION_ENDING1_19,What did you have to go through to stand where you are?
+GLORIA_DEDICATION_ENDING1_20,…
+GLORIA_DEDICATION_ENDING1_21,You’re different from them.
+GLORIA_DEDICATION_ENDING1_22,Different from the ones that brought the Fractured Haze to this pretend world.
+GLORIA_DEDICATION_ENDING1_23,"So maybe, there was hope for you all along."
+GLORIA_DEDICATION_ENDING1_24,…do you think there’s hope for me?
+GLORIA_DEDICATION_ENDING1_25,I don’t know.
+GLORIA_DEDICATION_ENDING1_26,"[PLAYER NAME], I’ve outgrown you."
+GLORIA_DEDICATION_ENDING1_27,…is what I wish I could say was the truth.
+GLORIA_DEDICATION_ENDING1_28,"Really, you’re the one that’s outgrown me."
+GLORIA_DEDICATION_ENDING1_29,I’ll pack up the shop.
+GLORIA_DEDICATION_ENDING1_30,I have some thinking to do.
+GLORIA_DEDICATION_ENDING1_31,Don’t come after me.
+GLORIA_DEDICATION_ENDING1_32,"Like I said, I don’t know if there’s any hope for me."
+GLORIA_DEDICATION_ENDING1_33,Don’t be sad about me.
+GLORIA_DEDICATION_ENDING1_34,Besides. Your Units…
+GLORIA_DEDICATION_ENDING1_35,…your friends.
+GLORIA_DEDICATION_ENDING1_36,"They’re the ones that have shed their blood, sweat, and tears to help make this world a better place for you."
+GLORIA_DEDICATION_ENDING1_37,So don’t forget about them.
+GLORIA_DEDICATION_ENDING1_38,"Goodbye, [PLAYER NAME]."
+GLORIA_DEDICATION_ENDING2_1,"So, you finally got your big castle, didn’t you?"
+GLORIA_DEDICATION_ENDING2_2,"When you first started, I didn’t think you’d actually do it."
+GLORIA_DEDICATION_ENDING2_3,And I also didn’t think…
+GLORIA_DEDICATION_ENDING2_4,That you’d do this all over again.
+GLORIA_DEDICATION_ENDING2_5,"There’s no reason for you to, you know."
+GLORIA_DEDICATION_ENDING2_6,You probably did this again because you thought that I’d say something different.
+GLORIA_DEDICATION_ENDING2_7,"That maybe, you could convince me to think otherwise, to change my mind."
+GLORIA_DEDICATION_ENDING2_8,You shouldn’t have to.
+GLORIA_DEDICATION_ENDING2_9,But then again…
+GLORIA_DEDICATION_ENDING2_10,Maybe I’m imagining things.
+GLORIA_DEDICATION_ENDING2_11,"You already took this path once out of your kindness, so you could just be doing it again because that’s the type of person you are."
+GLORIA_DEDICATION_ENDING2_12,Which means…this doesn’t matter.
+GLORIA_DEDICATION_ENDING2_13,I’m really flattered that you think I’m worth coming back to.
+GLORIA_DEDICATION_ENDING2_14,Or just…implying that I could have any value.
+GLORIA_DEDICATION_ENDING2_15,But please. I mean it.
+GLORIA_DEDICATION_ENDING2_16,"You shouldn’t come after me, or waste your time."
+GLORIA_DEDICATION_ENDING2_17,I’m not strong enough to be like you. I don’t know if I’m worth your hope.
+GLORIA_DEDICATION_ENDING2_18,Even if…you bringing me back here…
+GLORIA_DEDICATION_ENDING2_19,…is almost making me believe it.
+GLORIA_DEDICATION_ENDING3_1,…
+GLORIA_DEDICATION_ENDING3_2,"You worked so hard to bring the Domain to this level again, which means we’re back here."
+GLORIA_DEDICATION_ENDING3_3,You really…
+GLORIA_DEDICATION_ENDING3_4,Were calling me back here on purpose.
+GLORIA_DEDICATION_ENDING3_5,"Letting me live another life, where I can get a semblance of that warmth... of that meaning."
+GLORIA_DEDICATION_ENDING3_6,"All while allowing this pretend, made-up world to prosper and be protected from harm."
+GLORIA_DEDICATION_ENDING3_7,I don’t understand how you have that patience.
+GLORIA_DEDICATION_ENDING3_8,All the other “Leaders” - the ones that caused the Fractured Haze. They didn’t have that patience.
+GLORIA_DEDICATION_ENDING3_9,"They fed into my desire for happiness, over and over again, until there was nothing left."
+GLORIA_DEDICATION_ENDING3_10,But you…
+GLORIA_DEDICATION_ENDING3_11,"You were so stupid, so foolish, so…"
+GLORIA_DEDICATION_ENDING3_12,Bold.
+GLORIA_DEDICATION_ENDING3_13,So strong to stay here like this.
+GLORIA_DEDICATION_ENDING3_14,"Please, don’t play with my emotions. I need to ask."
+GLORIA_DEDICATION_ENDING3_15,"Do you think I’m worth something, even if it’s hard for me to close the Shop?"
+GLORIA_DEDICATION_ENDING3_16,…
+GLORIA_DEDICATION_ENDING3_17,…right.
+GLORIA_DEDICATION_ENDING3_18,Of course. My mistake. You were really just doing all this because…that’s the routine.
+GLORIA_DEDICATION_ENDING3_19,"So be it, then."
+GLORIA_DEDICATION_ENDING3_20,Yes
+GLORIA_DEDICATION_ENDING3_21,…thank you.
+GLORIA_DEDICATION_ENDING3_22,And I’m sorry I even had to ask you.
+GLORIA_DEDICATION_ENDING3_23,"But, hearing it aloud, I feel…lighter."
+GLORIA_DEDICATION_ENDING3_24,…
+GLORIA_DEDICATION_ENDING3_25,[PLAYER NAME].
+GLORIA_DEDICATION_ENDING3_26,I don’t think I’m going to be able to change how I feel about my Shop anytime soon.
+GLORIA_DEDICATION_ENDING3_27,"After all, somewhere in those fleeting moments, I feel some kind of happiness. And I don’t want to get rid of it."
+GLORIA_DEDICATION_ENDING3_28,"I’m probably going to keep coming back to it, one way or another."
+GLORIA_DEDICATION_ENDING3_29,"Despite that…if you believe in me this much, then I want to at least try."
+GLORIA_DEDICATION_ENDING3_30,"I don’t know why I’m here, why I’ve been put here, and how I even found you in the end."
+GLORIA_DEDICATION_ENDING3_31,So I might as well make something good out of me being here.
+GLORIA_DEDICATION_ENDING3_32,"Even if this world isn’t reality to me, or to you."
+GLORIA_DEDICATION_ENDING3_33,It feels real.
+GLORIA_DEDICATION_ENDING3_34,And for that reason…
+GLORIA_DEDICATION_ENDING3_35,I’ll do my best.
+GLORIA_DEDICATION_ENDING3_36,"Don’t worry, I won’t be trying to hide myself much from you."
+GLORIA_DEDICATION_ENDING3_37,I know I’m going to fail horribly sometimes.
+GLORIA_DEDICATION_ENDING3_38,But that’s okay.
+GLORIA_DEDICATION_ENDING3_39,Because apparently…
+GLORIA_DEDICATION_ENDING3_40,I am worth more than a brief moment of joy.
+GLORIA_BETRAYAL_1,"Hey…wait. You’re joking, right?"
+GLORIA_BETRAYAL_2,"I promised you that I’d try to be better, so you have to be fair to me, too."
+GLORIA_BETRAYAL_3,"You don’t really want to buy that after all we’ve been through, do you?"
+GLORIA_BETRAYAL_4,"Phew…good. You freaked me out for a second there, [PLAYER NAME]."
+GLORIA_BETRAYAL_5,So you’re…seriously giving up on me.
+GLORIA_BETRAYAL_6,And I have to just go with it?
+GLORIA_BETRAYAL_7,…
+GLORIA_BETRAYAL_8,No.
+GLORIA_BETRAYAL_9,"I can’t take this. At least, not like this."
+GLORIA_BETRAYAL_10,I can’t stop you from whatever you want to do. Go ahead and just go back to how it was.
+GLORIA_BETRAYAL_11,But I’m staying in this memory and not letting you have it.
+GLORIA_BETRAYAL_12,"I’m sorry for being selfish. But if you’re going to do this, then I’m going to take power over the one thing I have left."
+GLORIA_BETRAYAL_13,The next time you see me…
+GLORIA_BETRAYAL_14,[b]I won’t remember any of this.[/b]

@@ -1,0 +1,94 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_1"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_2"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_3"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_4"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_5"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_6"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_7"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_8"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_9"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_10"
+		},
+		{
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "GLORIA_INTRO1_PART1_11"
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1640860962.json",
+		"name": "GLORIA_INTRO1_PART1"
+	}
+}

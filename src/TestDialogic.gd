@@ -5,7 +5,7 @@ var new_dialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	new_dialog = Dialogic.start('Test')
+	new_dialog = Dialogic.start('GLORIA_INTRO1_PART1')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

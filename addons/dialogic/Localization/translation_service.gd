@@ -7,7 +7,7 @@ class_name DTS
 
 
 # Translates a message using translation catalogs configured in the Editor Settings.
-static func translate(message:String)->String:
+static func translate(message:String, is_editor:=true)->String:
 	var translation
 	
 	translation = _get_translation(message)
