@@ -52,6 +52,9 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.6 )
 }
 
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 8 )
+
 [sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 8 )
@@ -60,9 +63,6 @@ font_data = ExtResource( 8 )
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.28
-
-[sub_resource type="DynamicFont" id=8]
-font_data = ExtResource( 8 )
 
 [node name="Board" type="Control"]
 anchor_right = 1.0
@@ -225,18 +225,18 @@ __meta__ = {
 }
 
 [node name="SettingsButton" type="Button" parent="MenuButtons"]
-margin_right = 63.0
+margin_right = 72.0
 margin_bottom = 40.0
-text = "settings"
+text = "SETTINGS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HelpButton" type="Button" parent="MenuButtons"]
-margin_left = 67.0
-margin_right = 107.0
+margin_left = 76.0
+margin_right = 120.0
 margin_bottom = 40.0
-text = "help"
+text = "HELP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -271,12 +271,12 @@ __meta__ = {
 }
 
 [node name="UnitListLabel" type="Label" parent="UnitContainer/UnitList/VBoxContainer"]
-margin_left = 117.0
-margin_right = 198.0
+margin_left = 113.0
+margin_right = 201.0
 margin_bottom = 34.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 2 )
-text = "unit list"
+text = "ROSTER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -320,12 +320,12 @@ __meta__ = {
 }
 
 [node name="PartyListLabel" type="Label" parent="UnitContainer/PartyList/VBoxContainer"]
-margin_left = 110.0
-margin_right = 205.0
+margin_left = 123.0
+margin_right = 192.0
 margin_bottom = 34.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 3 )
-text = "party list"
+text = "PARTY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -341,12 +341,12 @@ __meta__ = {
 }
 
 [node name="UnitListButton" type="Button" parent="UnitContainer/PartyList/VBoxContainer"]
-margin_left = 228.0
+margin_left = 229.0
 margin_top = 520.0
 margin_right = 315.0
 margin_bottom = 540.0
 size_flags_horizontal = 8
-text = "select party"
+text = "EDIT_PARTY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -354,6 +354,32 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UnitContainer"]
 anims/Close = SubResource( 4 )
 anims/Open = SubResource( 5 )
+
+[node name="PullContainer" type="HBoxContainer" parent="."]
+margin_top = 920.0
+margin_right = 154.0
+margin_bottom = 952.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Callerite" type="TextureRect" parent="PullContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="PullContainer"]
+margin_left = 36.0
+margin_top = 4.0
+margin_right = 154.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 8 )
+text = "X call(s) waiting!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CallCrystalButton" parent="." instance=ExtResource( 6 )]
 margin_left = 844.855
@@ -416,7 +442,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -246.0
 margin_top = -212.998
-text = "shop ;)"
+text = "SHOP"
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -492,8 +518,6 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-spawn_timer = 3
-despawn_timer = 1
 
 [node name="ChestTimer" type="Timer" parent="ChestArea"]
 wait_time = 30.0
@@ -503,6 +527,7 @@ autostart = true
 environment = SubResource( 7 )
 
 [node name="Button" type="Button" parent="."]
+visible = false
 margin_left = 983.516
 margin_top = 979.741
 margin_right = 1060.52
@@ -513,33 +538,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PullContainer" type="HBoxContainer" parent="."]
-margin_top = 920.0
-margin_right = 154.0
-margin_bottom = 952.0
-mouse_default_cursor_shape = 2
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Callerite" type="TextureRect" parent="PullContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
-texture = ExtResource( 14 )
-
-[node name="Label" type="Label" parent="PullContainer"]
-margin_left = 36.0
-margin_top = 4.0
-margin_right = 154.0
-margin_bottom = 27.0
-custom_fonts/font = SubResource( 8 )
-text = "X call(s) waiting!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
+[connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]
@@ -548,4 +548,3 @@ __meta__ = {
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
-[connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]

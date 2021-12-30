@@ -110,7 +110,8 @@ timers/tooltip_delay_sec=0.0
 
 [locale]
 
-translations=PoolStringArray(  )
+test="en"
+translations=PoolStringArray( "res://Resources/i18n/Translation.en.translation" )
 
 [physics]
 
