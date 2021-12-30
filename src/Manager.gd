@@ -68,8 +68,8 @@ func _ready():
 		
 	}
 	
-	party_list = get_parent().get_node("Board").get_node("PartyList")
-	unit_list = get_parent().get_node("Board").get_node("UnitList")
+	party_list = get_parent().get_node("Board").get_node("UnitContainer").get_node("PartyList")
+	unit_list = get_parent().get_node("Board").get_node("UnitContainer").get_node("UnitList")
 	resources_panel = get_parent().get_node("Board").get_node("ResourcesPanel")
 	
 	if IS_DEBUG:

@@ -37,7 +37,7 @@ func update_info(unit:Unit):
 	
 	# Display bits
 	var grid = $HBoxContainer/VBoxContainer/HBoxContainer/GridContainer
-	for i in range(rank_overflow):
+	for _i in range(rank_overflow):
 		var bit = TextureRect.new()
 		bit.texture = load("res://Resources/Icons/bit.png")
 		grid.add_child(bit)
