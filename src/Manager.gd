@@ -21,6 +21,7 @@ var base_chest_power = 100
 var party_list
 var unit_list
 var resources_panel
+var dialog_manager
 
 # debug
 var IS_DEBUG = !OS.has_feature("standalone")
@@ -71,6 +72,7 @@ func _ready():
 	party_list = get_parent().get_node("Board").get_node("UnitContainer").get_node("PartyList")
 	unit_list = get_parent().get_node("Board").get_node("UnitContainer").get_node("UnitList")
 	resources_panel = get_parent().get_node("Board").get_node("ResourcesPanel")
+	dialog_manager = get_parent().get_node("Board").get_node("DialogManager")
 	
 	if IS_DEBUG:
 		#for name in units:
@@ -119,14 +121,28 @@ func remove_from_party(name):
 	added_unit.party = false
 	emit_signal("unit_updated", added_unit, "remove")
 
-func pull_unit(unit):
+func unstack(timeline_name: String = "") -> void:
+	if pulls:
+		pull_unit(pulls[len(pulls)-1], len(pulls) > 1)
+
+func pull_unit(unit: Unit, unstack: bool = false):
 	# print_debug("Pulled " + unit.name + "!")
 	if unit.owned:
 		unit.rank += 1
 		emit_signal("unit_updated", unit, "rank_up")
+		var timeline_name = unit.name.to_upper() + "_RANK_UP"
+		if unstack:
+			dialog_manager.start_dialogue(timeline_name, self, "unstack")
+		else:
+			dialog_manager.start_dialogue(timeline_name)
 	else:
 		unit.owned = true
 		emit_signal("unit_updated", unit, "new")
+		var timeline_name = unit.name.to_upper() + "_INTRO"
+		if unstack:
+			dialog_manager.start_dialogue(timeline_name, self, "unstack")
+		else:
+			dialog_manager.start_dialogue(timeline_name)
 	pulls.erase(unit)
 
 func pull_random():
@@ -135,7 +151,7 @@ func pull_random():
 	var valid_units := []
 	
 	for unit in units:
-		if units[unit].rank < 30:
+		if units[unit].rank + pulls.count(unit) < 30:
 			valid_units.append(units[unit])
 	
 	pulls.append(valid_units[rng.randi_range(0, len(valid_units)-1)])
@@ -225,3 +241,4 @@ func get_unlocked_upgrades(type):
 func pay(upgrade):
 	for resource in upgrade.price:
 		resources_panel.update_resource(resource, -upgrade.price[resource])
+

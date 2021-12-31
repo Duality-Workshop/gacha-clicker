@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/TestDialogic.gd" type="Script" id=13]
 [ext_resource path="res://Resources/Icons/CrystalParticle.png" type="Texture" id=14]
 [ext_resource path="res://src/PullContainer.gd" type="Script" id=15]
+[ext_resource path="res://src/DialogManager.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -544,16 +545,18 @@ autostart = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )
 
-[node name="BlackScreen" type="ColorRect" parent="."]
+[node name="DialogManager" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
+script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="BlackScreen"]
+[node name="Button" type="Button" parent="DialogManager"]
+visible = false
 margin_left = 983.516
 margin_top = 979.741
 margin_right = 1060.52
@@ -564,7 +567,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogManager"]
 anims/Fade = SubResource( 9 )
 
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
@@ -576,4 +579,4 @@ anims/Fade = SubResource( 9 )
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]
-[connection signal="pressed" from="BlackScreen/Button" to="BlackScreen/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="DialogManager/Button" to="DialogManager/Button" method="_on_Button_pressed"]

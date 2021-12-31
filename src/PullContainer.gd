@@ -16,6 +16,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_PullContainer_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		for unit in [] + Manager.pulls:  # We want a copy of the list, because it will change as we go through
-			Manager.pull_unit(unit)
+	if event is InputEventMouseButton and Input.is_action_pressed("ui_select"):
+		Manager.unstack()
