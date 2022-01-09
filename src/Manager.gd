@@ -51,7 +51,7 @@ func _ready():
 		"Ugolya": 		Unit.new("Ugolya", "", [Helper.RESOURCE_TYPE.FOOD], 1, 11, 10),
 		"Kiki": 		Unit.new("Kiki", "", [Helper.RESOURCE_TYPE.FOOD], 1, 3.8, 3.5),
 		"Saluken": 		Unit.new("Saluken", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 3, 3),
-		"Arnetta": 		Unit.new("Arnetta", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2.9, 3.1),
+		"Arnia": 		Unit.new("Arnia", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2.9, 3.1),
 		"Morgause": 	Unit.new("Morgause", "", [Helper.RESOURCE_TYPE.POTIONS, Helper.RESOURCE_TYPE.SCROLLS], 1, 3.5, 4),
 		"Benji": 		Unit.new("Benji", "", [Helper.RESOURCE_TYPE.WEAPONS, Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2, 2.5)
 	}
@@ -123,7 +123,7 @@ func remove_from_party(name):
 
 func unstack(timeline_name: String = "") -> void:
 	if pulls:
-		pull_unit(pulls[len(pulls)-1], len(pulls) > 1)
+		pull_unit(pulls[0], len(pulls) > 1)
 
 func pull_unit(unit: Unit, unstack: bool = false):
 	# print_debug("Pulled " + unit.name + "!")
