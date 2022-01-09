@@ -7,6 +7,8 @@ enum UpgradeTarget {UNIT, CLICK, CHEST, LIMITER, GLOBAL}
 #enum Helper.RESOURCE_TYPE {WEAPONS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
 enum UpgradeScope {BASE, PERCENTAGE}
 enum UpgradeCategory {UGB, UGP, URB, URP, CGB, CGP, CRB, CRP, HGB, HGP, HRB, HRP}
+enum UnlockConditionType {UPGRADE, TIER, INTERACTION, UNIT}
+# TODO: chance?
 
 var type
 var target

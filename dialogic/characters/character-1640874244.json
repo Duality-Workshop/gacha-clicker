@@ -14,6 +14,10 @@
 		{
 			"name": "Default",
 			"path": "res://Resources/Portraits/saluken - 1 (neutral).png"
+		},
+		{
+			"name": "Irritated",
+			"path": "res://Resources/Portraits/saluken - 5 (irritated).png"
 		}
 	],
 	"scale": 50

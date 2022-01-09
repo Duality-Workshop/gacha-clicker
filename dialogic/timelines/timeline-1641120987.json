@@ -1,0 +1,74 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"action": "join",
+			"character": "character-1640874244.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1640874244.json",
+			"event_id": "dialogic_001",
+			"portrait": "Irritated",
+			"text": "No, Gloria, I do not think \"Poggerland\" is a good name for this domain..."
+		},
+		{
+			"action": "leaveall",
+			"character": "character-1637501149.json",
+			"event_id": "dialogic_003"
+		},
+		{
+			"character": "character-1640874244.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "Default",
+			"question": "What do you think, Leader?"
+		},
+		{
+			"choice": "Poggerland is poggers!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "No thank you",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4 - DEV",
+		"file": "timeline-1641120987.json",
+		"name": "teaser_1"
+	}
+}

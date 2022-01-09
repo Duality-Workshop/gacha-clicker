@@ -556,7 +556,6 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="DialogManager"]
-visible = false
 margin_left = 983.516
 margin_top = 979.741
 margin_right = 1060.52
