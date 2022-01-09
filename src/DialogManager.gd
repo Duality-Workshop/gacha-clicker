@@ -14,8 +14,6 @@ func _ready() -> void:
 
 
 func start_dialogue(timeline: String, callback: Node = null, callback_target: String = "") -> void:
-	print_debug(timeline, ", callback: ", callback, callback_target)
-	
 	new_dialog = Dialogic.start(timeline)
 	
 	if callback:
