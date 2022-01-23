@@ -18,10 +18,10 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 
 
 func load_game() -> void:
-	#TODO: load save file here
+	Manager.slot = "res://Saves/" + str(slot_to_load) + ".json"
 	
 	var scene = load("res://Scenes/Board.tscn")
 	var err = get_tree().change_scene_to(scene)
 	
 	if err:
-		push_error("Couldn't load save file!")
+		push_error("Couldn't load board scene!")

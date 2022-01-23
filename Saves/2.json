@@ -1,0 +1,39 @@
+{
+	"resources": {
+		"owned":{
+			"weapons": 0,
+			"potions": 0,
+			"scrolls": 0,
+			"food": 0,
+			"blueprints": 0
+			},
+		"produced":{
+			"weapons": 0,
+			"potions": 0,
+			"scrolls": 0,
+			"food": 0,
+			"blueprints": 0
+			}
+	},
+	"units": {},
+	"upgrades": [],
+	"callerite": {
+		"owned": 0,
+		"used": 0
+	},
+	"curserite": {
+		"owned": 0,
+		"used": 0
+	},
+	"calls": {
+		"made": 0,
+		"awaiting": []
+	},
+	"flags": {},
+	"domain_name": "",
+	"leader_name": "",
+	"featured_unit": 0,
+	"party": [],
+	"settings": {},
+	"version": "1.0.0"
+}

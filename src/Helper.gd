@@ -26,5 +26,5 @@ func get_resource_type(s: String) -> int:
 		"food": return RESOURCE_TYPE.FOOD
 		"blueprints": return RESOURCE_TYPE.BLUEPRINTS
 		_: 
-			push_error("Invalid resource call!")
+			push_error("Invalid resource call! Received: " + s)
 			return ERR_DOES_NOT_EXIST

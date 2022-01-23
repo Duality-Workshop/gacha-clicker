@@ -23,6 +23,9 @@ var unit_list
 var resources_panel
 var dialog_manager
 
+# data
+var slot = "res://Saves/1.json"
+
 # debug
 var IS_DEBUG = !OS.has_feature("standalone")
 var RANDOM = true
@@ -32,6 +35,7 @@ signal unit_updated(unit)
 
 # Called from Board once it is loaded.
 func start():
+	# Setup standard game data
 	resources = {
 		Helper.RESOURCE_TYPE.WEAPONS: 0,
 		Helper.RESOURCE_TYPE.SCROLLS: 0,
@@ -40,23 +44,7 @@ func start():
 		Helper.RESOURCE_TYPE.BLUEPRINTS: 0
 	}
 	
-	load_units()
-	
-	var bunits = {
-		#init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0, tags = []):
-		"Ferrus": 		Unit.new("Ferrus", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 1.5, 1.5),
-		"Leopold": 		Unit.new("Leopold", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 3.5, 3.25),
-		"Antoinette": 	Unit.new("Antoinette", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 2.6, 2.75),
-		"Lailiel": 		Unit.new("Lailiel", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 9.75, 9),
-		"Ba-Yin": 		Unit.new("Ba-Yin", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 1.5, 1.5),
-		"Hoto": 		Unit.new("Hoto", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 3, 3),
-		"Ugolya": 		Unit.new("Ugolya", "", [Helper.RESOURCE_TYPE.FOOD], 1, 11, 10),
-		"Kiki": 		Unit.new("Kiki", "", [Helper.RESOURCE_TYPE.FOOD], 1, 3.8, 3.5),
-		"Saluken": 		Unit.new("Saluken", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 3, 3),
-		"Arnia": 		Unit.new("Arnia", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2.9, 3.1),
-		"Morgause": 	Unit.new("Morgause", "", [Helper.RESOURCE_TYPE.POTIONS, Helper.RESOURCE_TYPE.SCROLLS], 1, 3.5, 4),
-		"Benji": 		Unit.new("Benji", "", [Helper.RESOURCE_TYPE.WEAPONS, Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2, 2.5)
-	}
+	setup_units()
 	
 	# enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
 	# enum UpgradeTarget {UNIT, CLICK, CHEST, LIMITER, GLOBAL}
@@ -76,24 +64,28 @@ func start():
 	resources_panel = get_parent().get_node("Board").get_node("ResourcesPanel")
 	dialog_manager = get_parent().get_node("Board").get_node("DialogManager")
 	
+	load_save_file()
+	
 	connect("unit_updated", unit_list, "_on_unit_updated")
+	connect("unit_updated", party_list, "_on_unit_updated")
 	unit_list.start()
+	party_list.start()
 	
 	if IS_DEBUG:
 		#for name in units:
 			#pull_unit(units[name])
-		pull_unit(units[13])
+		#pull_unit(units[13])
 		
-		var p = [
+		#var p = [
 			#"Ferrus",
-			13, # Saluken
+		#	13, # Saluken
 			#"Morgause",
 			#"Ba-Yin",
 			#"Ugolya",
 			#"Lailiel",
-		]
-		for u in p:
-			add_to_party(u)
+		#]
+		#for u in p:
+		#	add_to_party(u)
 		
 		#units["Saluken"].upgrade_level = 3
 		
@@ -111,14 +103,54 @@ func start():
 			#upgrade.owned = true
 
 
+# Load data from save file currently selected in slot
+func load_save_file() -> void:
+	# Retrieve save file
+	var save_file = File.new()
+	var err = save_file.open(slot, File.READ)
+	if err:
+		push_error("Couldn't open save file " + slot)
+	# Parse file
+	var save_data = JSON.parse(save_file.get_as_text())
+	save_file.close()
+	
+	# Check integrity
+	if save_data.error:
+		push_error("Error while parsing save file " + slot + ". " + save_data.error_string + " at line " + str(save_data.error_line))
+	
+	if typeof(save_data.result) != TYPE_DICTIONARY:
+		push_error("Invalid save data structure")
+	
+	# Load data
+	var result = save_data.result
+	for unit in result["units"]:
+		load_unit(int(unit), result["units"][unit])
+	
+	for unit in result["party"]:
+		add_to_party(int(unit))
+	
+	for unit in result["calls"]["awaiting"]:
+		pulls.append(units[int(unit)])
+		
+	resources = {
+		Helper.RESOURCE_TYPE.WEAPONS: result["resources"]["owned"]["weapons"],
+		Helper.RESOURCE_TYPE.SCROLLS: result["resources"]["owned"]["scrolls"],
+		Helper.RESOURCE_TYPE.POTIONS: result["resources"]["owned"]["potions"],
+		Helper.RESOURCE_TYPE.FOOD: result["resources"]["owned"]["food"],
+		Helper.RESOURCE_TYPE.BLUEPRINTS: result["resources"]["owned"]["blueprints"]
+	}
+
+
 # Read unit data CSV and populate Manager's unit dictionnary
-func load_units() -> void:
+func setup_units() -> void:
 	var csv_filename = "res://Data/unit_stats.csv"
 	var csv_file = File.new()
 	var err = csv_file.open(csv_filename, File.READ)
 	
 	if err:
 		push_error("Couldn't open unit data CSV!")
+	
+	csv_file.get_csv_line() # skip header line
 	
 	while not csv_file.eof_reached():
 		# CSV structure: id, name, resources, power, cycle, tags
@@ -132,25 +164,13 @@ func load_units() -> void:
 		for res in unit_info[2].split(",", false):
 			unit_resources.append(Helper.get_resource_type(res))
 		
-		#init(id, name, portrait, resources, power, cycle, rank = 1, upgrade_level = 0, tags = [])
+		#init(id, name, portrait, resources, power, cycle, tags = [], rank = 1, upgrade_level = 0)
 		units[int(unit_info[0])] = Unit.new(int(unit_info[0]), unit_info[1], "", unit_resources, float(unit_info[3]), float(unit_info[4]), unit_tags)
-	
-	
-	var bunits = {
-		#init(name, portrait, resources, power, cycle, rank = 1, upgrade_level = 0, tags = [])
-		"Ferrus": 		Unit.new("Ferrus", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 1.5, 1.5),
-		"Leopold": 		Unit.new("Leopold", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 3.5, 3.25),
-		"Antoinette": 	Unit.new("Antoinette", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 2.6, 2.75),
-		"Lailiel": 		Unit.new("Lailiel", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 9.75, 9),
-		"Ba-Yin": 		Unit.new("Ba-Yin", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 1.5, 1.5),
-		"Hoto": 		Unit.new("Hoto", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 3, 3),
-		"Ugolya": 		Unit.new("Ugolya", "", [Helper.RESOURCE_TYPE.FOOD], 1, 11, 10),
-		"Kiki": 		Unit.new("Kiki", "", [Helper.RESOURCE_TYPE.FOOD], 1, 3.8, 3.5),
-		"Saluken": 		Unit.new("Saluken", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 3, 3),
-		"Arnia": 		Unit.new("Arnia", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2.9, 3.1),
-		"Morgause": 	Unit.new("Morgause", "", [Helper.RESOURCE_TYPE.POTIONS, Helper.RESOURCE_TYPE.SCROLLS], 1, 3.5, 4),
-		"Benji": 		Unit.new("Benji", "", [Helper.RESOURCE_TYPE.WEAPONS, Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2, 2.5)
-	}
+
+
+func load_unit(id, rank) -> void:
+	units[id].owned = true
+	units[id].rank = int(rank)
 
 
 func add_to_party(id, slot = null):

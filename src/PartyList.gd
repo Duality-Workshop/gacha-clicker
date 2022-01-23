@@ -4,13 +4,9 @@ extends Panel
 var unit_scene = preload("res://Scenes/PartyMember.tscn")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var err = Manager.connect("unit_updated", self, "_on_unit_updated")
-	if err == OK:
-		init_list()
-	else:
-		push_error(err)
+# Called from Manager once the board is loaded.
+func start():
+	init_list()
 
 
 func init_list():
