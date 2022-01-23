@@ -30,8 +30,8 @@ var RANDOM = true
 # signals
 signal unit_updated(unit)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+# Called from Board once it is loaded.
+func start():
 	resources = {
 		Helper.RESOURCE_TYPE.WEAPONS: 0,
 		Helper.RESOURCE_TYPE.SCROLLS: 0,
@@ -73,6 +73,9 @@ func _ready():
 	unit_list = get_parent().get_node("Board").get_node("UnitContainer").get_node("UnitList")
 	resources_panel = get_parent().get_node("Board").get_node("ResourcesPanel")
 	dialog_manager = get_parent().get_node("Board").get_node("DialogManager")
+	
+	connect("unit_updated", unit_list, "_on_unit_updated")
+	unit_list.start()
 	
 	if IS_DEBUG:
 		#for name in units:

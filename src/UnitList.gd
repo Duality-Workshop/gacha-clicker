@@ -4,10 +4,8 @@ extends Panel
 var unit_scene = preload("res://Scenes/PartyMember.tscn")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	Manager.connect("unit_updated", self, "_on_unit_updated")
-	
+# Called from Manager once the board is loaded.
+func start():
 	for unit in Manager.get_owned_units(): # Get all owned units
 		if not Manager.get_party().has(unit): # Don't parse enlisted units
 			add_unit(unit)
