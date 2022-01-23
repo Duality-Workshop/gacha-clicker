@@ -16,3 +16,15 @@ static func get_resource_color(resource:int):
 
 func get_resource_name(resource:int):
 	return tr(RESOURCE_TYPE.keys()[resource])
+
+
+func get_resource_type(s: String) -> int:
+	match s.to_lower():
+		"weapons": return RESOURCE_TYPE.WEAPONS
+		"potions": return RESOURCE_TYPE.POTIONS
+		"scrolls": return RESOURCE_TYPE.SCROLLS
+		"food": return RESOURCE_TYPE.FOOD
+		"blueprints": return RESOURCE_TYPE.BLUEPRINTS
+		_: 
+			push_error("Invalid resource call!")
+			return ERR_DOES_NOT_EXIST

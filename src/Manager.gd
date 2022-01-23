@@ -7,7 +7,7 @@ var Upgrade = load("src/Upgrade.gd")
 var resources = {}
 
 # units
-var units
+var units = {}
 var party = []
 var pulls = []
 
@@ -40,7 +40,9 @@ func start():
 		Helper.RESOURCE_TYPE.BLUEPRINTS: 0
 	}
 	
-	units = {
+	load_units()
+	
+	var bunits = {
 		#init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0, tags = []):
 		"Ferrus": 		Unit.new("Ferrus", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 1.5, 1.5),
 		"Leopold": 		Unit.new("Leopold", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 3.5, 3.25),
@@ -80,11 +82,11 @@ func start():
 	if IS_DEBUG:
 		#for name in units:
 			#pull_unit(units[name])
-		pull_unit(units["Saluken"])
+		pull_unit(units[13])
 		
 		var p = [
 			#"Ferrus",
-			"Saluken",
+			13, # Saluken
 			#"Morgause",
 			#"Ba-Yin",
 			#"Ugolya",
@@ -109,12 +111,54 @@ func start():
 			#upgrade.owned = true
 
 
-func add_to_party(name, id = null):
-	var added_unit = units[name]
-	if !id or id > len(party):
+# Read unit data CSV and populate Manager's unit dictionnary
+func load_units() -> void:
+	var csv_filename = "res://Data/unit_stats.csv"
+	var csv_file = File.new()
+	var err = csv_file.open(csv_filename, File.READ)
+	
+	if err:
+		push_error("Couldn't open unit data CSV!")
+	
+	while not csv_file.eof_reached():
+		# CSV structure: id, name, resources, power, cycle, tags
+		var unit_info = csv_file.get_csv_line()
+		if unit_info[1] == "unnamed":
+			continue
+		
+		var unit_resources = []
+		var unit_tags = unit_info[5].split(",", false)
+		
+		for res in unit_info[2].split(",", false):
+			unit_resources.append(Helper.get_resource_type(res))
+		
+		#init(id, name, portrait, resources, power, cycle, rank = 1, upgrade_level = 0, tags = [])
+		units[int(unit_info[0])] = Unit.new(int(unit_info[0]), unit_info[1], "", unit_resources, float(unit_info[3]), float(unit_info[4]), unit_tags)
+	
+	
+	var bunits = {
+		#init(name, portrait, resources, power, cycle, rank = 1, upgrade_level = 0, tags = [])
+		"Ferrus": 		Unit.new("Ferrus", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 1.5, 1.5),
+		"Leopold": 		Unit.new("Leopold", "", [Helper.RESOURCE_TYPE.WEAPONS], 1, 3.5, 3.25),
+		"Antoinette": 	Unit.new("Antoinette", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 2.6, 2.75),
+		"Lailiel": 		Unit.new("Lailiel", "", [Helper.RESOURCE_TYPE.POTIONS], 1, 9.75, 9),
+		"Ba-Yin": 		Unit.new("Ba-Yin", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 1.5, 1.5),
+		"Hoto": 		Unit.new("Hoto", "", [Helper.RESOURCE_TYPE.SCROLLS], 1, 3, 3),
+		"Ugolya": 		Unit.new("Ugolya", "", [Helper.RESOURCE_TYPE.FOOD], 1, 11, 10),
+		"Kiki": 		Unit.new("Kiki", "", [Helper.RESOURCE_TYPE.FOOD], 1, 3.8, 3.5),
+		"Saluken": 		Unit.new("Saluken", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 3, 3),
+		"Arnia": 		Unit.new("Arnia", "", [Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2.9, 3.1),
+		"Morgause": 	Unit.new("Morgause", "", [Helper.RESOURCE_TYPE.POTIONS, Helper.RESOURCE_TYPE.SCROLLS], 1, 3.5, 4),
+		"Benji": 		Unit.new("Benji", "", [Helper.RESOURCE_TYPE.WEAPONS, Helper.RESOURCE_TYPE.BLUEPRINTS], 1, 2, 2.5)
+	}
+
+
+func add_to_party(id, slot = null):
+	var added_unit = units[id]
+	if !slot or slot > len(party):
 		party.append(added_unit)
 	else:
-		party.insert(id, added_unit)
+		party.insert(slot, added_unit)
 	added_unit.party = true
 	emit_signal("unit_updated", added_unit, "enlist")
 

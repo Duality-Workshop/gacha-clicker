@@ -2,6 +2,7 @@ extends Object
 
 class_name Unit
 
+var id
 var name
 var portrait
 var rank
@@ -13,19 +14,20 @@ var party
 var owned
 var tags
 
-const UPGRADE_FACTOR = [1, .90, .65, .15]
+const UPGRADE_FACTOR = [1, .90, .65, .15] # -10%, -25%, -50%
 
-func _init(name, portrait, resources, rank = 1, power = 1, cycle = 1, upgrade_level = 0, tags = []):
+func _init(id, name, portrait, resources, power, cycle, tags = [], rank = 1, upgrade_level = 0):
+	self.id = id
 	self.name = name
 	self.portrait = portrait
+	self.resources = resources
+	self.power = power
+	self.cycle = cycle
+	self.tags = tags
 	self.rank = rank
 	self.upgrade_level = upgrade_level
-	self.resources = resources
-	self.cycle = cycle
-	self.power = power
 	self.party = false
 	self.owned = false
-	self.tags = tags
 
 
 func get_cycle():

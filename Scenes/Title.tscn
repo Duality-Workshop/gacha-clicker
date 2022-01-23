@@ -62,24 +62,24 @@ __meta__ = {
 
 [node name="Spacer" type="Control" parent="HBoxContainer"]
 margin_left = 124.0
-margin_right = 286.0
+margin_right = 285.0
 margin_bottom = 120.0
 size_flags_horizontal = 3
 
 [node name="Button2" parent="HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 290.0
-margin_right = 410.0
+margin_left = 289.0
+margin_right = 409.0
 text = "2"
 
 [node name="Spacer2" type="Control" parent="HBoxContainer"]
-margin_left = 414.0
-margin_right = 576.0
+margin_left = 413.0
+margin_right = 575.0
 margin_bottom = 120.0
 size_flags_horizontal = 3
 
 [node name="Button3" parent="HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 580.0
-margin_right = 700.0
+margin_left = 579.0
+margin_right = 699.0
 text = "3"
 
 [node name="ColorRect" type="ColorRect" parent="."]

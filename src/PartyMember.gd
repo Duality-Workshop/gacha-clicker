@@ -105,8 +105,8 @@ func _on_CycleTimer_timeout():
 
 
 func _on_EnlistButton_pressed():
-	Manager.add_to_party(unit.name)
+	Manager.add_to_party(unit.id)
 
 
 func _on_RemoveButton_pressed():
-	Manager.remove_from_party(unit.name)
+	Manager.remove_from_party(unit.id)
