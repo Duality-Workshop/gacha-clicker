@@ -235,7 +235,7 @@ __meta__ = {
 [node name="MenuButtons" type="HBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -107.0
+margin_left = -167.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
