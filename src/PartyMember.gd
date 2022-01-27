@@ -21,7 +21,8 @@ func update_info(_unit:Unit):
 			$EnlistButton.visible = false
 	
 	
-	### Display rank
+	### Display infos
+	# Rank
 	var rank_star = $HBoxContainer/VBoxContainer/HBoxContainer/RankStar
 	
 	# Which big star?
@@ -43,10 +44,21 @@ func update_info(_unit:Unit):
 		grid.add_child(bit)
 	
 	
-	### Display resources
-	get_node("HBoxContainer/VBoxContainer/Name").text = unit.name
-	var resource1 = get_node("HBoxContainer/HBoxContainer/Resource1")
-	var resource2 = get_node("HBoxContainer/HBoxContainer/Resource2")
+	# Name
+	$HBoxContainer/VBoxContainer/Name.text = unit.name
+	
+	# Portrait
+	var tex : Texture
+	var tex_path = "res://Resources/Portraits/" + unit.name.to_lower() + " - portrait.png"
+	if ResourceLoader.exists(tex_path):
+		tex = load(tex_path)
+	else:
+		tex = load("res://Resources/Portraits/unknown - portrait.png")
+	$HBoxContainer/Portrait.texture = tex
+	
+	# Resource(s)
+	var resource1 = $HBoxContainer/HBoxContainer/Resource1
+	var resource2 = $HBoxContainer/HBoxContainer/Resource2
 	
 	if len(unit.resources) == 0:
 		resource1.visible = false
