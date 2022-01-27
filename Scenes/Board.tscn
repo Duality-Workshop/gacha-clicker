@@ -241,8 +241,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SaveButton" type="Button" parent="MenuButtons"]
+margin_right = 43.0
+margin_bottom = 40.0
+text = "SAVE"
+
 [node name="SettingsButton" type="Button" parent="MenuButtons"]
-margin_right = 72.0
+margin_left = 47.0
+margin_right = 119.0
 margin_bottom = 40.0
 mouse_default_cursor_shape = 2
 text = "SETTINGS"
@@ -251,8 +257,8 @@ __meta__ = {
 }
 
 [node name="HelpButton" type="Button" parent="MenuButtons"]
-margin_left = 76.0
-margin_right = 120.0
+margin_left = 123.0
+margin_right = 167.0
 margin_bottom = 40.0
 mouse_default_cursor_shape = 2
 text = "HELP"
@@ -571,6 +577,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogManager"]
 anims/Fade = SubResource( 9 )
 
+[connection signal="pressed" from="MenuButtons/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
 [connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]

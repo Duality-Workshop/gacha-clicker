@@ -140,6 +140,67 @@ func load_save_file() -> void:
 		Helper.RESOURCE_TYPE.BLUEPRINTS: result["resources"]["owned"]["blueprints"]
 	}
 
+func save() -> void:
+	var units_owned = {}
+	for unit in get_owned_units():
+		units_owned[unit.id] = unit.rank
+	
+	var units_awaiting = []
+	for unit in pulls:
+		units_awaiting.append(unit.id)
+	
+	var units_in_party = []
+	for unit in get_party():
+		units_in_party.append(unit.id)
+	
+	var save_data = {
+		"resources": {
+			"owned":{
+				"weapons": resources[Helper.RESOURCE_TYPE.WEAPONS],
+				"potions": resources[Helper.RESOURCE_TYPE.POTIONS],
+				"scrolls": resources[Helper.RESOURCE_TYPE.SCROLLS],
+				"food": resources[Helper.RESOURCE_TYPE.FOOD],
+				"blueprints": resources[Helper.RESOURCE_TYPE.BLUEPRINTS]
+				},
+			"produced":{
+				"weapons": 0,
+				"potions": 0,
+				"scrolls": 0,
+				"food": 0,
+				"blueprints": 0
+				}
+		},
+		"units": units_owned,
+		"upgrades": [],
+		"callerite": {
+			"owned": 0,
+			"used": 0
+		},
+		"curserite": {
+			"owned": 0,
+			"used": 0
+		},
+		"calls": {
+			"made": 0,
+			"awaiting": units_awaiting
+		},
+		"flags": {},
+		"domain_name": "",
+		"leader_name": "",
+		"featured_unit": 0,
+		"party": units_in_party,
+		"settings": {},
+		"version": "1.0.0"
+	}
+	
+	var save_file = File.new()
+	var err = save_file.open(slot, File.WRITE)
+	if err:
+		push_error("Couldn't open save file " + slot)
+	# Write file
+	save_file.store_string(JSON.print(save_data, "\t"))
+	save_file.close()
+
 
 # Read unit data CSV and populate Manager's unit dictionnary
 func setup_units() -> void:
