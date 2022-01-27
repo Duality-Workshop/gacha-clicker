@@ -9,8 +9,8 @@ var unit
 func _ready():
 	pass # Replace with function body.
 
-func update_info(unit:Unit):
-	self.unit = unit
+func update_info(_unit:Unit):
+	self.unit = _unit
 	if unit.party:
 		$CycleTimer.wait_time = unit.get_cycle()
 		$EnlistButton.visible = false

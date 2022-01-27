@@ -20,5 +20,5 @@ func _on_Button_pressed() -> void:
 	hide()
 
 
-func after_dialog(timeline_name) -> void:
+func after_dialog(_timeline_name) -> void:
 		get_parent().get_node("AnimationPlayer").play_backwards("Fade")

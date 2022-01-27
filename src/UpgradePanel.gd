@@ -13,8 +13,8 @@ func ignore_mouse(nodes) -> void:
 		ignore_mouse(node.get_children())
 		node.mouse_filter = MOUSE_FILTER_IGNORE
 
-func init(upgrade) -> void:
-	self.upgrade = upgrade
+func init(_upgrade) -> void:
+	self.upgrade = _upgrade
 	$MarginBox/HBoxContainer/Text/Name.text = upgrade.name
 	$MarginBox/HBoxContainer/Text/Description.bbcode_text = upgrade.description
 	$MarginBox/HBoxContainer/Text/Flavour.text = upgrade.flavour

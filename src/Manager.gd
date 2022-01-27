@@ -66,8 +66,12 @@ func start():
 	
 	load_save_file()
 	
-	connect("unit_updated", unit_list, "_on_unit_updated")
-	connect("unit_updated", party_list, "_on_unit_updated")
+	var err
+	err = connect("unit_updated", unit_list, "_on_unit_updated")
+	if err: push_error("Couldn't connect signal unit_updated to unit_list!")
+	err = connect("unit_updated", party_list, "_on_unit_updated")
+	if err: push_error("Couldn't connect signal unit_updated to party_list!")
+	
 	unit_list.start()
 	party_list.start()
 	
@@ -234,12 +238,12 @@ func load_unit(id, rank) -> void:
 	units[id].rank = int(rank)
 
 
-func add_to_party(id, slot = null):
+func add_to_party(id, party_slot = null):
 	var added_unit = units[id]
-	if !slot or slot > len(party):
+	if !party_slot or party_slot > len(party):
 		party.append(added_unit)
 	else:
-		party.insert(slot, added_unit)
+		party.insert(party_slot, added_unit)
 	added_unit.party = true
 	emit_signal("unit_updated", added_unit, "enlist")
 
@@ -249,7 +253,7 @@ func remove_from_party(name):
 	added_unit.party = false
 	emit_signal("unit_updated", added_unit, "remove")
 
-func unstack(timeline_name: String = "") -> void:
+func unstack(_timeline_name: String = "") -> void:
 	if pulls:
 		pull_unit(pulls[0], len(pulls) > 1)
 

@@ -27,6 +27,6 @@ func start_dialogue(timeline: String, callback: Node = null, callback_target: St
 	add_child(new_dialog)
 
 
-func after_dialogue(timeline_name) -> void:
+func after_dialogue(_timeline_name) -> void:
 	$AnimationPlayer.play_backwards("Fade")
 	faded_in = false
