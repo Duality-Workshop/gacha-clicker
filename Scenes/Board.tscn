@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/PullContainer.gd" type="Script" id=15]
 [ext_resource path="res://src/DialogManager.gd" type="Script" id=16]
 [ext_resource path="res://src/Board.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/FreebieCountdown.tscn" type="PackedScene" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -461,6 +462,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FreebiesContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -95.6123
+margin_top = 238.493
+margin_right = -33.6123
+margin_bottom = 306.493
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DailyCountdown" parent="FreebiesContainer" instance=ExtResource( 18 )]
+margin_right = 62.0
+
+[node name="WeeklyCountdown2" parent="FreebiesContainer" instance=ExtResource( 18 )]
+margin_top = 36.0
+margin_right = 62.0
+margin_bottom = 68.0
+periodicity = 7
+
 [node name="ShopButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -560,6 +583,7 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 script = ExtResource( 16 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
