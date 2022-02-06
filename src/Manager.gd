@@ -229,8 +229,7 @@ func setup_tags() -> void:
 			tags_dict[tag_info[2]] = {tag_info[0]: tag_info[1]}
 		else:
 			tags_dict[tag_info[2]][tag_info[0]] = tag_info[1]
-	
-	print_debug(tags_dict)
+
 
 # Read unit data CSV and populate Manager's unit dictionnary
 func setup_units() -> void:
@@ -301,27 +300,34 @@ func pull_unit(unit: Unit, unstack: bool = false):
 			dialog_manager.start_dialogue(timeline_name, self, "unstack")
 		else:
 			dialog_manager.start_dialogue(timeline_name)
-	pulls.erase(unit)
+	
+	if unstack:
+		pulls.erase(unit)
 
 func pull_random():
 	var rng = RandomNumberGenerator.new()
 	if RANDOM: rng.randomize()
+	var valid_units := get_pullable_units()
+	
+	pulls.append(valid_units[rng.randi_range(0, len(valid_units)-1)])
+
+func get_pullable_units() -> Array:
 	var valid_units := []
 	
 	for unit in units:
 		if units[unit].rank + pulls.count(unit) < 30:
 			valid_units.append(units[unit])
 	
-	pulls.append(valid_units[rng.randi_range(0, len(valid_units)-1)])
+	return valid_units
 
-func get_owned_units():
+func get_owned_units() -> Array:
 	var u = []
 	for unit in units:
 		if units[unit].owned:
 			u.append(units[unit])
 	return u
 
-func get_party():
+func get_party() -> Array:
 	var u = []
 	for unit in units:
 		if units[unit].party:
@@ -402,4 +408,5 @@ func pay(upgrade):
 
 func open_pull_window(success_chance, target) -> void:
 	pull_window.get_node("VBoxContainer/Label").text = tr("SUCCESS_CHANCES") + ": " + str(success_chance * 100) + "%"
+	pull_window.odds = success_chance
 	pull_window.popup()

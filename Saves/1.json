@@ -2,10 +2,10 @@
 	"resources": {
 		"owned": {
 			"weapons": 300,
-			"potions": 300,
-			"scrolls": 300,
+			"potions": 200,
+			"scrolls": 400,
 			"food": 100,
-			"blueprints": 315
+			"blueprints": 975
 		},
 		"produced": {
 			"weapons": 0,
