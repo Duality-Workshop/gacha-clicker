@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -18,6 +18,13 @@
 [ext_resource path="res://src/DialogManager.gd" type="Script" id=16]
 [ext_resource path="res://src/Board.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/FreebieCountdown.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Resources/Fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://src/TagPullWindow.gd" type="Script" id=20]
+[ext_resource path="res://Resources/ButtonGroups/Traits.tres" type="ButtonGroup" id=21]
+[ext_resource path="res://Resources/ButtonGroups/Flaws.tres" type="ButtonGroup" id=22]
+[ext_resource path="res://Resources/ButtonGroups/Style.tres" type="ButtonGroup" id=23]
+[ext_resource path="res://Resources/ButtonGroups/Speed.tres" type="ButtonGroup" id=24]
+[ext_resource path="res://src/TagRow.gd" type="Script" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -55,20 +62,23 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.6 )
 }
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 8 )
 
-[sub_resource type="Environment" id=7]
+[sub_resource type="DynamicFont" id=8]
+size = 24
+font_data = ExtResource( 19 )
+
+[sub_resource type="Environment" id=9]
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.28
 
-[sub_resource type="Animation" id=9]
-resource_name = "Fade"
+[sub_resource type="Animation" id=10]
 length = 0.4
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:color:a")
@@ -199,25 +209,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Weapons" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
+[node name="Weapons" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
+"Resources",
+] instance=ExtResource( 1 )]
 margin_right = 234.0
 
-[node name="Potions" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
+[node name="Potions" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
+"Resources",
+] instance=ExtResource( 1 )]
 margin_left = 238.0
 margin_right = 473.0
 type = 1
 
-[node name="Scrolls" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
+[node name="Scrolls" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
+"Resources",
+] instance=ExtResource( 1 )]
 margin_left = 477.0
 margin_right = 712.0
 type = 2
 
-[node name="Food" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
+[node name="Food" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
+"Resources",
+] instance=ExtResource( 1 )]
 margin_left = 716.0
 margin_right = 951.0
 type = 3
 
-[node name="Blueprints" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
+[node name="Blueprints" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=[
+"Resources",
+] instance=ExtResource( 1 )]
 margin_left = 955.0
 margin_right = 1190.0
 type = 4
@@ -346,7 +366,7 @@ __meta__ = {
 }
 
 [node name="PartyListLabel" type="Label" parent="UnitContainer/PartyList/VBoxContainer"]
-margin_left = 123.0
+margin_left = 122.0
 margin_right = 192.0
 margin_bottom = 34.0
 size_flags_horizontal = 4
@@ -402,7 +422,7 @@ margin_left = 36.0
 margin_top = 4.0
 margin_right = 154.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 text = "X call(s) waiting!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -455,22 +475,238 @@ margin_left = -98.0
 margin_top = -22.5
 margin_right = 98.0
 margin_bottom = 22.5
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
 text = "featured unit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TagPullWindow" type="WindowDialog" parent="."]
+visible = true
+margin_left = 348.158
+margin_top = 181.874
+margin_right = 1513.16
+margin_bottom = 932.874
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TagPullWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TagPullWindow/VBoxContainer"]
+margin_right = 1165.0
+margin_bottom = 14.0
+text = "SUCCESS_CHANCES"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TagPullWindow/VBoxContainer"]
+margin_top = 18.0
+margin_right = 1165.0
+margin_bottom = 751.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonRows" type="VBoxContainer" parent="TagPullWindow/VBoxContainer/HBoxContainer"]
+margin_right = 1076.0
+margin_bottom = 733.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Traits" type="HBoxContainer" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows"]
+margin_right = 1076.0
+margin_bottom = 40.0
+script = ExtResource( 25 )
+group = ExtResource( 21 )
+
+[node name="Button" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Traits"]
+margin_right = 72.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 21 )
+text = "CUTE"
+
+[node name="Button2" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Traits"]
+margin_left = 76.0
+margin_right = 183.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 21 )
+text = "STYLISH"
+
+[node name="Button3" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Traits"]
+margin_left = 187.0
+margin_right = 282.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 21 )
+text = "SMART"
+
+[node name="Button4" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Traits"]
+margin_left = 286.0
+margin_right = 397.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 21 )
+text = "STRONG"
+
+[node name="Button5" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Traits"]
+margin_left = 401.0
+margin_right = 536.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 21 )
+text = "GRACEFUL"
+
+[node name="Flaws" type="HBoxContainer" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows"]
+margin_top = 44.0
+margin_right = 1076.0
+margin_bottom = 84.0
+script = ExtResource( 25 )
+group = ExtResource( 22 )
+
+[node name="Button" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Flaws"]
+margin_right = 100.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 22 )
+text = "ROUGH"
+
+[node name="Button2" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Flaws"]
+margin_left = 104.0
+margin_right = 190.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 22 )
+text = "PLAIN"
+
+[node name="Button3" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Flaws"]
+margin_left = 194.0
+margin_right = 283.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 22 )
+text = "DENSE"
+
+[node name="Button4" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Flaws"]
+margin_left = 287.0
+margin_right = 367.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 22 )
+text = "FRAIL"
+
+[node name="Button5" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Flaws"]
+margin_left = 371.0
+margin_right = 481.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 22 )
+text = "CLUMSY"
+
+[node name="Style" type="HBoxContainer" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows"]
+margin_top = 88.0
+margin_right = 1076.0
+margin_bottom = 128.0
+script = ExtResource( 25 )
+group = ExtResource( 23 )
+
+[node name="Button" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Style"]
+margin_right = 105.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 23 )
+text = "PRECISE"
+
+[node name="Button2" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Style"]
+margin_left = 109.0
+margin_right = 237.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 23 )
+text = "DYNAMIC"
+
+[node name="Button3" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Style"]
+margin_left = 241.0
+margin_right = 383.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 23 )
+text = "BALANCED"
+
+[node name="Speed" type="HBoxContainer" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows"]
+margin_top = 132.0
+margin_right = 1076.0
+margin_bottom = 172.0
+script = ExtResource( 25 )
+group = ExtResource( 24 )
+
+[node name="Button" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Speed"]
+margin_right = 69.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 24 )
+text = "FAST"
+
+[node name="Button2" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Speed"]
+margin_left = 73.0
+margin_right = 154.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+toggle_mode = true
+group = ExtResource( 24 )
+text = "SLOW"
+
+[node name="Button" type="Button" parent="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows"]
+margin_top = 176.0
+margin_right = 1076.0
+margin_bottom = 216.0
+custom_fonts/font = SubResource( 8 )
+text = "SEND"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TagPullWindow/VBoxContainer/HBoxContainer"]
+margin_left = 1080.0
+margin_right = 1165.0
+margin_bottom = 733.0
+
+[node name="Label" type="Label" parent="TagPullWindow/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 85.0
+margin_bottom = 14.0
+text = "compendium"
 
 [node name="FreebiesContainer" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -95.6123
-margin_top = 238.493
-margin_right = -33.6123
-margin_bottom = 306.493
+margin_left = -96.0
+margin_top = 232.0
+margin_right = -34.0
+margin_bottom = 307.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -478,13 +714,21 @@ __meta__ = {
 [node name="DailyCountdown" parent="FreebiesContainer" instance=ExtResource( 18 )]
 margin_right = 62.0
 
-[node name="WeeklyCountdown2" parent="FreebiesContainer" instance=ExtResource( 18 )]
+[node name="Spacer" type="Control" parent="FreebiesContainer"]
 margin_top = 36.0
 margin_right = 62.0
-margin_bottom = 68.0
+margin_bottom = 39.0
+size_flags_vertical = 3
+
+[node name="WeeklyCountdown2" parent="FreebiesContainer" instance=ExtResource( 18 )]
+margin_top = 43.0
+margin_right = 62.0
+margin_bottom = 75.0
 periodicity = 7
+success_chance = 0.95
 
 [node name="ShopButton" type="Button" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -499,10 +743,11 @@ __meta__ = {
 }
 
 [node name="ShopWindow" type="WindowDialog" parent="ShopButton"]
-margin_left = -1185.95
-margin_top = -551.979
-margin_right = -15.9487
-margin_bottom = 151.021
+visible = true
+margin_left = -1326.28
+margin_top = -599.547
+margin_right = -156.275
+margin_bottom = 103.453
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -566,6 +811,7 @@ margin_right = 1629.0
 margin_bottom = 987.0
 script = ExtResource( 12 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -574,7 +820,7 @@ wait_time = 30.0
 autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 7 )
+environment = SubResource( 9 )
 
 [node name="DialogManager" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -599,16 +845,17 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogManager"]
-anims/Fade = SubResource( 9 )
+anims/Fade = SubResource( 10 )
 
 [connection signal="pressed" from="MenuButtons/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
 [connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Blueprints" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="pressed" from="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Button" to="TagPullWindow" method="_on_Button_pressed"]
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]
 [connection signal="pressed" from="DialogManager/Button" to="DialogManager/Button" method="_on_Button_pressed"]

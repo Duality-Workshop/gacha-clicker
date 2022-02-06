@@ -1,25 +1,27 @@
 {
 	"resources": {
-		"owned":{
+		"owned": {
+			"weapons": 300,
+			"potions": 300,
+			"scrolls": 300,
+			"food": 100,
+			"blueprints": 315
+		},
+		"produced": {
 			"weapons": 0,
 			"potions": 0,
 			"scrolls": 0,
 			"food": 0,
 			"blueprints": 0
-			},
-		"produced":{
-			"weapons": 0,
-			"potions": 0,
-			"scrolls": 0,
-			"food": 0,
-			"blueprints": 0
-			}
+		}
 	},
 	"units": {
-		"13": 5,
-		"1": 1
-		},
-	"upgrades": [],
+		"1": 1,
+		"13": 5
+	},
+	"upgrades": [
+
+	],
 	"callerite": {
 		"owned": 0,
 		"used": 0
@@ -30,13 +32,24 @@
 	},
 	"calls": {
 		"made": 0,
-		"awaiting": [13,1,6,20]
+		"awaiting": [
+			13,
+			1,
+			6,
+			20
+		]
 	},
-	"flags": {},
+	"flags": {
+
+	},
 	"domain_name": "",
 	"leader_name": "",
 	"featured_unit": 0,
-	"party": [13],
-	"settings": {},
+	"party": [
+		13
+	],
+	"settings": {
+
+	},
 	"version": "1.0.0"
 }

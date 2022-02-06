@@ -22,6 +22,7 @@ var party_list
 var unit_list
 var resources_panel
 var dialog_manager
+var pull_window
 
 # data
 var slot = "res://Saves/1.json"
@@ -44,6 +45,7 @@ func start():
 		Helper.RESOURCE_TYPE.BLUEPRINTS: 0
 	}
 	
+	setup_tags()
 	setup_units()
 	
 	# enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
@@ -59,10 +61,12 @@ func start():
 		
 	}
 	
-	party_list = get_parent().get_node("Board").get_node("UnitContainer").get_node("PartyList")
-	unit_list = get_parent().get_node("Board").get_node("UnitContainer").get_node("UnitList")
-	resources_panel = get_parent().get_node("Board").get_node("ResourcesPanel")
-	dialog_manager = get_parent().get_node("Board").get_node("DialogManager")
+	var parent = get_parent().get_node("Board")
+	party_list = parent.get_node("UnitContainer").get_node("PartyList")
+	unit_list = parent.get_node("UnitContainer").get_node("UnitList")
+	resources_panel = parent.get_node("ResourcesPanel")
+	dialog_manager = parent.get_node("DialogManager")
+	pull_window = parent.get_node("TagPullWindow")
 	
 	load_save_file()
 	
@@ -205,6 +209,28 @@ func save() -> void:
 	save_file.store_string(JSON.print(save_data, "\t"))
 	save_file.close()
 
+
+# Read tag data CSV and populate Manager's tag dictionnary
+func setup_tags() -> void:
+	var csv_filename = "res://Data/tags.csv"
+	var csv_file = File.new()
+	var err = csv_file.open(csv_filename, File.READ)
+	
+	if err:
+		push_error("Couldn't open unit data CSV!")
+	
+	csv_file.get_csv_line() # skip header line
+	
+	var tags_dict = {}
+	while not csv_file.eof_reached():
+		# CSV structure: id, name, category
+		var tag_info = csv_file.get_csv_line()
+		if not tag_info[2] in tags_dict:
+			tags_dict[tag_info[2]] = {tag_info[0]: tag_info[1]}
+		else:
+			tags_dict[tag_info[2]][tag_info[0]] = tag_info[1]
+	
+	print_debug(tags_dict)
 
 # Read unit data CSV and populate Manager's unit dictionnary
 func setup_units() -> void:
@@ -374,3 +400,6 @@ func pay(upgrade):
 	for resource in upgrade.price:
 		resources_panel.update_resource(resource, -upgrade.price[resource])
 
+func open_pull_window(success_chance, target) -> void:
+	pull_window.get_node("VBoxContainer/Label").text = tr("SUCCESS_CHANCES") + ": " + str(success_chance * 100) + "%"
+	pull_window.popup()

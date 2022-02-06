@@ -1,6 +1,7 @@
 extends TextureRect
 
 export var periodicity : int = 1
+export var success_chance : float = .50
 var start_date = null
 var seconds_needed : int = 0
 var time_elapsed
@@ -19,8 +20,14 @@ func _ready() -> void:
 
 func _on_Timer_timeout() -> void:
 	time_elapsed = OS.get_unix_time() - start_date
-	$Label.text = seconds_to_time(seconds_needed - time_elapsed)
-	hint_tooltip = seconds_to_time(seconds_needed - time_elapsed, true)
+	if time_elapsed > seconds_needed:
+		$Label.text = tr("Ready!")
+		hint_tooltip = ""
+		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	else:	
+		$Label.text = seconds_to_time(seconds_needed - time_elapsed)
+		hint_tooltip = seconds_to_time(seconds_needed - time_elapsed, true)
+		mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 func seconds_to_time(seconds:int, full:bool = false) -> String:
 	if seconds < 0:
@@ -39,6 +46,7 @@ func seconds_to_time(seconds:int, full:bool = false) -> String:
 	var time_left = ""
 	var format = {"days":days, "hours":hours, "minutes":minutes, "seconds": seconds_remaining}
 	
+	# TODO: translate units
 	if full: 
 		time_left = "{days}D {hours}h{minutes}m{seconds}s".format(format)
 	elif days:
@@ -52,3 +60,9 @@ func seconds_to_time(seconds:int, full:bool = false) -> String:
 	
 	
 	return time_left
+
+
+func _on_FreebieCountdown_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			Manager.open_pull_window(success_chance, self)

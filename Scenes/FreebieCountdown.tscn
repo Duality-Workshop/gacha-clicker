@@ -4,7 +4,7 @@
 [ext_resource path="res://src/FreebieCountdown.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=1]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
@@ -14,6 +14,9 @@ margin_right = 32.0
 margin_bottom = 32.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -23,8 +26,8 @@ anchor_bottom = 1.0
 margin_left = -20.0
 margin_top = -14.0
 margin_right = 20.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 10 )
 align = 1
 valign = 2
 __meta__ = {
@@ -34,4 +37,5 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="gui_input" from="." to="." method="_on_FreebieCountdown_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

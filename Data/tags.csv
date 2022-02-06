@@ -1,0 +1,16 @@
+id,name,category
+1,cute,traits
+2,stylish,traits
+3,smart,traits
+4,strong,traits
+5,graceful,traits
+6,rough,flaws
+7,plain,flaws
+8,dense,flaws
+9,frail,flaws
+10,clumsy,flaws
+11,precise,style
+12,dynamic,style
+13,balanced,style
+14,fast,speed
+15,slow,speed
