@@ -280,7 +280,7 @@ func remove_from_party(name):
 
 func unstack(_timeline_name: String = "") -> void:
 	if pulls:
-		pull_unit(pulls[0], len(pulls) > 1)
+		pull_unit(pulls[0], len(pulls) > 0)
 
 func pull_unit(unit: Unit, unstack: bool = false):
 	# print_debug("Pulled " + unit.name + "!")
@@ -288,7 +288,7 @@ func pull_unit(unit: Unit, unstack: bool = false):
 		unit.rank += 1
 		emit_signal("unit_updated", unit, "rank_up")
 		var timeline_name = unit.name.to_upper() + "_RANK_UP"
-		if unstack:
+		if unstack and len(pulls) > 1:
 			dialog_manager.start_dialogue(timeline_name, self, "unstack")
 		else:
 			dialog_manager.start_dialogue(timeline_name)
@@ -296,7 +296,7 @@ func pull_unit(unit: Unit, unstack: bool = false):
 		unit.owned = true
 		emit_signal("unit_updated", unit, "new")
 		var timeline_name = unit.name.to_upper() + "_INTRO"
-		if unstack:
+		if unstack and len(pulls) > 1:
 			dialog_manager.start_dialogue(timeline_name, self, "unstack")
 		else:
 			dialog_manager.start_dialogue(timeline_name)
