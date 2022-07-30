@@ -347,7 +347,8 @@ func get_unit_resource_power(unit, resource):
 	var UGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.UGP)
 	var URP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.URP, resource)
 
-	return (unit.power + UGB + URB) * unit.rank * UGP * URP
+	return (unit.power + UGB + URB) * unit.rank * pow(2, UGP + URP - 2)
+	# -2 because we only want to count extra percentage levels
 
 
 func get_click_power(resource=null, _raw=false):
@@ -356,7 +357,8 @@ func get_click_power(resource=null, _raw=false):
 	var CGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CGP)
 	var CRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.CRP, resource)
 
-	return (base_click_power + CGB + CRB) * CGP * CRP
+	return (base_click_power + CGB + CRB) * pow(2, CGP + CRP - 2)
+	# -2 because we only want to count extra percentage levels
 
 
 func get_chest_power(resource=null, _raw=false):
@@ -365,7 +367,8 @@ func get_chest_power(resource=null, _raw=false):
 	var HGP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HGP)
 	var HRP = get_upgrade_category_bonus(Upgrade.UpgradeCategory.HRP, resource)
 
-	return (base_chest_power + HGB + HRB) * HGP * HRP
+	return (base_chest_power + HGB + HRB) * pow(2, HGP + HRP - 2)
+	# -2 because we only want to count extra percentage levels
 
 func get_category_type(category):
 	var bases = [Upgrade.UpgradeCategory.UGB, Upgrade.UpgradeCategory.URB, Upgrade.UpgradeCategory.CGB, Upgrade.UpgradeCategory.CRB, Upgrade.UpgradeCategory.HGB, Upgrade.UpgradeCategory.HRB]
@@ -406,7 +409,7 @@ func pay(upgrade):
 	for resource in upgrade.price:
 		resources_panel.update_resource(resource, -upgrade.price[resource])
 
-func open_pull_window(success_chance, target) -> void:
+func open_pull_window(success_chance, _target) -> void:
 	pull_window.get_node("VBoxContainer/Label").text = tr("SUCCESS_CHANCES") + ": " + str(success_chance * 100) + "%"
 	pull_window.odds = success_chance
 	pull_window.popup()
