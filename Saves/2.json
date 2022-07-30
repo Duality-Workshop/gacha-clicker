@@ -1,14 +1,14 @@
 {
 	"resources": {
 		"owned":{
-			"weapons": 0,
+			"tools": 0,
 			"potions": 0,
 			"scrolls": 0,
 			"food": 0,
 			"blueprints": 0
 			},
 		"produced":{
-			"weapons": 0,
+			"tools": 0,
 			"potions": 0,
 			"scrolls": 0,
 			"food": 0,

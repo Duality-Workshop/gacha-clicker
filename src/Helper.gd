@@ -1,9 +1,9 @@
 extends Node
 
-enum RESOURCE_TYPE {WEAPONS, POTIONS, SCROLLS, FOOD, BLUEPRINTS, GLOBAL}
+enum RESOURCE_TYPE {TOOLS, POTIONS, SCROLLS, FOOD, BLUEPRINTS, GLOBAL}
 
 const resource_colors = {
-	RESOURCE_TYPE.WEAPONS: Color(0.67451, 0.258824, 0.258824),
+	RESOURCE_TYPE.TOOLS: Color(0.67451, 0.258824, 0.258824),
 	RESOURCE_TYPE.POTIONS: Color(0.258824, 0.67451, 0.266667),
 	RESOURCE_TYPE.SCROLLS: Color(0.643137, 0.258824, 0.67451),
 	RESOURCE_TYPE.FOOD: Color(0.8, 0.635294, 0.141176),
@@ -20,7 +20,7 @@ func get_resource_name(resource:int):
 
 func get_resource_type(s: String) -> int:
 	match s.to_lower():
-		"weapons": return RESOURCE_TYPE.WEAPONS
+		"tools": return RESOURCE_TYPE.TOOLS
 		"potions": return RESOURCE_TYPE.POTIONS
 		"scrolls": return RESOURCE_TYPE.SCROLLS
 		"food": return RESOURCE_TYPE.FOOD

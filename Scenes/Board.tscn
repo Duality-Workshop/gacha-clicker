@@ -209,7 +209,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Weapons" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
+[node name="Tools" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
 margin_right = 234.0
 
 [node name="Potions" parent="ResourcesPanel/VBoxContainer/HBoxContainer" groups=["Resources"] instance=ExtResource( 1 )]
@@ -840,7 +840,7 @@ anims/Fade = SubResource( 10 )
 [connection signal="pressed" from="MenuButtons/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
 [connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
-[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Weapons" method="_on_CallCrystalButton_increase_resource"]
+[connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Tools" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Potions" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Scrolls" method="_on_CallCrystalButton_increase_resource"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Food" method="_on_CallCrystalButton_increase_resource"]

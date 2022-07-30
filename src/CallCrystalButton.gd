@@ -15,7 +15,7 @@ signal increase_resource(resource, value)
 
 func _ready():
 	roll_odds = {
-		Helper.RESOURCE_TYPE.WEAPONS: 100,
+		Helper.RESOURCE_TYPE.TOOLS: 100,
 		Helper.RESOURCE_TYPE.SCROLLS: 100,
 		Helper.RESOURCE_TYPE.POTIONS: 100,
 		Helper.RESOURCE_TYPE.FOOD: 100,

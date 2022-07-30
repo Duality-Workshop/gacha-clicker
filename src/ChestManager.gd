@@ -4,7 +4,7 @@ extends Control
 var chest_node = preload("res://Scenes/Chest.tscn")
 var rng = RandomNumberGenerator.new()
 
-const resources = ["Weapons", "Potions", "Scrolls", "Food", "Blueprints"]
+const resources = ["Tools", "Potions", "Scrolls", "Food", "Blueprints"]
 var roll_odds = {}
 var roll_sum
 var roll_table = {}
@@ -19,7 +19,7 @@ func _ready() -> void:
 	if Manager.RANDOM: rng.randomize()
 	
 	roll_odds = {
-		Helper.RESOURCE_TYPE.WEAPONS: 100,
+		Helper.RESOURCE_TYPE.TOOLS: 100,
 		Helper.RESOURCE_TYPE.SCROLLS: 100,
 		Helper.RESOURCE_TYPE.POTIONS: 100,
 		Helper.RESOURCE_TYPE.FOOD: 100,

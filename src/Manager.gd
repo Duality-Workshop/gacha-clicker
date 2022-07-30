@@ -38,7 +38,7 @@ signal unit_updated(unit)
 func start():
 	# Setup standard game data
 	resources = {
-		Helper.RESOURCE_TYPE.WEAPONS: 0,
+		Helper.RESOURCE_TYPE.TOOLS: 0,
 		Helper.RESOURCE_TYPE.SCROLLS: 0,
 		Helper.RESOURCE_TYPE.POTIONS: 0,
 		Helper.RESOURCE_TYPE.FOOD: 0,
@@ -50,14 +50,14 @@ func start():
 	
 	# enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
 	# enum UpgradeTarget {UNIT, CLICK, CHEST, LIMITER, GLOBAL}
-	# enum UpgradeResource {WEAPONS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
+	# enum UpgradeResource {TOOLS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
 	# enum UpgradeScope {BASE, PERCENTAGE}
 	# enum UpgradeCategory {UC, UGB, UGP, URB, URP, CGB, CGP, CRB, CRP}
 	upgrades = {
 		#func _init(type, target, resource, scope, power, icon, name, description, flavour)
-		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.WEAPONS: 256, Helper.RESOURCE_TYPE.SCROLLS: 100, Helper.RESOURCE_TYPE.BLUEPRINTS: 500}, "", "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
+		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.TOOLS: 256, Helper.RESOURCE_TYPE.SCROLLS: 100, Helper.RESOURCE_TYPE.BLUEPRINTS: 500}, "", "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
 		"GachaFAQs": Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {Helper.RESOURCE_TYPE.FOOD: 10}, "", "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
-		"Armory": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.WEAPONS, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.WEAPONS: 10, Helper.RESOURCE_TYPE.BLUEPRINTS: 5}, "", "Armory", "Safety first. At least, Weapon-makers think so. With these at hand, your Units will be able to go adventuring. – [i]Weapon-makers double their Resource production. Unlocks the Treasure Chest mechanic.[/i]", ""),
+		"Armory": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.TOOLS, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.TOOLS: 10, Helper.RESOURCE_TYPE.BLUEPRINTS: 5}, "", "Armory", "Safety first. At least, Weapon-makers think so. With these at hand, your Units will be able to go adventuring. – [i]Weapon-makers double their Resource production. Unlocks the Treasure Chest mechanic.[/i]", ""),
 		
 	}
 	
@@ -141,7 +141,7 @@ func load_save_file() -> void:
 		pulls.append(units[int(unit)])
 		
 	resources = {
-		Helper.RESOURCE_TYPE.WEAPONS: result["resources"]["owned"]["weapons"],
+		Helper.RESOURCE_TYPE.TOOLS: result["resources"]["owned"]["tools"],
 		Helper.RESOURCE_TYPE.SCROLLS: result["resources"]["owned"]["scrolls"],
 		Helper.RESOURCE_TYPE.POTIONS: result["resources"]["owned"]["potions"],
 		Helper.RESOURCE_TYPE.FOOD: result["resources"]["owned"]["food"],
@@ -164,14 +164,14 @@ func save() -> void:
 	var save_data = {
 		"resources": {
 			"owned":{
-				"weapons": resources[Helper.RESOURCE_TYPE.WEAPONS],
+				"tools": resources[Helper.RESOURCE_TYPE.TOOLS],
 				"potions": resources[Helper.RESOURCE_TYPE.POTIONS],
 				"scrolls": resources[Helper.RESOURCE_TYPE.SCROLLS],
 				"food": resources[Helper.RESOURCE_TYPE.FOOD],
 				"blueprints": resources[Helper.RESOURCE_TYPE.BLUEPRINTS]
 				},
 			"produced":{
-				"weapons": 0,
+				"tools": 0,
 				"potions": 0,
 				"scrolls": 0,
 				"food": 0,
