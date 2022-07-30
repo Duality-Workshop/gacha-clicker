@@ -16,15 +16,16 @@ func ignore_mouse(nodes) -> void:
 func init(_upgrade) -> void:
 	self.upgrade = _upgrade
 	$MarginBox/HBoxContainer/Text/Name.text = upgrade.name
-	$MarginBox/HBoxContainer/Text/Description.bbcode_text = upgrade.description
+	$MarginBox/HBoxContainer/Text/Description.bbcode_text = upgrade.description + " - " + upgrade.effect
 	$MarginBox/HBoxContainer/Text/Flavour.text = upgrade.flavour
 	
 	for resource in upgrade.price:
-		var node = price_node.instance()
-		node.get_node("Resource").color = Helper.get_resource_color(resource)
-		node.resource = resource
-		node.get_node("Amount").text = str(upgrade.price[resource])
-		$MarginBox/HBoxContainer/Price.add_child(node)
+		if upgrade.price[resource] > 0:
+			var node = price_node.instance()
+			node.get_node("Resource").color = Helper.get_resource_color(resource)
+			node.resource = resource
+			node.get_node("Amount").text = str(upgrade.price[resource])
+			$MarginBox/HBoxContainer/Price.add_child(node)
 
 func is_affordable() -> bool:
 	for price in $MarginBox/HBoxContainer/Price.get_children():
@@ -35,6 +36,5 @@ func is_affordable() -> bool:
 func _on_UpgradePanel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and is_affordable():
-			upgrade.owned = true
 			Manager.pay(upgrade)
 			queue_free()

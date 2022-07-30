@@ -5,3 +5,8 @@ extends TabContainer
 func _ready() -> void:
 	for i in range(get_tab_count()):
 		set_tab_title(i, get_tab_control(i).tab_name)
+
+func update() -> void:
+	$AddictionTab.update()
+	$DedicationTab.update()
+	$DomainTab.update()

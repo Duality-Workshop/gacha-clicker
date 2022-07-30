@@ -23,6 +23,7 @@ var unit_list
 var resources_panel
 var dialog_manager
 var pull_window
+var shop_window
 
 # data
 var slot = "res://Saves/1.json"
@@ -34,8 +35,8 @@ var RANDOM = true
 # signals
 signal unit_updated(unit)
 
-# Called from Board once it is loaded.
-func start():
+# Load basic data on title screen
+func _ready() -> void:
 	# Setup standard game data
 	resources = {
 		Helper.RESOURCE_TYPE.TOOLS: 0,
@@ -47,28 +48,35 @@ func start():
 	
 	setup_tags()
 	setup_units()
+	setup_upgrades()
 	
 	# enum UpgradeType {DOMAIN, DEDICATION, ADDICTION}
 	# enum UpgradeTarget {UNIT, CLICK, CHEST, LIMITER, GLOBAL}
 	# enum UpgradeResource {TOOLS, SCROLLS, POTIONS, FOOD, BLUEPRINTS, GLOBAL}
 	# enum UpgradeScope {BASE, PERCENTAGE}
 	# enum UpgradeCategory {UC, UGB, UGP, URB, URP, CGB, CGP, CRB, CRP}
-	upgrades = {
-		#func _init(type, target, resource, scope, power, icon, name, description, flavour)
-		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.TOOLS: 256, Helper.RESOURCE_TYPE.SCROLLS: 100, Helper.RESOURCE_TYPE.BLUEPRINTS: 500}, "", "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
-		"GachaFAQs": Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {Helper.RESOURCE_TYPE.FOOD: 10}, "", "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
-		"Armory": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.TOOLS, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.TOOLS: 10, Helper.RESOURCE_TYPE.BLUEPRINTS: 5}, "", "Armory", "Safety first. At least, Weapon-makers think so. With these at hand, your Units will be able to go adventuring. – [i]Weapon-makers double their Resource production. Unlocks the Treasure Chest mechanic.[/i]", ""),
-		
-	}
-	
+#	upgrades = {
+#		#func _init(type, target, resource, scope, power, icon, name, description, flavour)
+#		"Water Pump": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.CLICK, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.TOOLS: 256, Helper.RESOURCE_TYPE.SCROLLS: 100, Helper.RESOURCE_TYPE.BLUEPRINTS: 500}, "", "Basic Water Pump", "Saluken needs to use two hands and a foot to push the lever, but it’ll be worth it for simple water access. – [i]Doubles Resources per pull.[/i]", "Splishy splashy"),
+#		"GachaFAQs": Upgrade.new(Upgrade.UpgradeType.DEDICATION, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.GLOBAL, Upgrade.UpgradeScope.BASE, 2, {Helper.RESOURCE_TYPE.FOOD: 10}, "", "GachaFAQs Strategy Guides", "Somehow these walls of monospace text feel comforting, in addition to be pretty helpful. – [i]+2 base resource per call.[/i]", "Somebody has done the hard work before, take advantage of this."),
+#		"Armory": Upgrade.new(Upgrade.UpgradeType.DOMAIN, Upgrade.UpgradeTarget.UNIT, Helper.RESOURCE_TYPE.TOOLS, Upgrade.UpgradeScope.PERCENTAGE, 2, {Helper.RESOURCE_TYPE.TOOLS: 10, Helper.RESOURCE_TYPE.BLUEPRINTS: 5}, "", "Armory", "Safety first. At least, Weapon-makers think so. With these at hand, your Units will be able to go adventuring. – [i]Weapon-makers double their Resource production. Unlocks the Treasure Chest mechanic.[/i]", ""),
+#
+#	}
+
+# Called from Board once it is loaded.
+func start():
 	var parent = get_parent().get_node("Board")
 	party_list = parent.get_node("UnitContainer").get_node("PartyList")
 	unit_list = parent.get_node("UnitContainer").get_node("UnitList")
 	resources_panel = parent.get_node("ResourcesPanel")
 	dialog_manager = parent.get_node("DialogManager")
 	pull_window = parent.get_node("TagPullWindow")
+	shop_window = parent.get_node("ShopButton").get_node("ShopWindow").get_node("HBoxContainer").get_node("TabContainer")
 	
 	load_save_file()
+	
+	unlock_upgrades()
+	shop_window.update()
 	
 	var err
 	err = connect("unit_updated", unit_list, "_on_unit_updated")
@@ -106,9 +114,11 @@ func start():
 		#units["Antoinette"].rank = 5
 		
 		
-		for id in upgrades:
-			upgrades[id].unlocked = true
-			#upgrade.owned = true
+#		for id in upgrades:
+#			upgrades[id].unlocked = true
+#			#upgrade.owned = true
+		
+		pass
 
 
 # Load data from save file currently selected in slot
@@ -257,6 +267,105 @@ func setup_units() -> void:
 		#init(id, name, portrait, resources, power, cycle, tags = [], rank = 1, upgrade_level = 0)
 		units[int(unit_info[0])] = Unit.new(int(unit_info[0]), unit_info[1], "", unit_resources, float(unit_info[3]), float(unit_info[4]), unit_tags)
 
+func setup_upgrades() -> void:
+	var csv_filename = "res://Data/upgrades.csv"
+	var csv_file = File.new()
+	var err = csv_file.open(csv_filename, File.READ)
+	
+	if err:
+		push_error("Couldn't open upgrade data CSV!")
+	
+	csv_file.get_csv_line() # skip header line
+	
+	var types = {
+		"DOMAIN": Upgrade.UpgradeType.DOMAIN,
+		"DEDICATION": Upgrade.UpgradeType.DEDICATION,
+		"ADDICTION": Upgrade.UpgradeType.ADDICTION
+	}
+	
+	var targets = {
+		"UNIT": Upgrade.UpgradeTarget.UNIT,
+		"CLICK": Upgrade.UpgradeTarget.CLICK,
+		"CHEST": Upgrade.UpgradeTarget.CHEST,
+		"LIMITER": Upgrade.UpgradeTarget.LIMITER,
+		"FEATURE": Upgrade.UpgradeTarget.FEATURE
+	}
+	
+	var t_resources = {
+		"GLOBAL": Helper.RESOURCE_TYPE.GLOBAL,
+		"TOOLS": Helper.RESOURCE_TYPE.TOOLS,
+		"SCROLLS": Helper.RESOURCE_TYPE.SCROLLS,
+		"POTIONS": Helper.RESOURCE_TYPE.POTIONS,
+		"FOOD": Helper.RESOURCE_TYPE.FOOD,
+		"BLUEPRINTS": Helper.RESOURCE_TYPE.BLUEPRINTS
+	}
+	
+	var scopes = {
+		"PERCENTAGE": Upgrade.UpgradeScope.PERCENTAGE,
+		"BASE": Upgrade.UpgradeScope.BASE
+	}
+	
+	while not csv_file.eof_reached():
+		var upgrade_info = csv_file.get_csv_line()
+		
+		var upgrade = {}
+		upgrade["id"] = int(upgrade_info[0])
+		upgrade["name"] = upgrade_info[1]
+		upgrade["tier"] = int(upgrade_info[2])
+		upgrade["type"] = types[upgrade_info[3]]
+		upgrade["target"] = targets[upgrade_info[4]]
+		upgrade["resource"] = t_resources[upgrade_info[5]]
+		upgrade["scope"] = scopes[upgrade_info[6]]
+		upgrade["power"] = float(upgrade_info[7])
+		upgrade["icon"] = upgrade_info[8]
+		upgrade["price"] = {
+			Helper.RESOURCE_TYPE.TOOLS: int(upgrade_info[9]),
+			Helper.RESOURCE_TYPE.SCROLLS: int(upgrade_info[10]),
+			Helper.RESOURCE_TYPE.POTIONS: int(upgrade_info[11]),
+			Helper.RESOURCE_TYPE.FOOD: int(upgrade_info[12]),
+			Helper.RESOURCE_TYPE.BLUEPRINTS: int(upgrade_info[13])
+		}
+		
+		if upgrade_info[14] == "":
+			upgrade["unlock_condition"] = {}
+		else:
+			var unlock_split = upgrade_info[14].split(";")
+			var unlocks = {}
+			for group in unlock_split:
+				var group_split = group.split(":")
+				var ids = group_split[1].split(",")
+				var ids_int = []
+				for id in ids:
+					ids_int.append(int(id))
+				
+				unlocks[group_split[0]] = ids_int
+			
+			upgrade["unlock_condition"] = unlocks
+		
+		upgrade["desc"] = upgrade_info[15]
+		upgrade["effect"] = upgrade_info[16]
+		upgrade["flavour"] = upgrade_info[17]
+		
+		#id,name,tier,type,target,resource,scope,power,icon,price_tools,price_potions,price_scrolls,price_food,price_blueprints,unlock_conditions,description,effect,flavour
+		#func _init(u_type, u_target, u_resource, u_scope, u_power:float, u_price, u_icon:String, 
+		#			u_name:String, u_description:String, u_flavour="") -> void:
+		upgrades[int(upgrade_info[0])] = Upgrade.new(
+			upgrade["id"],
+			upgrade["tier"],
+			upgrade["type"],
+			upgrade["target"],
+			upgrade["resource"],
+			upgrade["scope"],
+			upgrade["power"],
+			upgrade["price"],
+			upgrade["icon"],
+			upgrade["name"],
+			upgrade["desc"],
+			upgrade["effect"],
+			upgrade["unlock_condition"],
+			upgrade["flavour"]
+		)
+
 
 func load_unit(id, rank) -> void:
 	units[id].owned = true
@@ -397,17 +506,41 @@ func get_upgrade_category_bonus(category, resource=null):
 					bonus *= upgrade.power
 	return bonus
 
-func get_unlocked_upgrades(type):
+func get_unlocked_upgrades(type, return_ids=false):
 	var ups = []
 	for id in upgrades:
 		var upgrade = upgrades[id]
 		if upgrade.type == type and upgrade.unlocked and not upgrade.owned:
-			ups.append(upgrade)
+			if return_ids:
+				ups.append(id)
+			else:
+				ups.append(upgrade)
 	return ups
 
+func unlock_upgrades() -> void:
+	for id in upgrades:
+		var upgrade = upgrades[id]
+		if not upgrade.owned:
+			var unlock = true
+			
+			for unlock_type in upgrade.unlock_conditions:
+				# TODO: manage other unlock types
+				if unlock_type == "UPGRADE":
+					for upgrade_id in upgrade.unlock_conditions[unlock_type]:
+						if not upgrades[upgrade_id].owned:
+							unlock = false
+							break
+			
+			if unlock:
+				upgrade.unlocked = true
+
 func pay(upgrade):
+	upgrade.owned = true
 	for resource in upgrade.price:
 		resources_panel.update_resource(resource, -upgrade.price[resource])
+	
+	unlock_upgrades()
+	shop_window.update()
 
 func open_pull_window(success_chance, _target) -> void:
 	pull_window.get_node("VBoxContainer/Label").text = tr("SUCCESS_CHANCES") + ": " + str(success_chance * 100) + "%"
