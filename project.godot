@@ -88,6 +88,7 @@ config/icon="res://icon.png"
 
 Manager="*res://src/Manager.gd"
 Helper="*res://src/Helper.gd"
+FlagManager="*res://src/FlagManager.gd"
 
 [display]
 

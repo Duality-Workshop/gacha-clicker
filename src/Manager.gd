@@ -316,7 +316,7 @@ func setup_upgrades() -> void:
 		upgrade["target"] = targets[upgrade_info[4]]
 		upgrade["resource"] = t_resources[upgrade_info[5]] if upgrade_info[5] else "NA"
 		upgrade["scope"] = scopes[upgrade_info[6]] if upgrade_info[6] else "NA"
-		upgrade["power"] = float(upgrade_info[7]) if upgrade_info[7] else 0
+		upgrade["power"] = float(upgrade_info[7]) if upgrade_info[7] else 0.0
 		upgrade["icon"] = upgrade_info[8]
 		upgrade["price"] = {
 			Helper.RESOURCE_TYPE.TOOLS: Helper.cell_to_int(upgrade_info[9]),
@@ -536,6 +536,7 @@ func unlock_upgrades() -> void:
 
 func pay(upgrade):
 	upgrade.owned = true
+	FlagManager.call_upgrade_flag(upgrade.id)
 	for resource in upgrade.price:
 		resources_panel.update_resource(resource, -upgrade.price[resource])
 	
