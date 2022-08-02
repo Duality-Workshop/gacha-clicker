@@ -28,3 +28,9 @@ func get_resource_type(s: String) -> int:
 		_: 
 			push_error("Invalid resource call! Received: " + s)
 			return ERR_DOES_NOT_EXIST
+
+func cell_to_int(s: String) -> int:
+	if s:
+		return int(s)
+	else:
+		return 0

@@ -314,16 +314,16 @@ func setup_upgrades() -> void:
 		upgrade["tier"] = int(upgrade_info[2])
 		upgrade["type"] = types[upgrade_info[3]]
 		upgrade["target"] = targets[upgrade_info[4]]
-		upgrade["resource"] = t_resources[upgrade_info[5]]
-		upgrade["scope"] = scopes[upgrade_info[6]]
-		upgrade["power"] = float(upgrade_info[7])
+		upgrade["resource"] = t_resources[upgrade_info[5]] if upgrade_info[5] else "NA"
+		upgrade["scope"] = scopes[upgrade_info[6]] if upgrade_info[6] else "NA"
+		upgrade["power"] = float(upgrade_info[7]) if upgrade_info[7] else 0
 		upgrade["icon"] = upgrade_info[8]
 		upgrade["price"] = {
-			Helper.RESOURCE_TYPE.TOOLS: int(upgrade_info[9]),
-			Helper.RESOURCE_TYPE.SCROLLS: int(upgrade_info[10]),
-			Helper.RESOURCE_TYPE.POTIONS: int(upgrade_info[11]),
-			Helper.RESOURCE_TYPE.FOOD: int(upgrade_info[12]),
-			Helper.RESOURCE_TYPE.BLUEPRINTS: int(upgrade_info[13])
+			Helper.RESOURCE_TYPE.TOOLS: Helper.cell_to_int(upgrade_info[9]),
+			Helper.RESOURCE_TYPE.SCROLLS: Helper.cell_to_int(upgrade_info[10]),
+			Helper.RESOURCE_TYPE.POTIONS: Helper.cell_to_int(upgrade_info[11]),
+			Helper.RESOURCE_TYPE.FOOD: Helper.cell_to_int(upgrade_info[12]),
+			Helper.RESOURCE_TYPE.BLUEPRINTS: Helper.cell_to_int(upgrade_info[13])
 		}
 		
 		if upgrade_info[14] == "":
@@ -354,15 +354,15 @@ func setup_upgrades() -> void:
 			upgrade["tier"],
 			upgrade["type"],
 			upgrade["target"],
-			upgrade["resource"],
-			upgrade["scope"],
-			upgrade["power"],
 			upgrade["price"],
 			upgrade["icon"],
 			upgrade["name"],
 			upgrade["desc"],
 			upgrade["effect"],
 			upgrade["unlock_condition"],
+			upgrade["resource"],
+			upgrade["scope"],
+			upgrade["power"],
 			upgrade["flavour"]
 		)
 
