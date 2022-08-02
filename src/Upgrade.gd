@@ -39,10 +39,10 @@ func _init( u_id:int, u_tier:int, u_type, u_target, u_price, u_icon:String, u_na
 	scope = u_scope
 	power = u_power
 	icon = u_icon
-	name = u_name
-	description = u_description
-	effect = u_effect
-	flavour = u_flavour
+	name = tr("UPGRADE_NAME_" + str(u_id))
+	description = tr(u_description)
+	effect = tr(u_effect)
+	flavour = "[right]" + tr(u_flavour) + "[/right]"
 	price = u_price
 	unlock_conditions = u_unlock
 	unlocked = false

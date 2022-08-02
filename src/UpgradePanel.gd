@@ -16,8 +16,13 @@ func ignore_mouse(nodes) -> void:
 func init(_upgrade) -> void:
 	self.upgrade = _upgrade
 	$MarginBox/HBoxContainer/Text/Name.text = upgrade.name
-	$MarginBox/HBoxContainer/Text/Description.bbcode_text = upgrade.description + " - " + upgrade.effect
-	$MarginBox/HBoxContainer/Text/Flavour.text = upgrade.flavour
+	$MarginBox/HBoxContainer/Text/Description.bbcode_text = upgrade.description + " - [i]" + upgrade.effect + "[/i]"
+	
+	# This shouldn't happen - if it does then the translation file must be corrected
+	if "MISSING TRANSLATION" in upgrade.flavour:
+		$MarginBox/HBoxContainer/Text/Flavour.bbcode_text = ""
+	else:
+		$MarginBox/HBoxContainer/Text/Flavour.bbcode_text = upgrade.flavour
 	
 	for resource in upgrade.price:
 		if upgrade.price[resource] > 0:
