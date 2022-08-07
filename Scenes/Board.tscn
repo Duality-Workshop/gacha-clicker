@@ -285,11 +285,9 @@ margin_top = -367.5
 margin_right = 369.0
 margin_bottom = 367.5
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="UnitList" type="Panel" parent="UnitContainer"]
+unique_name_in_owner = true
 margin_right = 315.0
 margin_bottom = 735.0
 rect_min_size = Vector2( 315, 0 )
@@ -321,6 +319,7 @@ __meta__ = {
 margin_top = 38.0
 margin_right = 315.0
 margin_bottom = 735.0
+mouse_filter = 1
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 __meta__ = {
@@ -328,7 +327,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UnitContainer/UnitList/VBoxContainer/ScrollContainer"]
-margin_right = 315.0
+margin_right = 303.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_lock_": true,
@@ -336,10 +335,12 @@ __meta__ = {
 }
 
 [node name="PartyList" type="Panel" parent="UnitContainer"]
+unique_name_in_owner = true
 margin_left = 319.0
 margin_top = 97.0
 margin_right = 634.0
 margin_bottom = 637.0
+grow_vertical = 2
 rect_min_size = Vector2( 315, 540 )
 size_flags_vertical = 4
 script = ExtResource( 2 )
@@ -838,6 +839,10 @@ __meta__ = {
 anims/Fade = SubResource( 10 )
 
 [connection signal="pressed" from="MenuButtons/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="mouse_entered" from="UnitContainer/UnitList" to="UnitContainer/UnitList" method="_on_UnitList_mouse_entered"]
+[connection signal="mouse_exited" from="UnitContainer/UnitList" to="UnitContainer/UnitList" method="_on_UnitList_mouse_exited"]
+[connection signal="mouse_entered" from="UnitContainer/PartyList" to="UnitContainer/PartyList" method="_on_PartyList_mouse_entered"]
+[connection signal="mouse_exited" from="UnitContainer/PartyList" to="UnitContainer/PartyList" method="_on_PartyList_mouse_exited"]
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
 [connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
 [connection signal="increase_resource" from="CallCrystalButton" to="ResourcesPanel/VBoxContainer/HBoxContainer/Tools" method="_on_CallCrystalButton_increase_resource"]

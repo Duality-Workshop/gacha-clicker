@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
-"path": "res://git_api.gdns"
+"path": "res://addons/godot-git-plugin/git_api.gdns"
 }, {
 "base": "Object",
 "class": "Unit",
@@ -96,6 +96,11 @@ window/size/width=1920
 window/size/height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor]
+
+version_control_autoload_on_startup=true
+version_control_plugin_name="GitAPI"
 
 [editor_plugins]
 

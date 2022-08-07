@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-
+# Current dock status
 var open = false
 
 
@@ -8,12 +8,7 @@ var open = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
-
-
+# Opening/closing animation
 func _on_UnitListButton_pressed() -> void:
 	if open:
 		$AnimationPlayer.play("Close")

@@ -1,13 +1,15 @@
 extends Panel
 
-var resource_particle_emitter = preload("res://Scenes/ResourceParticle.tscn")
-
-
 var unit
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+export var id: int
+export var label: String
+var source: Control
+
+onready var preview_scene: PackedScene = preload("res://Scenes/PartyMemberPreview.tscn")
+var resource_particle_emitter = preload("res://Scenes/ResourceParticle.tscn")
+var is_hovered
+
 
 func update_info(_unit:Unit):
 	self.unit = _unit
@@ -23,7 +25,7 @@ func update_info(_unit:Unit):
 	
 	### Display infos
 	# Rank
-	var rank_star = $HBoxContainer/VBoxContainer/HBoxContainer/RankStar
+	var rank_star = $VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/RankStar
 	
 	# Which big star?
 	if unit.rank == 30:
@@ -37,7 +39,7 @@ func update_info(_unit:Unit):
 	var rank_overflow = unit.rank % 10
 	
 	# Display bits
-	var grid = $HBoxContainer/VBoxContainer/HBoxContainer/GridContainer
+	var grid = $VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer
 	for _i in range(rank_overflow):
 		var bit = TextureRect.new()
 		bit.texture = load("res://Resources/Icons/bit.png")
@@ -45,7 +47,7 @@ func update_info(_unit:Unit):
 	
 	
 	# Name
-	$HBoxContainer/VBoxContainer/Name.text = unit.name
+	$VBoxContainer/HBoxContainer/VBoxContainer/Name.text = unit.name
 	
 	# Portrait
 	var tex : Texture
@@ -54,11 +56,11 @@ func update_info(_unit:Unit):
 		tex = load(tex_path)
 	else:
 		tex = load("res://Resources/Portraits/unknown - portrait.png")
-	$HBoxContainer/Portrait.texture = tex
+	$VBoxContainer/HBoxContainer/Portrait.texture = tex
 	
 	# Resource(s)
-	var resource1 = $HBoxContainer/HBoxContainer/Resource1
-	var resource2 = $HBoxContainer/HBoxContainer/Resource2
+	var resource1 = $VBoxContainer/HBoxContainer/HBoxContainer/Resource1
+	var resource2 = $VBoxContainer/HBoxContainer/HBoxContainer/Resource2
 	
 	if len(unit.resources) == 0:
 		resource1.visible = false
@@ -75,7 +77,7 @@ func update_info(_unit:Unit):
 
 func rank_up():
 	### Display rank
-	var rank_star = $HBoxContainer/VBoxContainer/HBoxContainer/RankStar
+	var rank_star = $VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/RankStar
 	
 	# Which big star?
 	if unit.rank == 30:
@@ -89,7 +91,7 @@ func rank_up():
 	var rank_overflow = unit.rank % 10
 	
 	# Display bits
-	var grid = $HBoxContainer/VBoxContainer/HBoxContainer/GridContainer
+	var grid = $VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/GridContainer
 	if rank_overflow > 0:
 		var bit = TextureRect.new()
 		bit.texture = load("res://Resources/Icons/bit.png")
@@ -106,7 +108,7 @@ func _on_CycleTimer_timeout():
 		Manager.unit_add_resource(unit, resource)
 		
 		var emitter = resource_particle_emitter.instance()
-		var portrait = $HBoxContainer/Portrait
+		var portrait = $VBoxContainer/HBoxContainer/Portrait
 		emitter.position = Vector2(portrait.rect_position.x + portrait.rect_size.x / 2, portrait.rect_position.y + portrait.rect_size.y / 2)
 		emitter.emitting = true
 		emitter.process_material.emission_box_extents = Vector3(portrait.rect_size.x / 2, portrait.rect_size.y / 2, 0)
@@ -122,3 +124,39 @@ func _on_EnlistButton_pressed():
 
 func _on_RemoveButton_pressed():
 	Manager.remove_from_party(unit.id)
+
+
+################################
+#        DRAG FEATURE          #
+################################
+func get_drag_data(position: Vector2):
+	set_drag_preview(_get_preview_control(position))
+	Manager.is_dragging = true
+	return unit
+
+func _get_preview_control(cur_pos: Vector2) -> Control:
+	"""
+	The preview control must not be in the scene tree. You should not free the control, and
+	you should not keep a reference to the control beyond the duration of the drag.
+	It will be deleted automatically after the drag has ended.
+	"""
+	var preview = preview_scene.instance()
+	preview.unit = unit
+	preview.offset = cur_pos
+	# preview.rect_size = $PartyMember.rect_size
+	# Decide whether to lean left or right
+	var x_delta = (cur_pos.x - rect_size.x / 2) / (rect_size.x / 2)
+	preview.set_rotation(-x_delta * .1) # in radians
+	#preview.set_position(Vector2(-50.0, -50.0))
+	return preview
+
+
+func _on_PartyMember_mouse_entered() -> void:
+	is_hovered = true
+	if Manager.is_dragging:
+		$VBoxContainer/SpacerTop.color.a = 1.0
+
+
+func _on_PartyMember_mouse_exited() -> void:
+	is_hovered = false
+	$VBoxContainer/SpacerTop.color.a = 0.0

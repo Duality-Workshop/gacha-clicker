@@ -9,6 +9,7 @@ var resources = {}
 # units
 var units = {}
 var party = []
+var reserve = []
 var pulls = []
 
 # upgrades
@@ -27,6 +28,9 @@ var shop_window
 
 # data
 var slot = "res://Saves/1.json"
+
+# flags
+var is_dragging := false
 
 # debug
 var IS_DEBUG = !OS.has_feature("standalone")
@@ -120,6 +124,10 @@ func start():
 		
 		pass
 
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and !event.pressed and is_dragging:
+		is_dragging = false
 
 # Load data from save file currently selected in slot
 func load_save_file() -> void:
@@ -370,22 +378,63 @@ func setup_upgrades() -> void:
 func load_unit(id, rank) -> void:
 	units[id].owned = true
 	units[id].rank = int(rank)
+	reserve.append(units[id])
 
 
-func add_to_party(id, party_slot = null):
+func add_to_party(id, party_slot = null) -> void:
+	# Retrieve the unit
 	var added_unit = units[id]
-	if !party_slot or party_slot > len(party):
+	
+	# Check if we're out of bounds
+	if party_slot == null or party_slot > len(party):
 		party.append(added_unit)
 	else:
 		party.insert(party_slot, added_unit)
+	
 	added_unit.party = true
+	reserve.erase(added_unit)
+	
 	emit_signal("unit_updated", added_unit, "enlist")
 
-func remove_from_party(name):
-	var added_unit = units[name]
+func remove_from_party(id, reserve_slot = null) -> void:
+	# Retrieve the unit
+	var added_unit = units[id]
+	
+	# Check if we're out of bounds
+	if reserve_slot == null or reserve_slot > len(reserve):
+		reserve.append(added_unit)
+	else:
+		reserve.insert(reserve_slot, added_unit)
+	
 	party.erase(added_unit)
 	added_unit.party = false
+	
 	emit_signal("unit_updated", added_unit, "remove")
+
+func reorder_unit(id, unit_slot) -> void:
+	# Retrieve the unit
+	var added_unit = units[id]
+	var target_slot
+	
+	if get_unit_index(id) >= unit_slot:
+		target_slot = unit_slot
+	else:
+		target_slot = unit_slot - 1
+	
+	if added_unit.party:
+		party.erase(added_unit)
+		if unit_slot == -1:
+			party.append(added_unit)
+		else:
+			party.insert(target_slot, added_unit)
+	else:
+		reserve.erase(added_unit)
+		if unit_slot == -1:
+			reserve.append(added_unit)
+		else:
+			reserve.insert(target_slot,added_unit)
+	
+	emit_signal("unit_updated", added_unit, "reorder")
 
 func unstack(_timeline_name: String = "") -> void:
 	if pulls:
@@ -442,6 +491,12 @@ func get_party() -> Array:
 		if units[unit].party:
 			u.append(units[unit])
 	return u
+
+func get_unit_index(id:int) -> int:
+	if units[id].party:
+		return party.find(units[id])
+	else:
+		return reserve.find(units[id])
 
 func unit_add_resource(unit, resource):
 	resources_panel.update_resource(resource, get_unit_resource_power(unit, resource))

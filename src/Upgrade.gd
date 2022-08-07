@@ -28,7 +28,7 @@ var category
 var price := {}
 var unlock_conditions
 
-func _init( u_id:int, u_tier:int, u_type, u_target, u_price, u_icon:String, u_name:String, u_description:String,
+func _init( u_id:int, u_tier:int, u_type, u_target, u_price, u_icon:String, _u_name:String, u_description:String,
 			 u_effect:String, u_unlock, u_resource="NA", u_scope="NA", u_power:float=0, u_flavour=""
 			) -> void:
 	id = u_id
