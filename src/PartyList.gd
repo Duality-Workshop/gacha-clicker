@@ -2,6 +2,7 @@ extends Panel
 
 onready var drop_target = get_node("%UnitList")
 onready var unit_scene: PackedScene = preload("res://Scenes/PartyMember.tscn")
+onready var added_scene: PackedScene = preload("res://Scenes/PartyAddedPanel.tscn")
 onready var draggable_container = $VBoxContainer/VBoxContainer
 var is_mouse_in := false
 
@@ -44,7 +45,14 @@ func init_list():
 func _on_unit_updated(unit, update):
 	match update:
 		"enlist":
-			init_list()
+			init_list() # TODO: surely there has to be a better way
+			
+			# Display added to party dialog
+			var added_dialog = added_scene.instance()
+			added_dialog.line = tr(unit.name.to_upper() + "_ADDED_TO_PARTY")
+			
+			var unit_container = get_node("VBoxContainer/VBoxContainer/" + unit.name)
+			unit_container.get_node("DialogControl").add_child(added_dialog)
 		"remove":
 			get_node("VBoxContainer/VBoxContainer/" + unit.name).queue_free()
 		"reorder":

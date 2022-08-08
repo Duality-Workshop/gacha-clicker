@@ -238,6 +238,12 @@ autostart = true
 anims/Generate = SubResource( 1 )
 anims/Open = SubResource( 2 )
 
+[node name="DialogControl" type="Control" parent="."]
+margin_left = 286.0
+margin_top = 6.0
+margin_right = 346.0
+margin_bottom = 43.0
+
 [connection signal="mouse_entered" from="." to="." method="_on_PartyMember_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_PartyMember_mouse_exited"]
 [connection signal="pressed" from="EnlistButton" to="." method="_on_EnlistButton_pressed"]
