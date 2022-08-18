@@ -40,6 +40,7 @@ func is_affordable() -> bool:
 
 func _on_UpgradePanel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.is_pressed() and is_affordable():
+		var click := event as InputEventMouseButton
+		if click.button_index == BUTTON_LEFT and click.is_pressed() and is_affordable():
 			Manager.pay(upgrade)
 			queue_free()

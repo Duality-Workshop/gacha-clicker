@@ -17,18 +17,12 @@ func _ready() -> void:
 	
 	if Manager.RANDOM: rng.randomize()
 	
-	
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
 
 
 func _on_Chest_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not is_open:
-		if event.is_pressed():
+		var click := event as InputEventMouseButton
+		if click.button_index == BUTTON_LEFT and click.is_pressed():
 			$Timer.stop()
 			$Sprite/AnimationPlayer.play("Open")
 			is_open = true

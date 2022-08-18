@@ -146,9 +146,6 @@ rect_min_size = Vector2( 64, 64 )
 rect_scale = Vector2( 0.980522, 0.980522 )
 rect_pivot_offset = Vector2( 32, 64 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="ColorRect" parent="."]
 margin_right = 64.0
