@@ -69,9 +69,8 @@ func drop_data(_position: Vector2, data: Unit) -> void:
 	if reserve_size == 0:
 		Manager.remove_from_party(data.id)
 	else:
-		if reserve_size:
-			# Remove the bottom spacer
-			draggable_container.get_child(reserve_size - 1).get_node("VBoxContainer").get_node("SpacerBottom").hide()
+		# Remove the bottom spacer
+		draggable_container.get_child(reserve_size - 1).get_node("VBoxContainer").get_node("SpacerBottom").hide()
 		
 		# Find where this was dropped
 		var item_index := -1

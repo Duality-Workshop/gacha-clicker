@@ -454,6 +454,7 @@ func pull_unit(unit: Unit, unstack: bool = false):
 			dialog_manager.start_dialogue(timeline_name)
 	else:
 		unit.owned = true
+		reserve.append(unit)
 		emit_signal("unit_updated", unit, "new")
 		var timeline_name = unit.name.to_upper() + "_INTRO"
 		if unstack and len(pulls) > 1:
