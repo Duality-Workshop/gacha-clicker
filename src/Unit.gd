@@ -3,7 +3,7 @@ extends Object
 class_name Unit
 
 var id
-var name
+var name: String
 var portrait
 var rank
 var upgrade_level

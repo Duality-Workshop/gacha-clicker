@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/Resource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PartyList.gd" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Resources/ButtonGroups/Style.tres" type="ButtonGroup" id=23]
 [ext_resource path="res://Resources/ButtonGroups/Speed.tres" type="ButtonGroup" id=24]
 [ext_resource path="res://src/TagRow.gd" type="Script" id=25]
+[ext_resource path="res://Scenes/FeaturedUnit.gd" type="Script" id=26]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 8 )
@@ -68,6 +69,187 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.976471, 0.972549, 0.956863, 1 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "Appear"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:custom_styles/panel:bg_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.1, 0.856869, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Label:custom_colors/font_color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.1, 0.350914, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Disappear"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:custom_styles/panel:bg_color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Label:custom_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:custom_styles/panel:bg_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.976471, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:custom_styles/panel:bg_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.972549, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:custom_styles/panel:bg_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.956863, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:custom_styles/panel:bg_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Label:custom_colors/font_color:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Label:custom_colors/font_color:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Label:custom_colors/font_color:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Label:custom_colors/font_color:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath(".:rect_scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath(".:rect_scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="DynamicFont" id=8]
 size = 24
@@ -426,7 +608,6 @@ __meta__ = {
 }
 
 [node name="FeaturedUnit" type="Control" parent="."]
-visible = false
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -435,16 +616,34 @@ margin_left = -391.368
 margin_top = -289.848
 margin_right = -58.3682
 margin_bottom = 155.152
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 26 )
 
-[node name="Portrait" type="Polygon2D" parent="FeaturedUnit"]
+[node name="Portrait" type="TextureRect" parent="FeaturedUnit"]
+rect_scale = Vector2( 0.2, 0.2 )
+
+[node name="PlaceholderPortrait" type="Polygon2D" parent="FeaturedUnit"]
 position = Vector2( -295.929, -188.808 )
 scale = Vector2( 1.03933, 0.95 )
 polygon = PoolVector2Array( 290.114, 202.018, 601.929, 198.454, 600.147, 654.595, 284.769, 661.722 )
 
+[node name="FeaturedUnitLabel" type="Label" parent="FeaturedUnit/PlaceholderPortrait"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 350.638
+margin_top = 409.272
+margin_right = 546.638
+margin_bottom = 454.272
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "featured unit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FeaturedUnitButton" type="MenuButton" parent="FeaturedUnit"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -454,28 +653,41 @@ margin_top = -20.0
 mouse_default_cursor_shape = 2
 text = "choose featured unit"
 flat = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="FeaturedUnitLabel" type="Label" parent="FeaturedUnit"]
+[node name="FeaturedDialogue" type="PanelContainer" parent="FeaturedUnit"]
+visible = false
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -98.0
-margin_top = -22.5
-margin_right = 98.0
-margin_bottom = 22.5
+margin_left = -200.5
+margin_right = 199.5
+margin_bottom = 33.0
+grow_horizontal = 2
+mouse_filter = 2
+custom_styles/panel = SubResource( 11 )
+
+[node name="Label" type="Label" parent="FeaturedUnit/FeaturedDialogue"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 395.0
+margin_bottom = 28.0
+grow_horizontal = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 7 )
-text = "featured unit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_fonts/font = SubResource( 12 )
+text = "Message"
+align = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FeaturedUnit/FeaturedDialogue"]
+anims/Appear = SubResource( 13 )
+anims/Disappear = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+
+[node name="Timer" type="Timer" parent="FeaturedUnit/FeaturedDialogue"]
+
+[node name="CooldownTimer" type="Timer" parent="FeaturedUnit"]
+wait_time = 5.0
 
 [node name="TagPullWindow" type="WindowDialog" parent="."]
-visible = true
 margin_left = 348.158
 margin_top = 181.874
 margin_right = 1513.16
@@ -734,14 +946,10 @@ __meta__ = {
 }
 
 [node name="ShopWindow" type="WindowDialog" parent="ShopButton"]
-visible = true
 margin_left = -1326.28
 margin_top = -599.547
 margin_right = -156.275
 margin_bottom = 103.453
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ShopButton/ShopWindow"]
 anchor_right = 1.0
@@ -851,6 +1059,10 @@ anims/Fade = SubResource( 10 )
 [connection signal="mouse_exited" from="UnitContainer/PartyList" to="UnitContainer/PartyList" method="_on_PartyList_mouse_exited"]
 [connection signal="pressed" from="UnitContainer/PartyList/VBoxContainer/UnitListButton" to="UnitContainer" method="_on_UnitListButton_pressed"]
 [connection signal="gui_input" from="PullContainer" to="PullContainer" method="_on_PullContainer_gui_input"]
+[connection signal="gui_input" from="FeaturedUnit" to="FeaturedUnit" method="_on_FeaturedUnit_gui_input"]
+[connection signal="animation_finished" from="FeaturedUnit/FeaturedDialogue/AnimationPlayer" to="FeaturedUnit" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="FeaturedUnit/FeaturedDialogue/Timer" to="FeaturedUnit" method="_on_Timer_timeout"]
+[connection signal="timeout" from="FeaturedUnit/CooldownTimer" to="FeaturedUnit" method="_on_CooldownTimer_timeout"]
 [connection signal="pressed" from="TagPullWindow/VBoxContainer/HBoxContainer/ButtonRows/Button" to="TagPullWindow" method="_on_Button_pressed"]
 [connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="timeout" from="ChestArea/ChestTimer" to="ChestArea" method="_on_ChestTimer_timeout"]

@@ -267,13 +267,15 @@ func setup_units() -> void:
 			continue
 		
 		var unit_resources = []
+		
+		var unit_name:String = unit_info[1]
 		var unit_tags = unit_info[5].split(",", false)
 		
 		for res in unit_info[2].split(",", false):
 			unit_resources.append(Helper.get_resource_type(res))
 		
 		#init(id, name, portrait, resources, power, cycle, tags = [], rank = 1, upgrade_level = 0)
-		units[int(unit_info[0])] = Unit.new(int(unit_info[0]), unit_info[1], "", unit_resources, float(unit_info[3]), float(unit_info[4]), unit_tags)
+		units[int(unit_info[0])] = Unit.new(int(unit_info[0]), unit_name, "res://Resources/Portraits/" + unit_name.to_lower() + " - 1 (neutral).png", unit_resources, float(unit_info[3]), float(unit_info[4]), unit_tags)
 
 func setup_upgrades() -> void:
 	var csv_filename = "res://Data/upgrades.csv"
