@@ -27,7 +27,7 @@ func toggle_flag(flag_id:int) -> void:
 
 
 func call_upgrade_flag(upgrade_id:int) -> void:
-	if upgrade_flags[upgrade_id]:
+	if upgrade_id in upgrade_flags:
 		toggle_flag(upgrade_flags[upgrade_id])
 
 
