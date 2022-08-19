@@ -65,8 +65,8 @@ func _on_unit_updated(unit, update):
 				unit_container = get_node("VBoxContainer/VBoxContainer/" + unit.name)
 				unit_container.rank_up()
 
-func can_drop_data(_position: Vector2, data) -> bool:
-	var can_drop: bool = data is Unit and Manager.party.size() < 6
+func can_drop_data(_position: Vector2, data: Unit) -> bool:
+	var can_drop: bool = data is Unit and (Manager.party.size() < 6 or data.party)
 	return can_drop
 
 func drop_data(_position: Vector2, data: Unit) -> void:

@@ -685,7 +685,7 @@ anims/RESET = SubResource( 15 )
 [node name="Timer" type="Timer" parent="FeaturedUnit/FeaturedDialogue"]
 
 [node name="CooldownTimer" type="Timer" parent="FeaturedUnit"]
-wait_time = 5.0
+wait_time = 300.0
 
 [node name="TagPullWindow" type="WindowDialog" parent="."]
 margin_left = 348.158
